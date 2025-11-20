@@ -1,0 +1,373 @@
+---
+title: "analise_biblio"
+author: "Rodrigo Perim"
+date: "2025-11-10"
+output: html_document
+---
+
+
+```{r}
+# Instale se necessário:
+# install.packages(c("tidyverse","readxl","httr","rvest","janitor"))
+
+library(tidyverse)
+library(readxl)
+library(httr)
+library(rvest)
+library(janitor)
+library(stringr)
+library(purrr)
+library(digest)
+```
+
+```{r}
+# 0) PARÂMETROS DO PROJETO
+# =========================
+ARQUIVO_XLSX <- "../data_raw/dados_ic_tratados.xlsx"  # caminho do Excel
+COLUNA_LINKS <- "link_de_acesso"                    # nome exato da coluna com URLs
+DIR_HTML      <- "data"                       # pasta para salvar as páginas
+ARQUIVO_SAIDA <- "resultado_scraping.csv"              # saída consolidada
+DELAY_SEG     <- 1.0                                   # delay educado entre requests
+UA            <- "Mozilla/5.0 (compatible; RP-IA-Scraper/1.0)"  # user-agent educado
+
+dir.create(DIR_HTML, showWarnings = FALSE, recursive = TRUE)
+```
+
+```{r}
+# 1) LER O EXCEL E PREPARAR
+# =========================
+dados <- read_excel(ARQUIVO_XLSX) %>%
+  clean_names()
+
+stopifnot(COLUNA_LINKS %in% names(dados))
+
+urls <- dados %>%
+  filter(!is.na(.data[[COLUNA_LINKS]])) %>%
+  mutate(url = trimws(.data[[COLUNA_LINKS]])) %>%
+  filter(str_detect(url, "^https?://")) %>%
+  distinct(url, .keep_all = FALSE)
+
+message("Total de URLs válidas: ", nrow(urls))
+
+# Helper para gerar nome de arquivo local a partir da URL
+`%||%` <- function(x, y) if (is.null(x) || length(x) == 0 || all(is.na(x))) y else x
+collapse_txt <- function(x) x %>% na.omit() %>% str_squish() %>% unique() %>% paste(collapse = "; ") %||% NA_character_
+
+# extrai valor ao lado de um rótulo (funciona p/ <table> e <dl>)
+extract_label_value <- function(pg, label_regex) {
+  # tabelas
+  rows <- html_elements(pg, "tr")
+  if (length(rows)) {
+    for (r in rows) {
+      cells <- html_elements(r, "th,td")
+      if (length(cells) >= 2) {
+        lab <- html_text2(cells[[1]]) %>% str_squish()
+        if (str_detect(lab, label_regex)) {
+          val <- html_text2(cells[-1]) %>% collapse_txt()
+          if (!is.na(val) && nzchar(val)) return(val)
+        }
+      }
+    }
+  }
+  # listas de definição
+  dts <- html_elements(pg, "dt")
+  dds <- html_elements(pg, "dd")
+  if (length(dts) == length(dds) && length(dts) > 0) {
+    for (i in seq_along(dts)) {
+      lab <- html_text2(dts[[i]]) %>% str_squish()
+      if (str_detect(lab, label_regex)) {
+        val <- html_text2(dds[[i]]) %>% str_squish()
+        if (!is.na(val) && nzchar(val)) return(val)
+      }
+    }
+  }
+  NA_character_
+}
+
+# pega (primeiro) conteúdo de metatag, se existir
+get_meta <- function(pg, css) {
+  pg %>% html_elements(css) %>% html_attr("content") %>% .[1] %||% NA_character_
+}
+
+# tenta JSON-LD (útil p/ WoS)
+get_jsonld_field <- function(pg, key_regex) {
+  nodes <- html_elements(pg, 'script[type="application/ld+json"]')
+  if (!length(nodes)) return(NA_character_)
+  for (n in nodes) {
+    txt <- html_text2(n)
+    m <- str_match(txt, paste0('"', key_regex, '"\\s*:\\s*"([^"]+)"'))
+    if (!is.null(m) && length(m) >= 2 && !is.na(m[2])) return(m[2])
+  }
+  NA_character_
+}
+```
+```{r}
+# 1) LER O EXCEL E PREPARAR
+# =========================
+dados <- read_excel(ARQUIVO_XLSX) %>% clean_names()
+stopifnot(COLUNA_LINKS %in% names(dados))
+
+urls <- dados %>%
+  filter(!is.na(.data[[COLUNA_LINKS]])) %>%
+  mutate(url = trimws(.data[[COLUNA_LINKS]])) %>%
+  filter(str_detect(url, "^https?://")) %>%
+  distinct(url, .keep_all = FALSE)
+
+message("Total de URLs válidas: ", nrow(urls))
+
+hash_url <- function(u) digest(u, algo = "sha1")
+
+# =========================
+# 2) BAIXAR AS PÁGINAS (HTTR)
+# =========================
+baixar_pagina <- possibly(function(u) {
+  destino <- file.path(DIR_HTML, paste0(hash_url(u), ".html"))
+  if (!file.exists(destino)) {
+    resp <- GET(u, add_headers(`User-Agent` = UA), timeout(30))
+    stop_for_status(resp)
+    writeBin(content(resp, as = "raw"), destino)
+    Sys.sleep(DELAY_SEG)
+  }
+  tibble(url = u, arquivo = destino, ok_download = file.exists(destino))
+}, otherwise = tibble(url = NA_character_, arquivo = NA_character_, ok_download = FALSE))
+
+downloads <- urls$url %>% map_dfr(baixar_pagina)
+downloads <- filter(downloads, !is.na(url), !is.na(arquivo))
+```
+
+```{r}
+# 3) PARSING E EXTRAÇÃO (com auditoria)
+# =========================
+extrair_info <- function(arquivo, u) {
+  tryCatch({
+    pg <- read_html(arquivo)
+    dominio <- str_extract(u, "(?<=://)[^/]+") %||% ""
+    parser_usado <- NA_character_
+    motivo_na <- NA_character_
+
+    # comuns (metatags + corpo)
+    titulo_meta <- pg %>% html_element("title") %>% html_text2() %>% str_squish()
+    body_text   <- pg %>% html_elements("body") %>% html_text2() %>% str_squish()
+
+    meta_keywords <- collapse_txt(
+      pg %>% html_elements('meta[name="keywords"], meta[name="citation_keywords"], meta[name="dc.subject"], meta[name="subject"]') %>% html_attr("content")
+    )
+    meta_desc <- collapse_txt(
+      pg %>% html_elements('meta[name="description"], meta[name="dc.description"], meta[name="DCTERMS.abstract"], meta[name="citation_abstract"]') %>% html_attr("content")
+    )
+    meta_year <- collapse_txt(
+      pg %>% html_elements('meta[name="citation_publication_date"], meta[name="dc.date"], meta[name="citation_year"]') %>% html_attr("content")
+    )
+    meta_univ <- collapse_txt(
+      pg %>% html_elements('meta[name="citation_university"], meta[name="dc.publisher"], meta[name="publisher"]') %>% html_attr("content")
+    )
+
+    # regex de fallback
+    ano_regex <- {
+      m <- str_match(body_text, "(?i)(ano\\s*[:\\-]?\\s*|year\\s*[:\\-]?\\s*)(\\d{4})")
+      if (!is.null(m)) m[,3][!is.na(m[,3])][1] else NA_character_
+    } %||% NA_character_
+
+    local_regex <- {
+      m1 <- str_match(body_text, "(?i)(local(\\s*de\\s*defesa)?\\s*[:\\-]?\\s*)([A-Za-zÀ-ÿ\\s\\-]+?)(\\.|;|\\n)")
+      if (!is.null(m1) && !all(is.na(m1[,4]))) m1[,4][1]
+      else {
+        m2 <- str_match(body_text, "(?i)(cidade|location|place)\\s*[:\\-]?\\s*([A-Za-zÀ-ÿ\\s\\-]+?)(\\.|;|\\n)")
+        if (!is.null(m2) && !all(is.na(m2[,3]))) m2[,3][1] else NA_character_
+      }
+    } %||% NA_character_
+
+    inst_regex <- {
+      m <- str_match(
+        body_text,
+        "(?i)(instituiç(?:ão|ao)|universidade|university|instituto|faculdade|centro\\s+universitário|ies)\\s*[:\\-]?\\s*([A-Za-zÀ-ÿ0-9\\s\\-\\.&]+?)(\\.|;|\\n)"
+      )
+      if (!is.null(m) && !all(is.na(m[,3]))) m[,3][1] else NA_character_
+    } %||% NA_character_
+
+    temas_regex <- {
+      pt <- str_match(body_text, "(?i)(palavras-?chave|descritores)\\s*[:\\-]\\s*([^\\n\\.]+)")[,3]
+      en <- str_match(body_text, "(?i)(keywords?)\\s*[:\\-]\\s*([^\\n\\.]+)")[,3]
+      collapse_txt(c(pt, en))
+    }
+
+    # ====================== DOMÍNIO: Web of Science (proxy CAPES) ======================
+    if (str_detect(dominio, "^www-webofscience-com\\.ez87\\.periodicos\\.capes\\.gov\\.br$")) {
+      parser_usado <- "wos_proxy"
+
+      # detectar login/timeout
+      titulo_tmp <- titulo_meta %||% ""
+      if (str_detect(titulo_tmp, "(?i)(sign in|acesso|login|session|capes)")) {
+        motivo_na <- "pagina_de_login_ou_timeout"
+      }
+
+      titulo <- get_meta(pg, 'meta[name="citation_title"]') %||%
+                get_meta(pg, 'meta[property="og:title"]') %||%
+                titulo_meta
+
+      ano <- get_meta(pg, 'meta[name="citation_publication_date"]') %>%
+               str_extract("\\b\\d{4}\\b") %||%
+             get_meta(pg, 'meta[name="citation_year"]') %||%
+             get_jsonld_field(pg, "datePublished") %>% str_extract("\\b\\d{4}\\b") %||%
+             str_extract(meta_year, "\\b\\d{4}\\b") %||%
+             ano_regex
+
+      temas <- meta_keywords %||% temas_regex
+      instituicao <- get_meta(pg, 'meta[name="publisher"]') %||%
+                     get_meta(pg, 'meta[name="citation_publisher"]') %||%
+                     meta_univ %||% inst_regex
+      local_defesa <- local_regex
+
+    # ====================== DOMÍNIO: Sucupira (legado) ======================
+    } else if (str_detect(dominio, "^sucupira-legado\\.capes\\.gov\\.br$")) {
+      parser_usado <- "sucupira_legado"
+
+      titulo <- pg %>%
+        html_element("h1, h2, .titulo, .page-title, #formTrabalho\\:tituloTrabalho, .ui-panel-title") %>%
+        html_text2() %>% str_squish() %||% titulo_meta
+
+      temas <- extract_label_value(pg, "(?i)^(palavras-?chave|descritores|keywords|assunto|assuntos)$") %||% meta_keywords %||% temas_regex
+
+      ano <- extract_label_value(pg, "(?i)^(ano de defesa|ano|data da defesa|data|defesa)$") %>%
+               str_extract("\\b\\d{4}\\b") %||%
+             str_extract(meta_year, "\\b\\d{4}\\b") %||%
+             ano_regex
+
+      instituicao <- extract_label_value(pg, "(?i)^(ies|instituiç(?:ão|ao)|universidade|instituto|faculdade|centro)$") %||%
+                     meta_univ %||% inst_regex
+
+      local_defesa <- extract_label_value(pg, "(?i)^(cidade|munic|local( de defesa)?)$") %||% local_regex
+
+    # ====================== DOMÍNIO: BDTD/IBICT (VuFind) ======================
+    } else if (str_detect(dominio, "^bdtd\\.ibict\\.br$")) {
+      parser_usado <- "bdtd_vufind"
+
+      titulo <- pg %>%
+        html_element("h1.record-title, h1, h2, .page-title") %>%
+        html_text2() %>% str_squish() %||% titulo_meta
+
+      temas <- extract_label_value(pg, "(?i)^(assunto|assuntos|subjects?|palavras-?chave)$") %||%
+               collapse_txt(pg %>% html_elements(".subjects a, .record-subjects a, .metadataList .subject a") %>% html_text2()) %||%
+               meta_keywords %||% temas_regex
+
+      ano <- extract_label_value(pg, "(?i)^(ano|data( de public.*)?|publicado|year|published)$") %>%
+               str_extract("\\b\\d{4}\\b") %||%
+             str_extract(meta_year, "\\b\\d{4}\\b") %||%
+             ano_regex
+
+      instituicao <- extract_label_value(pg, "(?i)^(instituiç(?:ão|ao)|universidade|ies|publisher)$") %||%
+                     meta_univ %||% inst_regex
+
+      local_defesa <- extract_label_value(pg, "(?i)^(local|cidade|munic)$") %||% local_regex
+
+    # ====================== Padrões reconhecíveis (DSpace/TEDE) ======================
+    } else if (html_elements(pg, ".simple-item-view-subject, .metadataFieldValue, .itemDisplayTable") %>% length() > 0) {
+      parser_usado <- "dspace_generico"
+
+      titulo <- pg %>% html_element(".page-title, h1, h2") %>% html_text2() %>% str_squish() %||% titulo_meta
+      temas <- collapse_txt(pg %>% html_elements(".simple-item-view-subject a, .metadataFieldValue a") %>% html_text2()) %||% meta_keywords %||% temas_regex
+      ano <- str_extract(
+        collapse_txt(pg %>% html_elements(".simple-item-view-date, .metadataFieldValue") %>% html_text2()),
+        "\\b\\d{4}\\b"
+      ) %||% str_extract(meta_year, "\\b\\d{4}\\b") %||% ano_regex
+      instituicao <- meta_univ %||% inst_regex
+      local_defesa <- local_regex
+
+    } else if (html_elements(pg, ".dc-value, #item") %>% length() > 0) {
+      parser_usado <- "tede_generico"
+
+      titulo <- pg %>% html_element("h2, .page-title, h1") %>% html_text2() %>% str_squish() %||% titulo_meta
+      temas <- collapse_txt(pg %>% html_elements(".dc-value.subject, .dc-value.subject a, #item .subject a") %>% html_text2()) %||% meta_keywords %||% temas_regex
+      ano <- str_extract(
+        collapse_txt(pg %>% html_elements(".dc-value.date, .dc-date, .data, #item .date") %>% html_text2()),
+        "\\b\\d{4}\\b"
+      ) %||% str_extract(meta_year, "\\b\\d{4}\\b") %||% ano_regex
+      instituicao <- collapse_txt(pg %>% html_elements(".dc-value.publisher, .publisher, #item .publisher") %>% html_text2()) %||% meta_univ %||% inst_regex
+      local_defesa <- collapse_txt(pg %>% html_elements(".dc-value.coverage, .dc-coverage, .local, #item .coverage") %>% html_text2()) %||% local_regex
+
+    # ====================== Fallback genérico ======================
+    } else {
+      parser_usado <- "fallback_generico"
+
+      titulo <- titulo_meta
+      temas <- meta_keywords %||% temas_regex
+      ano <- str_extract(meta_year, "\\b\\d{4}\\b") %||% ano_regex
+      instituicao <- meta_univ %||% inst_regex
+      local_defesa <- local_regex
+    }
+
+    tibble(
+      link         = u,
+      titulo       = titulo %||% NA_character_,
+      temas        = temas %||% NA_character_,
+      ano          = ano %||% NA_character_,
+      local_defesa = local_defesa %||% NA_character_,
+      instituicao  = instituicao %||% NA_character_,
+      parser_usado = parser_usado,
+      motivo_na    = motivo_na
+    )
+
+  }, error = function(e) {
+    tibble(
+      link         = u %||% NA_character_,
+      titulo       = NA_character_,
+      temas        = NA_character_,
+      ano          = NA_character_,
+      local_defesa = NA_character_,
+      instituicao  = NA_character_,
+      parser_usado = "erro_parse",
+      motivo_na    = paste0("tryCatch_error: ", conditionMessage(e))
+    )
+  })
+}
+```
+
+
+
+```{r}
+# 4) EXECUTAR EXTRAÇÃO
+# =========================
+resultado <- map2_dfr(
+  downloads$arquivo,
+  downloads$url,
+  ~ extrair_info(.x, .y)
+)
+```
+
+```{r}
+# 5) JUNTAR COM O EXCEL ORIGINAL
+# =========================
+saida <- dados %>%
+  clean_names() %>%
+  mutate(link = .data[[COLUNA_LINKS]] %>% trimws()) %>%
+  left_join(resultado, by = "link")
+```
+
+```{r}
+# 6) EXPORTAR
+# =========================
+write_csv(saida, ARQUIVO_SAIDA)
+message("Concluído. Arquivo salvo em: ", ARQUIVO_SAIDA)
+
+```
+
+
+```{r}
+# 7) (Opcional) Diagnóstico rápido no console
+# =========================
+try({
+  cat("\n--- Diagnóstico rápido ---\n")
+  if ("parser_usado" %in% names(saida)) print(count(saida, parser_usado, sort = TRUE))
+  if ("motivo_na" %in% names(saida))    print(count(saida, motivo_na, sort = TRUE))
+  # % NA por campo
+  campos <- c("titulo","temas","ano","local_defesa","instituicao")
+  for (c in campos) {
+    if (c %in% names(saida)) {
+      pct <- mean(is.na(saida[[c]]) | (str_trim(as.character(saida[[c]])) == ""), na.rm = TRUE) * 100
+      cat(sprintf("%% NA em %-14s: %5.1f%%\n", c, pct))
+    }
+  }
+})
+
+```
+

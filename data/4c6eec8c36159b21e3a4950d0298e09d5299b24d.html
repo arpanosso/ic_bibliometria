@@ -1,0 +1,848 @@
+<!DOCTYPE html><html lang="pt-br" >
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="google-site-verification" content="O4MlrfmxB744id4GdcKmv79sPQNLIjWzEB_VV9o1byw" />
+  <meta http-equiv="Content-Type" content="text&#x2F;html&#x3B;&#x20;charset&#x3D;UTF-8">
+<meta name="DC.creator" content="VALE,&#x20;K&#xE1;dna&#x20;Maria&#x20;Alves&#x20;Camboim">
+<meta name="DC.issued" content="2020">
+<meta name="DC.language" content="eng">
+<meta name="DC.title" content="Analysis&#x20;of&#x20;dependability&#x20;and&#x20;sustainability&#x20;requirements&#x20;to&#x20;support&#x20;the&#x20;deployment&#x20;of&#x20;dense&#x20;data&#x20;center&#x20;architectures">
+<meta name="DC.description" content="VALE,&#x20;K&#xE1;dna&#x20;Maria&#x20;Alves&#x20;Camboim&#x20;tamb&#xE9;m&#x20;&#xE9;&#x20;conhecida&#x20;em&#x20;cita&#xE7;&#xF5;es&#x20;bibliogr&#xE1;ficas&#x20;por&#x3A;&#x20;CAMBOIM,&#x20;K&#xE1;dna&#x20;Maria&#x20;Alves">
+<meta name="citation_author" content="VALE,&#x20;K&#xE1;dna&#x20;Maria&#x20;Alves&#x20;Camboim">
+<meta name="citation_date" content="2020">
+<meta name="citation_language" content="eng">
+<meta name="citation_title" content="Analysis&#x20;of&#x20;dependability&#x20;and&#x20;sustainability&#x20;requirements&#x20;to&#x20;support&#x20;the&#x20;deployment&#x20;of&#x20;dense&#x20;data&#x20;center&#x20;architectures">
+<meta name="Generator" content="VuFind&#x20;7.1.1">  <title>Metadados do item: Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures</title>    <!-- RTL styling -->
+    <link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;compiled.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;print.css&#x3F;_&#x3D;1703767367" media="print" rel="stylesheet" type="text&#x2F;css">
+<!--[if lt IE 10]><link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;flex-fallback.css&#x3F;_&#x3D;1703767367" media="" rel="stylesheet" type="text&#x2F;css"><![endif]-->
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;style.css&#x3F;_&#x3D;1731068447" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;custom.css&#x3F;_&#x3D;1761139766" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;datatables.min.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;dataTables.bootstrap.min.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;images&#x2F;icons&#x2F;favicon.ico&#x3F;_&#x3D;1703767367" rel="shortcut&#x20;icon" type="image&#x2F;x-icon">
+<link href="&#x2F;vufind&#x2F;Search&#x2F;OpenSearch&#x3F;method&#x3D;describe" rel="search" type="application&#x2F;opensearchdescription&#x2B;xml" title="Busca&#x20;no&#x20;Cat&#xE1;logo&#x20;da&#x20;Biblioteca">    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script  nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;">
+    //<!--
+    var userIsLoggedIn = false;
+    //-->
+</script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;jquery.min.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;bootstrap.min.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;bootstrap-accessibility.min.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;validator.min.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lib&#x2F;form-attr-polyfill.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lib&#x2F;autocomplete.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;common.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lightbox.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;languages.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;format.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;base.js&#x3F;_&#x3D;1704812434" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;lib&#x2F;axios.min.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;record.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;check_save_statuses.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;open-close-tab.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;account_ajax.js&#x3F;_&#x3D;1703767367" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>
+<script  nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;">
+    //<!--
+    VuFind.path = '/vufind';
+VuFind.defaultSearchBackend = 'Solr';
+VuFind.addTranslations({"add_tag_success": "Tags guardadas","bulk_email_success": "O(s) item(ns) foram enviados por e-mail","bulk_noitems_advice": "Nenhum item foi selecionado. Por favor, clique na caixa de seleção ao lado de um item e tente novamente.","bulk_save_success": "O(s) registro(s) foram salvos com sucesso","close": "fechar","collection_empty": "Não há registros para mostrar.","eol_ellipsis": "…","error_occurred": "Erro na aplicação.","go_to_list": "Ir para a lista","hold_available": "Disponível para levantamento","libphonenumber_invalid": "Número de telefone inválido","libphonenumber_invalidcountry": "Código telefônico de país inválido","libphonenumber_invalidregion": "Código de região inválido (DDD):","libphonenumber_notanumber": "A informação fornecida não se assemelha a um número telefônico","libphonenumber_toolong": "A informação fornecida é muito longa para ser um número telefônico","libphonenumber_tooshort": "A informação fornecida é muito curta para ser um número telefônico","libphonenumber_tooshortidd": "O número telefônico é muito curto depois do DDI","loading": "Carregando","more": "Mais","number_thousands_separator": ".","sms_success": "Mensagem enviada.","Phone number invalid": "Número de telefone inválido","Invalid country calling code": "Código telefônico de país inválido","Invalid region code": "Código de região inválido (DDD):","The string supplied did not seem to be a phone number": "A informação fornecida não se assemelha a um número telefônico","The string supplied is too long to be a phone number": "A informação fornecida é muito longa para ser um número telefônico","The string supplied is too short to be a phone number": "A informação fornecida é muito curta para ser um número telefônico","Phone number too short after IDD": "O número telefônico é muito curto depois do DDI","account_checkouts_due": "Itens com vencimento próximo","account_checkouts_overdue": "Itens vencidos","account_has_alerts": "Sua conta tem alertas","account_normal_checkouts": "Itens emprestados","account_requests_available": "Disponível para levantamento","account_requests_in_transit": "Em trânsito para Coletar Localização"});
+    //-->
+</script>  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDE70XCBE2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDE70XCBE2');
+  </script>
+</head>
+
+<body class="template-dir-record template-name-view ">
+    <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+    <ul id="menu-barra-temp" style="list-style:none;">
+      <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+        <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do
+          Governo Brasileiro</a>
+      </li>
+    </ul>s
+  </div>
+  <header class="navbar">
+        <a class="sr-only" href="#content">Pular para o conteúdo</a>
+    <div class="container">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-collapse">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <a class="logo-bdtd lang-pt-br" href="/vufind/">
+    <img class="logo-img" src="/vufind/themes/bdtd/images/logo.png?_=1703767367" alt="Logo da BDTD" />
+  </a>
+      <div class="collapse navbar-collapse" id="header-collapse">
+      <nav class="nav-main">
+        <ul role="navigation" class="nav navbar-nav flip">
+          <li>
+            <a href="/vufind/"><i class="uil uil-home"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Institucional</a>
+            <ul class="dropdown-menu">
+              <li class="">
+                <a href="/vufind/about/home">Sobre</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Participate/Home">Como participa</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Diretrizes/Home">Diretrizes</a>
+              </li>
+              <li class="">
+                <a href="/vufind/indicators/home">Indicadores</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Rede</a>
+            <ul class="dropdown-menu network-menu">
+              <li class="">
+                <a href="/vufind/datasources/home">Instituições participantes</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Technology/Home">Tecnologia</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/vufind/faq/home">Dúvidas frequentes</a>
+          </li>
+                      <li>
+              <a id="feedbackLink" data-lightbox href="/vufind/Feedback/Home">Contato</a>
+            </li>
+          
+                                <li class="logoutOptions hidden">
+              <a href="/vufind/MyResearch/Home?redirect=0"><i id="account-icon" class="fa fa-user-circle" aria-hidden="true"></i> A sua conta</a>
+            </li>
+                        <li class="logoutOptions hidden">
+              <a href="/vufind/MyResearch/Logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a>
+            </li>
+            <li id="loginOptions" class="hidden" >
+                              <a href="/vufind/MyResearch/UserLogin" data-lightbox><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a>
+                          </li>
+          
+          
+          </ul>
+      </nav>
+    </div>
+    <a class="logo-ibict" href="https://www.gov.br/ibict">
+      <img class="logo-img" src="/vufind/themes/bdtd/images/ibict.png?_=1703767367" alt="Logo do Ibict" />
+    </a>
+  </div>  </header>
+      <div class="searchHomeContent">
+      <div class="search container navbar">
+        <nav class="nav searchbox hidden-print">
+            <form id="searchForm" method="get" action="/vufind/Search/Results" name="searchForm" autocomplete="off">
+            <div class="search-form">
+      <input data-search placeholder="Pesquise por teses e dissertações" id="searchForm_lookfor" class="search-input search-query 
+        autocomplete searcher:Solr         ac-auto-submit        " type="text" name="lookfor" value=""  aria-label="Termos&#x20;de&#x20;pesquisa" />
+
+              <select id="searchForm_type" class="searchForm_type form-control" name="type" data-native-menu="false" aria-label="Search&#x20;type">
+                                            <option value="AllFields" >Todos os campos</option>
+                                  <option value="Title" >Título</option>
+                                  <option value="year" >Ano da publicação</option>
+                                  <option value="Author" >Autor</option>
+                                  <option value="Subject" >Assunto</option>
+                                  <option value="Abstract" >Resumo</option>
+                            </select>
+      
+      <button type="submit" class="btn contained-primary">
+        Buscar</button>
+              <a href="/vufind/Search/Advanced" class="btn outlined-primary" rel="nofollow">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i> Busca avançada        </a>
+            
+                              
+    </div>
+  </form>
+        </nav>
+      </div>
+    </div>
+    <nav class="breadcrumbs" aria-label="Trilhas&#x20;de&#x20;Navega&#xE7;&#xE3;o">
+    <div class="container">
+              <ul class="breadcrumb hidden-print">
+                      <li class="active" aria-current="page"><a href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052">Analysis of dependability and...</a></li> <li class="">Metadados do item</li>                  </ul>
+          </div>
+  </nav>
+  <div role="main" class="main">
+    <div id="content" class="container">
+      
+
+<nav class="record-nav">
+  <ul class="action-toolbar" aria-label="Ferramentas">
+          <li role="none"><a class="cite-record toolbar-btn btn-type-cite" data-lightbox href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052/Cite" rel="nofollow">Citar</a></li>
+    
+    
+    <!-- <li role="none"><a class="mail-record toolbar-btn btn-type-email" data-lightbox href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052/Email" rel="nofollow">Enviar por e-mail</a></li> -->
+
+    <li><a class="print-record toolbar-btn btn-type-print" href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052?print=1" rel="nofollow">Imprimir</a></li>
+
+              <li role="none" class="dropdown">
+        <a class="export-toggle toolbar-btn btn-type-export dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052/Export" rel="nofollow" aria-expanded="false" aria-controls="export-options">Exportar registro</a>
+        <ul class="dropdown-menu" id="export-options" role="menu">
+                      <li role="none"><a href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052/Export?style=RefWorks" rel="nofollow" role="menuitem">Exportar para RefWorks</a></li>
+                      <li role="none"><a target="EndNoteWebMain" href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052/Export?style=EndNoteWeb" rel="nofollow" role="menuitem">Exportar para EndNoteWeb</a></li>
+                      <li role="none"><a href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052/Export?style=EndNote" rel="nofollow" role="menuitem">Exportar para EndNote</a></li>
+                  </ul>
+      </li>
+    
+              </ul>
+</nav>
+<div class="record sourceSolr">
+    <div class="mainbody right">
+    <input type="hidden" value="UFPE_2d33854954818a1e85ab9a2681946052" class="hiddenId" />
+    <input type="hidden" value="Solr" class="hiddenSource" />
+        <div class="media" vocab="http://schema.org/" resource="#record" typeof="CreativeWork Product">
+      <div class="media-body">
+
+    <h1 property="name">Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures</h1>
+
+    
+              
+    <!-- ocultar resumo abaixo do titulo
+               <p>VALE, Kádna Maria Alves Camboim também é conhecida em citações bibliográficas por: CAMBOIM, Kádna Maria Alves</p>
+
+       -->
+
+    
+                  <table class="table table-striped">
+        <caption class="sr-only">Detalhes bibliográficos</caption>
+                  <tr>
+            <th>Ano de defesa:</th>
+            <td>2020</td>
+          </tr>
+                  <tr>
+            <th>Autor(a) principal:</th>
+            <td><span class="author-data" property="author">
+      <a href="  /vufind/Author/Home?author=VALE%2C+K%C3%A1dna+Maria+Alves+Camboim">
+        VALE, Kádna Maria Alves Camboim</a></span></td>
+          </tr>
+                  <tr>
+            <th>Orientador(a):</th>
+            <td><span class="author-data" property="contributor">
+      <a href="  /vufind/Author/Home?author=N%C3%A3o+Informado+pela+institui%C3%A7%C3%A3o">
+        Não Informado pela instituição</a></span></td>
+          </tr>
+                  <tr>
+            <th>Banca de defesa:</th>
+            <td><span class="author-data" property="contributor">
+      <a href="  /vufind/Author/Home?author=N%C3%A3o+Informado+pela+institui%C3%A7%C3%A3o">
+        Não Informado pela instituição</a></span></td>
+          </tr>
+                  <tr>
+            <th>Tipo de documento:</th>
+            <td>      <span class="format doctoralthesis">Tese</span>
+  </td>
+          </tr>
+                  <tr>
+            <th>Tipo de acesso:</th>
+            <td><!-- traduzido  -->
+Acesso aberto</td>
+          </tr>
+                  <tr>
+            <th>Idioma:</th>
+            <td>eng</td>
+          </tr>
+                  <tr>
+            <th>Instituição de defesa:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Universidade Federal de Pernambuco</span>
+    </span>
+    <br/>
+  <span property="publisher" typeof="Organization">
+        <span property="name">UFPE</span>
+    </span>
+    <br/>
+  <span property="publisher" typeof="Organization">
+        <span property="name">Brasil</span>
+    </span>
+    <br/>
+  <span property="publisher" typeof="Organization">
+        <span property="name">Programa de Pos Graduacao em Engenharia Eletrica</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Programa de Pós-Graduação:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Departamento:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>País:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Palavras-chave em Português:</th>
+            <td><div class="subject-line" property="keywords">
+                              <a title="Engenharia&#x20;El&#xE9;trica" href="/vufind/Search/Results?lookfor=%22Engenharia+El%C3%A9trica%22&amp;type=Subject
+" rel="nofollow">Engenharia Elétrica</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Data&#x20;center" href="/vufind/Search/Results?lookfor=%22Data+center%22&amp;type=Subject
+" rel="nofollow">Data center</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Computa&#xE7;&#xE3;o&#x20;em&#x20;nuvem" href="/vufind/Search/Results?lookfor=%22Computa%C3%A7%C3%A3o+em+nuvem%22&amp;type=Subject
+" rel="nofollow">Computação em nuvem</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Avalia&#xE7;&#xE3;o&#x20;de&#x20;dependabilidade" href="/vufind/Search/Results?lookfor=%22Avalia%C3%A7%C3%A3o+de+dependabilidade%22&amp;type=Subject
+" rel="nofollow">Avaliação de dependabilidade</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Sustentabilidade" href="/vufind/Search/Results?lookfor=%22Sustentabilidade%22&amp;type=Subject
+" rel="nofollow">Sustentabilidade</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="An&#xE1;lise&#x20;de&#x20;sensibilidade" href="/vufind/Search/Results?lookfor=%22An%C3%A1lise+de+sensibilidade%22&amp;type=Subject
+" rel="nofollow">Análise de sensibilidade</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Efici&#xEA;ncia&#x20;energ&#xE9;tica" href="/vufind/Search/Results?lookfor=%22Efici%C3%AAncia+energ%C3%A9tica%22&amp;type=Subject
+" rel="nofollow">Eficiência energética</a>
+      </div></td>
+          </tr>
+                  <tr>
+            <th>Link de acesso:</th>
+            <td><a href="https&#x3A;&#x2F;&#x2F;repositorio.ufpe.br&#x2F;handle&#x2F;123456789&#x2F;39365">https://repositorio.ufpe.br/handle/123456789/39365</a><br/></td>
+          </tr>
+                                  <th>Resumo:</th>
+          <td>VALE, Kádna Maria Alves Camboim também é conhecida em citações bibliográficas por: CAMBOIM, Kádna Maria Alves</td>
+              </table>
+          </div>
+</div>
+          <a name="tabnav"></a>
+      <div class="record-tabs">
+        <ul class="nav nav-tabs">
+                                  <li class="record-tab details" data-tab="details" >
+              <a data-open-close href="/vufind/Record/UFPE_2d33854954818a1e85ab9a2681946052/Details#tabnav" data-lightbox-ignore>
+                Metadados do item              </a>
+            </li>
+                  </ul>
+
+        <div class="tab-content">
+                      <div class="tab-pane details-tab">
+              <table class="citation table table-striped">
+      <tr>
+      <th>id</th>
+      <td>
+                  UFPE_2d33854954818a1e85ab9a2681946052<br />
+              </td>
+    </tr>
+      <tr>
+      <th>oai_identifier_str</th>
+      <td>
+                  oai:repositorio.ufpe.br:123456789/39365<br />
+              </td>
+    </tr>
+      <tr>
+      <th>network_acronym_str</th>
+      <td>
+                  UFPE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>network_name_str</th>
+      <td>
+                  Repositório Institucional da UFPE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository_id_str</th>
+      <td>
+                  <br />
+              </td>
+    </tr>
+      <tr>
+      <th>spelling</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architecturesEngenharia ElétricaData centerComputação em nuvemAvaliação de dependabilidadeSustentabilidadeAnálise de sensibilidadeEficiência energéticaVALE, Kádna Maria Alves Camboim também é conhecida em citações bibliográficas por: CAMBOIM, Kádna Maria AlvesThe convergence of communication networks and the demand for storing and processing capacities of large amounts of information, especially in recent years, has driven requests for everything-as-a-service (XaaS) and has been generating, on an increasing scale, demands for new data centers (DC) infrastructures. Energy consumption per rack unit has increased due to the consolidation of spaces via server virtualization and as an effect of the density achieved by modern IT equipment. As these factors contribute to significant improvements, such as gains in availability and performance, they also contribute to global warming due to carbon dioxide (CO2) emission, one of the leading greenhouse gases. This occurs both in the production of energy, which feeds these large infrastructures, and in the consumption of the entire IT load. Given this context, we analyze dependability and sustainability requirements to support data centers’ implementation in this work. We initially performed a systematic literature review to identify possible problems in the area. We propose a set of models for power architectures and data center networks to quantify specific dependability and sustainability metrics. The proposed approach is based on the hybrid and hierarchical modeling for evaluating costs, exergy, electrical demand, efficiency, availability, reliability, etc., of the generated models. We propose energy flow models (EFM) to determine the minimum energy required for a data center project, considering the computer room (DC network). We created some scenarios to calculate the impact of environmental sustainability from raw material used in energy production. We also propose reliability block diagram (RBD) models to represent the power and network architectures of the data centers to identify the reliability importance of the components for the systems’ availability. Besides, we use parametric sensitivity analysis techniques to carry out experiments in different scenarios to identify possible bottlenecks for architectural failure. Based on the formalism of the stochastic Petri nets (SPN), we propose a maintenance policy to quantify the impact caused on the availability of the networks in the face of the variation in the mean time to failure (MTTF) and repair (MTTR) of the components. Additionally, we check if the availability achieved reaches service levels specified for data centers given their tier classifications. The set of modeling techniques used serves as a subsidy for the experiments to represent real scenarios. Thus, we can quantify essential design requirements, identifying possible vulnerabilities to the system’s failure before the implementation of a real architecture has been done.A convergência das redes de comunicação e a demanda por capacidades de armazenamento e processamento de grandes quantidades de informação, principalmente nos últimos anos, tem impulsionado as requisições de “everything-as-as-service” (XaaS) e vem gerando, em escala crescente, demandas por novas infraestruturas de data centers (DC). O consumo energético por unidade de rack têm aumentado diante da consolidação de espaços via virtualização de servidores e como efeito da densidade alcançada pelos modernos equipamentos de TI. Na proporção em que esses fatores contribuem para melhorias significativas, como ganho em disponibilidade e desempenho, por exemplo, contribuem também para o aquecimento global, devido à produção de dióxido de carbono (CO2), um dos principais gases do efeito estufa. Isso ocorre tanto na produção de energia, que alimenta essas grandes infraestruturas, quanto no consumo de toda a carga de TI. Diante desse contexto, nesse trabalho é feita a análise de requisitos de dependabilidade e sustentabilidade para apoiar a implantação de data centers. Inicialmente foi realizada uma revisão sistemática da literatura para identificação dos possíveis problemas na área. Na sequência, foi proposto um conjunto de modelos para arquiteturas de potência e de redes de data center para quantificar métricas específicas de dependabilidade e sustentabilidade. A abordagem proposta baseia-se na modelagem híbrida e hierárquica para a avaliação de custos, exergia, demanda elétrica, eficiência, disponibilidade, confiabilidade, etc., dos modelos gerados. Foram propostos os modelos de fluxo de energia (EFM) para determinar a energia mínima necessária para um projeto de data center, considerando a demanda de energia para a computer room (rede do DC). Foram criados alguns cenários para calcular o impacto da sustentabilidade ambiental diante do tipo de matéria-prima utilizada na produção de energia. Há ainda a proposta de modelos de diagramas de blocos de confiabilidade (RBD) para representar as arquiteturas de energia e de redes dos data centers a fim de identificar a importância da confiabilidade dos componentes para a disponibilidade dos sistemas. Adicionalmente, foram usadas técnicas de análise de sensibilidade paramétrica para realização de experimentos em diferentes cenários com a intenção de identificar possíveis gargalos para a falha das arquiteturas. A partir do formalismo das redes de Petri estocásticas (SPN), foi proposta uma política de manutenção para quantificar o impacto causado na disponibilidade das redes diante da variação dos tempos médios para a falha (MTTF) e reparo (MTTR) dos componentes. Complementarmente, foi verificado se a disponibilidade alcançada consegue atingir os níveis de serviços, que são especificados para os data centers dada suas classificações por camada. O conjunto de técnicas de modelagem utilizado serve de aporte para os experimentos realizados para a representação de cenários reais. Assim, torna-se possível quantificar requisitos importantes de projeto, identificando possíveis pontos de vulnerabilidades para a falha do sistema antes que a implantação de uma arquitetura real seja efetivada.Universidade Federal de PernambucoUFPEBrasilPrograma de Pos Graduacao em Engenharia EletricaALENCAR, Fernanda Maria Ribeiro deARAUJO, Jean Carlos Teixeira dehttp://lattes.cnpq.br/2817387497612302http://lattes.cnpq.br/1511532484752161http://lattes.cnpq.br/2498961747789618VALE, Kádna Maria Alves Camboim2021-03-12T14:05:30Z2021-03-12T14:05:30Z2020-11-27info:eu-repo/semantics/publishedVersioninfo:eu-repo/semantics/doctoralThesisapplication/pdfVALE, Kádna Maria Alves Camboim. Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures. 2020. Tese (Doutorado em Engenharia Elétrica) – Universidade Federal de Pernambuco, Recife, 2020.https://repositorio.ufpe.br/handle/123456789/39365ark:/64986/0013000006fp7enghttp://creativecommons.org/licenses/by-nc-nd/3.0/br/info:eu-repo/semantics/openAccessreponame:Repositório Institucional da UFPEinstname:Universidade Federal de Pernambuco (UFPE)instacron:UFPE2021-03-13T05:14:17Zoai:repositorio.ufpe.br:123456789/39365Repositório InstitucionalPUBhttps://repositorio.ufpe.br/oai/requestattena@ufpe.bropendoar:22212021-03-13T05:14:17Repositório Institucional da UFPE - Universidade Federal de Pernambuco (UFPE)false<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.title.none.fl_str_mv</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+              </td>
+    </tr>
+      <tr>
+      <th>spellingShingle</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+                  VALE, Kádna Maria Alves Camboim<br />
+                  Engenharia Elétrica<br />
+                  Data center<br />
+                  Computação em nuvem<br />
+                  Avaliação de dependabilidade<br />
+                  Sustentabilidade<br />
+                  Análise de sensibilidade<br />
+                  Eficiência energética<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_short</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_full</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_fullStr</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_full_unstemmed</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_sort</th>
+      <td>
+                  Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author</th>
+      <td>
+                  VALE, Kádna Maria Alves Camboim<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author_facet</th>
+      <td>
+                  VALE, Kádna Maria Alves Camboim<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author_role</th>
+      <td>
+                  author<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.contributor.none.fl_str_mv</th>
+      <td>
+                  ALENCAR, Fernanda Maria Ribeiro de<br />
+                  ARAUJO, Jean Carlos Teixeira de<br />
+                  http://lattes.cnpq.br/2817387497612302<br />
+                  http://lattes.cnpq.br/1511532484752161<br />
+                  http://lattes.cnpq.br/2498961747789618<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.contributor.author.fl_str_mv</th>
+      <td>
+                  VALE, Kádna Maria Alves Camboim<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.subject.por.fl_str_mv</th>
+      <td>
+                  Engenharia Elétrica<br />
+                  Data center<br />
+                  Computação em nuvem<br />
+                  Avaliação de dependabilidade<br />
+                  Sustentabilidade<br />
+                  Análise de sensibilidade<br />
+                  Eficiência energética<br />
+              </td>
+    </tr>
+      <tr>
+      <th>topic</th>
+      <td>
+                  Engenharia Elétrica<br />
+                  Data center<br />
+                  Computação em nuvem<br />
+                  Avaliação de dependabilidade<br />
+                  Sustentabilidade<br />
+                  Análise de sensibilidade<br />
+                  Eficiência energética<br />
+              </td>
+    </tr>
+      <tr>
+      <th>description</th>
+      <td>
+                  VALE, Kádna Maria Alves Camboim também é conhecida em citações bibliográficas por: CAMBOIM, Kádna Maria Alves<br />
+              </td>
+    </tr>
+      <tr>
+      <th>publishDate</th>
+      <td>
+                  2020<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.date.none.fl_str_mv</th>
+      <td>
+                  2020-11-27<br />
+                  2021-03-12T14:05:30Z<br />
+                  2021-03-12T14:05:30Z<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.type.status.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/publishedVersion<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.type.driver.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/doctoralThesis<br />
+              </td>
+    </tr>
+      <tr>
+      <th>format</th>
+      <td>
+                  doctoralThesis<br />
+              </td>
+    </tr>
+      <tr>
+      <th>status_str</th>
+      <td>
+                  publishedVersion<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.identifier.uri.fl_str_mv</th>
+      <td>
+                  VALE, Kádna Maria Alves Camboim. Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures. 2020. Tese (Doutorado em Engenharia Elétrica) – Universidade Federal de Pernambuco, Recife, 2020.<br />
+                  https://repositorio.ufpe.br/handle/123456789/39365<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.identifier.dark.fl_str_mv</th>
+      <td>
+                  ark:/64986/0013000006fp7<br />
+              </td>
+    </tr>
+      <tr>
+      <th>identifier_str_mv</th>
+      <td>
+                  VALE, Kádna Maria Alves Camboim. Analysis of dependability and sustainability requirements to support the deployment of dense data center architectures. 2020. Tese (Doutorado em Engenharia Elétrica) – Universidade Federal de Pernambuco, Recife, 2020.<br />
+                  ark:/64986/0013000006fp7<br />
+              </td>
+    </tr>
+      <tr>
+      <th>url</th>
+      <td>
+                  https://repositorio.ufpe.br/handle/123456789/39365<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.language.iso.fl_str_mv</th>
+      <td>
+                  eng<br />
+              </td>
+    </tr>
+      <tr>
+      <th>language</th>
+      <td>
+                  eng<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.rights.driver.fl_str_mv</th>
+      <td>
+                  http://creativecommons.org/licenses/by-nc-nd/3.0/br/<br />
+                  info:eu-repo/semantics/openAccess<br />
+              </td>
+    </tr>
+      <tr>
+      <th>rights_invalid_str_mv</th>
+      <td>
+                  http://creativecommons.org/licenses/by-nc-nd/3.0/br/<br />
+              </td>
+    </tr>
+      <tr>
+      <th>eu_rights_str_mv</th>
+      <td>
+                  openAccess<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.format.none.fl_str_mv</th>
+      <td>
+                  application/pdf<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.publisher.none.fl_str_mv</th>
+      <td>
+                  Universidade Federal de Pernambuco<br />
+                  UFPE<br />
+                  Brasil<br />
+                  Programa de Pos Graduacao em Engenharia Eletrica<br />
+              </td>
+    </tr>
+      <tr>
+      <th>publisher.none.fl_str_mv</th>
+      <td>
+                  Universidade Federal de Pernambuco<br />
+                  UFPE<br />
+                  Brasil<br />
+                  Programa de Pos Graduacao em Engenharia Eletrica<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.source.none.fl_str_mv</th>
+      <td>
+                  reponame:Repositório Institucional da UFPE<br />
+                  instname:Universidade Federal de Pernambuco (UFPE)<br />
+                  instacron:UFPE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>instname_str</th>
+      <td>
+                  Universidade Federal de Pernambuco (UFPE)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>instacron_str</th>
+      <td>
+                  UFPE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>institution</th>
+      <td>
+                  UFPE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>reponame_str</th>
+      <td>
+                  Repositório Institucional da UFPE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>collection</th>
+      <td>
+                  Repositório Institucional da UFPE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository.name.fl_str_mv</th>
+      <td>
+                  Repositório Institucional da UFPE - Universidade Federal de Pernambuco (UFPE)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository.mail.fl_str_mv</th>
+      <td>
+                  attena@ufpe.br<br />
+              </td>
+    </tr>
+      <tr>
+      <th>_version_</th>
+      <td>
+                  1846272793643057152<br />
+              </td>
+    </tr>
+  </table>
+            </div>
+                  </div>
+      </div>
+    
+    <span class="Z3988" title="url_ver&#x3D;Z39.88-2004&amp;ctx_ver&#x3D;Z39.88-2004&amp;ctx_enc&#x3D;info&#x25;3Aofi&#x25;2Fenc&#x25;3AUTF-8&amp;rfr_id&#x3D;info&#x25;3Asid&#x25;2Fvufind.svn.sourceforge.net&#x25;3Agenerator&amp;rft.title&#x3D;Analysis&#x2B;of&#x2B;dependability&#x2B;and&#x2B;sustainability&#x2B;requirements&#x2B;to&#x2B;support&#x2B;the&#x2B;deployment&#x2B;of&#x2B;dense&#x2B;data&#x2B;center&#x2B;architectures&amp;rft.date&#x3D;2020&amp;rft_val_fmt&#x3D;info&#x25;3Aofi&#x25;2Ffmt&#x25;3Akev&#x25;3Amtx&#x25;3Adc&amp;rft.creator&#x3D;VALE&#x25;2C&#x2B;K&#x25;C3&#x25;A1dna&#x2B;Maria&#x2B;Alves&#x2B;Camboim&amp;rft.format&#x3D;doctoralThesis&amp;rft.language&#x3D;eng"></span>  </div>
+
+  <div class="sidebar left hidden-print">
+          <h2>Registros relacionados</h2>
+  <ul class="list-group">
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/UNB_76e61c94de39304481060adc567e2bf1">
+          Dependability verification for contextual/runtime goal modelling        </a>
+                  <br/>por: Mendonça, Danilo Filgueira                          <br/>Publicado em: (2015)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/UFPE_a46994e3ee11e1ccbfb7cb7c5b14a312">
+          ASTRO- uma ferramenta para avaliação de dependabilidade e sustentabilidade em sistemas data center        </a>
+                  <br/>por: Silva, Bruno                          <br/>Publicado em: (2011)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/UFPE_1953eb63a7937fafa092aa6c68ccb9e2">
+          Análise de dependabilidade de sistemas data center baseada em índices de importância        </a>
+                  <br/>por: Jair Cavalcante de Figueirêdo, José                          <br/>Publicado em: (2011)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-doctoralthesis" title="doctoralThesis"></i>
+        <a href="/vufind/Record/UFPE_d4e627030706ad650122e679c058dfb3">
+          Assessment to support the planning of sustainable data centers with high availability        </a>
+                  <br/>por: CALLOU, Gustavo Rau de Almeida                          <br/>Publicado em: (2013)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-doctoralthesis" title="doctoralThesis"></i>
+        <a href="/vufind/Record/UFPE_4f81d81576d07e6c8494711fd97b690a">
+          Identification of Availability and Performance Bottlenecks in Cloud Computing Systems: an approach based on hierarchical models and sensitivity analysis.        </a>
+                  <br/>por: MATOS JÚNIOR, Rubens de Souza                          <br/>Publicado em: (2016)
+              </li>
+      </ul>
+      </div>
+</div>
+<script type="text&#x2F;javascript" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;">
+    //<!--
+    $(document).ready(recordDocReady);
+    //-->
+</script>    </div>
+  </div>
+  <footer class="hidden-print">
+  <div class="container-fluid social-media">
+    <div class="flex-row-center gap-2">
+      <a href="https://www.youtube.com/user/IBICTbr/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/youtube.png?_=1703767367" alt="Youtube Logo" />
+      </a>
+      <a href="https://www.facebook.com/IBICTbr/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/facebook.png?_=1703767367" alt="Facebook Logo" />
+      </a>
+      <a href="https://twitter.com/ibictbr" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/twitter.png?_=1703767367" alt="Twitter Logo" />
+      </a>
+      <a href="https://www.linkedin.com/company/ibict---instituto-brasileiro-de-informa-o-em-ci-ncia-e-tecnologia/mycompany/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/linkedin.svg?_=1703767367" alt="Linkedin Logo" />
+      </a>
+    </div>
+  </div>
+  <div class="assinatura">
+    <a href="https://www.gov.br/ibict" target="_blank" rel="noopener noreferrer">
+      <img class="img-responsive" src="/vufind/themes/bdtd/images/footeratualizado.png?_=1761139766" alt="Logo do Ibict e do ministério da ciência e tecnologia" />
+    </a>
+  </div>
+  <p>
+    Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict) <br />
+    SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF
+  </p>
+  <div class="poweredby">
+      </div>
+  <script async src="https://barra.brasil.gov.br/barra_2.0.js"></script>
+</footer>  <!-- MODAL IN CASE WE NEED ONE -->
+  <div id="modal" class="modal fade hidden-print" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal">
+          <svg aria-label="Close" viewBox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="modal-body">Carregando...</div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-overlay" data-toggle="offcanvas"></div>
+    <script  nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;">
+    //<!--
+    
+function initVuFindPiwikTracker1762802582478(){
+    var VuFindPiwikTracker = Piwik.getTracker();
+
+    VuFindPiwikTracker.setSiteId();
+    VuFindPiwikTracker.setTrackerUrl('https://matomo.lareferencia.info/piwik.php');
+    VuFindPiwikTracker.setCustomUrl('https\x3A\x2F\x2Fbdtd.ibict.br\x2Fvufind\x2FRecord\x2FUFPE_2d33854954818a1e85ab9a2681946052');
+    VuFindPiwikTracker.setCustomVariable(1, 'RecordFormat', 'doctoralThesis', 'page');
+    VuFindPiwikTracker.setCustomVariable(2, 'RecordData', 'UFPE_2d33854954818a1e85ab9a2681946052&#x7C;VALE,&#x20;K&#xE1;dna&#x20;Maria&#x20;Alves&#x20;Camboim&#x7C;Analysis&#x20;of&#x20;dependability&#x20;and&#x20;sustainability&#x20;requirements&#x20;to&#x20;support&#x20;the&#x20;deployment&#x20;of&#x20;dense&#x20;data&#x20;center&#x20;architectures', 'page');
+    VuFindPiwikTracker.setCustomVariable(3, 'RecordInstitution', 'UFPE', 'page');
+    VuFindPiwikTracker.trackPageView();
+    VuFindPiwikTracker.enableLinkTracking();
+};
+(function(){
+    if (typeof Piwik === 'undefined') {
+        var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.defer=true; g.async=true;
+        g.src='https://matomo.lareferencia.info/piwik.js';
+        g.onload=initVuFindPiwikTracker1762802582478;
+        s.parentNode.insertBefore(g,s);
+    } else {
+        initVuFindPiwikTracker1762802582478();
+    }
+})();
+    //-->
+</script>      <script  src="https&#x3A;&#x2F;&#x2F;www.google.com&#x2F;recaptcha&#x2F;api.js&#x3F;onload&#x3D;recaptchaOnLoad&amp;render&#x3D;explicit&amp;hl&#x3D;pt-br" nonce="nEX5&#x2F;diYkZhpIxA3XwS380alCGij3PNQKPsEE4gfDqs&#x3D;"></script>  
+  <div class="translateBtn">
+    <div>
+      <a class="toggle-me" tooltipbtn="Traduzir página">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 998.1 998.3" xml:space="preserve">
+          <path fill="#DBDBDB" d="M931.7 998.3c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4H283.6l260.1 797.9h388z" />
+          <path fill="#DCDCDC" d="M931.7 230.4c9.7 0 18.9 3.8 25.8 10.6 6.8 6.7 10.6 15.5 10.6 24.8v667.1c0 9.3-3.7 18.1-10.6 24.8-6.9 6.8-16.1 10.6-25.8 10.6H565.5L324.9 230.4h606.8m0-30H283.6l260.1 797.9h388c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4z" />
+          <polygon fill="#4352B8" points="482.3,809.8 543.7,998.3 714.4,809.8" />
+          <path fill="#607988" d="M936.1 476.1V437H747.6v-63.2h-61.2V437H566.1v39.1h239.4c-12.8 45.1-41.1 87.7-68.7 120.8-48.9-57.9-49.1-76.7-49.1-76.7h-50.8s2.1 28.2 70.7 108.6c-22.3 22.8-39.2 36.3-39.2 36.3l15.6 48.8s23.6-20.3 53.1-51.6c29.6 32.1 67.8 70.7 117.2 116.7l32.1-32.1c-52.9-48-91.7-86.1-120.2-116.7 38.2-45.2 77-102.1 85.2-154.2H936v.1z" />
+          <path fill="#4285F4" d="M66.4 0C29.9 0 0 29.9 0 66.5v677c0 36.5 29.9 66.4 66.4 66.4h648.1L454.4 0h-388z" />
+          <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="534.3" y1="433.2" x2="998.1" y2="433.2">
+            <stop offset="0" stop-color="#fff" stop-opacity=".2" />
+            <stop offset="1" stop-color="#fff" stop-opacity=".02" />
+          </linearGradient>
+          <path fill="url(#a)" d="M534.3 200.4h397.4c36.5 0 66.4 29.4 66.4 65.4V666L534.3 200.4z" />
+          <path fill="#EEEEEE" d="M371.4 430.6c-2.5 30.3-28.4 75.2-91.1 75.2-54.3 0-98.3-44.9-98.3-100.2s44-100.2 98.3-100.2c30.9 0 51.5 13.4 63.3 24.3l41.2-39.6c-27.1-25-62.4-40.6-104.5-40.6-86.1 0-156 69.9-156 156s69.9 156 156 156c90.2 0 149.8-63.3 149.8-152.6 0-12.8-1.6-22.2-3.7-31.8h-146v53.4l91 .1z" />
+          <radialGradient id="b" cx="65.208" cy="19.366" r="1398.271" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff" stop-opacity=".1" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+          </radialGradient>
+          <path fill="url(#b)" d="M931.7 200.4H518.8L454.4 0h-388C29.9 0 0 29.9 0 66.5v677c0 36.5 29.9 66.4 66.4 66.4h415.9l61.4 188.4h388c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4z" />
+        </svg>
+      </a>
+    </div>
+    <div id="google_translate_element"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt'
+      }, 'google_translate_element');
+    }
+  </script>
+  <script>
+    jQuery('.toggle-me').click(function() {
+      jQuery('.translateBtn').toggleClass('active');
+    });
+  </script>
+  <script async type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Plugin de acessibilidade user way -->
+  <script src="https://cdn.userway.org/widget.js" data-account="gxYK4Xrqhn"></script>
+
+</body>
+
+</html>

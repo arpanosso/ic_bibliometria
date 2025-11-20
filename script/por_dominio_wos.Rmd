@@ -1,0 +1,36 @@
+---
+title: "Untitled"
+author: "Rodrigo Perim"
+date: "2025-11-11"
+output: html_document
+---
+
+```{r}
+# Instale se ainda não tiver:
+# install.packages("RSelenium")
+
+library(RSelenium)
+library(rvest)
+library(dplyr)
+library(stringr)
+
+# ⚠️ Variáveis de Credenciais (PREENCHA COM SEUS DADOS)
+USUARIO_CAPES <- "rodrigo.perim@unesp.br"
+SENHA_CAPES <- "Santos04@@@@"
+```
+
+
+```{r}
+# ⚠️ Opção A (Recomendada - via Docker):
+# 1. Instale o Docker Desktop.
+# 2. No terminal, inicie o container: docker run -d -p 4445:4444 selenium/standalone-chrome
+# 3. Use o comando R:
+remDr <- remoteDriver(remoteServerAddr = "localhost", port = 4445L, browserName = "chrome")
+
+
+```
+
+```{r}
+remDr$open() # Abre o navegador
+```
+

@@ -1,0 +1,298 @@
+---
+title: "Untitled"
+author: "Rodrigo Perim"
+date: "2025-11-11"
+output: html_document
+---
+
+
+```{r}
+library(rvest)
+library(dplyr)
+library(stringr)
+library(httr)
+library(writexl)
+library(readxl)
+```
+
+
+```{r}
+url_pagina <- "https://sucupira-legado.capes.gov.br/sucupira/public/consultas/coleta/trabalhoConclusao/viewTrabalhoConclusao.jsf?popup=true&id_trabalho=13062696"
+
+# Tenta simular um navegador para evitar bloqueios HTTP 403
+resposta <- GET(
+  url_pagina, 
+  user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+)
+
+if (http_status(resposta)$category != "Success") {
+  stop("Erro na conexão HTTP: ", http_status(resposta)$reason)
+}
+
+pagina_html <- read_html(resposta)
+```
+
+```{r}
+
+texto_pagina <- pagina_html %>%
+  html_text()
+
+
+linhas <- str_split(texto_pagina, "\n")[[1]]
+
+
+
+linhas_completas <- linhas %>%
+  str_trim() %>% 
+
+  str_subset("^$|^\\s*$", negate = TRUE) 
+
+
+
+dados_brutos <- data.frame(
+  Texto_Completo = linhas_completas,
+  stringsAsFactors = FALSE
+)
+
+#resultado
+cat("--- Amostra do Conteúdo Bruto Extraído ---\n")
+print(head(dados_brutos, 20))
+cat(paste0("\nTotal de linhas (itens) extraídas: ", nrow(dados_brutos), "\n"))
+```
+```{r}
+
+write.csv(
+  dados_brutos,
+  "conteudo_completo_bruto.csv",
+  row.names = FALSE,
+  fileEncoding = "UTF-8" 
+)
+
+cat("\nArquivo 'conteudo_completo_bruto.csv' salvo com sucesso.\n")
+```
+
+```{r}
+
+vetor_texto <- dados_brutos$Texto_Completo
+```
+
+```{r}
+
+indice_palavras_chave <- which(str_detect(vetor_texto, regex("palavras-chave:", ignore_case = TRUE)))
+
+if (length(indice_palavras_chave) > 0) {
+  # 2. Selecionar o conteúdo na linha seguinte (índice + 1)
+  indice_conteudo <- indice_palavras_chave[1] + 1
+  
+  if (indice_conteudo <= length(vetor_texto)) {
+    conteudo_palavras_chave <- vetor_texto[indice_conteudo]
+    cat("Conteúdo de Palavras-Chave (Linha Seguinte):\n")
+    print(conteudo_palavras_chave)
+  } else {
+    conteudo_palavras_chave <- "Conteúdo não encontrado após 'palavras-chave:' (fim do arquivo)"
+    print(conteudo_palavras_chave)
+  }
+} else {
+  conteudo_palavras_chave <- "Palavra-chave 'palavras-chave:' não encontrada."
+  print(conteudo_palavras_chave)
+}
+
+cat("\n-----------------------------------------\n")
+
+# 1. Encontrar o ÍNDICE da linha que contém "de Ensino Superior:"
+indice_ensino_superior <- which(str_detect(vetor_texto, regex("de Ensino Superior:", ignore_case = TRUE)))
+
+if (length(indice_ensino_superior) > 0) {
+  # 2. Selecionar o conteúdo na linha seguinte (índice + 1)
+  indice_conteudo <- indice_ensino_superior[1] + 1
+  
+  if (indice_conteudo <= length(vetor_texto)) {
+    conteudo_ensino_superior <- vetor_texto[indice_conteudo]
+    cat("Conteúdo de Ensino Superior (Linha Seguinte):\n")
+    print(conteudo_ensino_superior)
+  } else {
+    conteudo_ensino_superior <- "Conteúdo não encontrado após 'de Ensino Superior:' (fim do arquivo)"
+    print(conteudo_ensino_superior)
+  }
+} else {
+  conteudo_ensino_superior <- "Palavra-chave 'de Ensino Superior:' não encontrada."
+  print(conteudo_ensino_superior)
+}
+
+cat("\n-----------------------------------------\n")
+
+# 1. Encontrar o ÍNDICE da linha que contém "Aluno:"
+indice_autor <- which(str_detect(vetor_texto, regex("Autor:", ignore_case = TRUE)))
+
+if (length(indice_autor) > 0) {
+  # 2. Selecionar o conteúdo na linha seguinte (índice + 1)
+  indice_conteudo_autor <- indice_autor[1] + 1
+  
+  if (indice_conteudo_autor <= length(vetor_texto)) {
+    # DEFINE conteudo_autor
+    conteudo_autor <- str_trim(vetor_texto[indice_conteudo_autor])
+    cat("Conteúdo de Autor (Linha Seguinte):\n")
+    print(conteudo_autor)
+  } else {
+    conteudo_autor <- "Conteúdo do Autor não encontrado (fim do arquivo)"
+    print(conteudo_autor)
+  }
+} else {
+  conteudo_autor <- "Palavra-chave 'Aluno:' não encontrada."
+  print(conteudo_autor)
+}
+
+cat("\n-----------------------------------------\n")
+
+# --- Extração do Ano de Defesa ---
+# 1. Encontrar o ÍNDICE da linha que contém "Ano de Defesa:"
+indice_defesa <- which(str_detect(vetor_texto, regex("Defesa:", ignore_case = TRUE)))
+
+if (length(indice_defesa) > 0) {
+  # 2. Selecionar o conteúdo na linha seguinte (índice + 1)
+  indice_conteudo_defesa <- indice_defesa[1] + 1
+  
+  if (indice_conteudo_defesa <= length(vetor_texto)) {
+    # DEFINE conteudo_defesa
+    conteudo_defesa <- str_trim(vetor_texto[indice_conteudo_defesa])
+    cat("Conteúdo do Ano de Defesa (Linha Seguinte):\n")
+    print(conteudo_defesa)
+  } else {
+    conteudo_defesa <- "Conteúdo do Ano de Defesa não encontrado (fim do arquivo)"
+    print(conteudo_defesa)
+  }
+} else {
+  conteudo_defesa <- "Palavra-chave 'Ano de Defesa:' não encontrada."
+  print(conteudo_defesa)
+}
+
+cat("\n-----------------------------------------\n")
+```
+
+```{r}
+
+#Cria um data frame 
+dados_consolidado <- data.frame(
+  Autor = conteudo_autor,
+  Defesa = conteudo_defesa,
+  Palavras_Chave = conteudo_palavras_chave,
+  Ensino_Superior = conteudo_ensino_superior,
+  stringsAsFactors = FALSE
+)
+
+cat("Estrutura do Data Frame Final:\n")
+print(dados_consolidado)
+
+# Exporta o data frame
+nome_arquivo <- "extracao_metadados_consolidada.xlsx"
+
+write_xlsx(dados_consolidado, nome_arquivo)
+
+cat("\n-----------------------------------------\n")
+cat(paste0("O arquivo '", nome_arquivo, "' foi salvo.\n"))
+cat("Você pode encontrá-lo no seu diretório de trabalho: ")
+print(getwd())
+```
+
+
+```{r}
+
+caminho_excel <- "../data_raw/sucupira.xlsx"
+
+nome_coluna_url <- "link" # Exemplo: Se o cabeçalho for 'Link'
+
+lista_de_urls_df <- read_excel(caminho_excel)
+
+# Extrai o vetor de URLs
+vetor_urls <- lista_de_urls_df %>%
+  pull(!!sym(nome_coluna_url))
+```
+
+
+```{r}
+resultados_por_link <- list()
+
+for (i in 1:length(vetor_urls)) {
+  url_atual <- vetor_urls[i]
+  
+  cat(paste0("Processando link ", i, " de ", length(vetor_urls), ": ", url_atual, "...\n"))
+  
+  tryCatch({
+    resposta <- GET(
+      url_atual, 
+      user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"),
+      timeout(30) 
+    )
+    
+    if (http_status(resposta)$category != "Success") {
+      stop("Erro HTTP: ", http_status(resposta)$reason)
+    }
+    
+    pagina_html <- read_html(resposta)
+    
+    texto_pagina <- pagina_html %>% html_text()
+    linhas <- str_split(texto_pagina, "\n")[[1]]
+    
+    vetor_texto <- linhas %>%
+      str_trim() %>% 
+      str_subset("^$|^\\s*$", negate = TRUE)
+      
+    extrair_proximo_conteudo <- function(palavra_chave) {
+      indice <- which(str_detect(vetor_texto, regex(palavra_chave, ignore_case = TRUE)))
+      
+      if (length(indice) > 0) {
+        indice_conteudo <- indice[1] + 1
+        
+        if (indice_conteudo <= length(vetor_texto)) {
+          return(vetor_texto[indice_conteudo])
+        }
+      }
+      return(NA_character_) 
+    }
+    autor <- extrair_proximo_conteudo("autor:")
+    defesa <- extrair_proximo_conteudo("defesa:")
+    palavras_chave <- extrair_proximo_conteudo("palavras-chave:")
+    ensino_superior <- extrair_proximo_conteudo("de Ensino Superior:")
+    
+    resultado_parcial <- data.frame(
+      URL_Fonte = url_atual,
+      Autor = autor,
+      Defesa = defesa,
+      Palavras_Chave = palavras_chave,
+      Ensino_Superior = ensino_superior,
+      Status = "Sucesso",
+      stringsAsFactors = FALSE
+    )
+    
+  }, error = function(e) {
+    message("Erro ao processar URL ", url_atual, ": ", e$message)
+    resultado_parcial <- data.frame(
+      URL_Fonte = url_atual,
+      Autor = NA_character_,
+      Defesa = NA_character_,
+      Palavras_Chave = NA_character_,
+      Ensino_Superior = NA_character_,
+      Status = paste("ERRO:", e$message),
+      stringsAsFactors = FALSE
+    )
+  })
+  
+  resultados_por_link[[i]] <- resultado_parcial
+}
+
+dados_finais_consolidados <- bind_rows(resultados_por_link)
+
+cat("\n-----------------------------------------\n")
+cat(paste0("✅ Processamento concluído. Total de linhas extraídas: ", nrow(dados_finais_consolidados), "\n"))
+```
+```{r}
+nome_arquivo_saida <- "extracao_automatizada_consolidada.xlsx"
+
+write_xlsx(dados_finais_consolidados, nome_arquivo_saida)
+
+cat(paste0("🥳 Sucesso! O arquivo '", nome_arquivo_saida, "' foi salvo.\n"))
+cat("Você pode encontrá-lo no seu diretório de trabalho: ")
+print(getwd())
+
+```
+

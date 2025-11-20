@@ -1,0 +1,939 @@
+<!DOCTYPE html><html lang="pt-br" >
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="google-site-verification" content="O4MlrfmxB744id4GdcKmv79sPQNLIjWzEB_VV9o1byw" />
+  <meta http-equiv="Content-Type" content="text&#x2F;html&#x3B;&#x20;charset&#x3D;UTF-8">
+<meta name="DC.creator" content="VERONICA&#x20;DA&#x20;ROCHA&#x20;WEAVER">
+<meta name="DC.issued" content="2021">
+<meta name="DC.language" content="eng">
+<meta name="DC.title" content="&#x5B;pt&#x5D;&#x20;MODELAGEM&#x20;DE&#x20;UM&#x20;CIRCUITO&#x20;DE&#x20;TERMOSSIF&#xC3;O&#x20;DE&#x20;BAIXO&#x20;IMPACTO&#x20;AMBIENTAL&#x20;COM&#x20;APLICA&#xC7;&#xC3;O&#x20;EM&#x20;RESFRIAMENTO&#x20;DE&#x20;ELETR&#xD4;NICOS">
+<meta name="DC.description" content="&#x5B;pt&#x5D;&#x20;Diante&#x20;dos&#x20;constantes&#x20;avan&#xE7;os&#x20;da&#x20;tecnologia&#x20;os&#x20;dispositivos&#x20;eletr&#xF4;nicos&#x20;v&#xEA;m&#x20;passando&#x20;por&#x20;um&#x20;processo&#x20;de&#x20;miniaturiza&#xE7;&#xE3;o,&#x20;ao&#x20;mesmo&#x20;tempo&#x20;em&#x20;que&#x20;sustentam&#x20;um&#x20;aumento&#x20;de&#x20;pot&#xEA;ncia.&#x20;Essa&#x20;tend&#xEA;ncia&#x20;se&#x20;mostra&#x20;um&#x20;desafio&#x20;para&#x20;seu&#x20;gerenciamento&#x20;t&#xE9;rmico,&#x20;uma&#x20;vez&#x20;que&#x20;os&#x20;sistemas&#x20;de&#x20;resfriamento&#x20;t&#xED;picos&#x20;para&#x20;eletr&#xF4;nicos&#x20;utilizam&#x20;ar&#x20;como&#x20;fluido&#x20;de&#x20;trabalho,&#x20;e&#x20;o&#x20;seu&#x20;baixo&#x20;coeficiente&#x20;de&#x20;transfer&#xEA;ncia&#x20;de&#x20;calor&#x20;limita&#x20;sua&#x20;capacidade&#x20;de&#x20;atender&#x20;&#xE0;s&#x20;necessidades&#x20;t&#xE9;rmicas&#x20;da&#x20;ind&#xFA;stria&#x20;atual.&#x20;Nesse&#x20;sentido,&#x20;o&#x20;resfriamento&#x20;bif&#xE1;sico&#x20;tem&#x20;sido&#x20;considerado&#x20;uma&#x20;solu&#xE7;&#xE3;o&#x20;promissora&#x20;para&#x20;fornecer&#x20;resfriamento&#x20;adequado&#x20;para&#x20;dispositivos&#x20;eletr&#xF4;nicos.&#x20;Circuitos&#x20;de&#x20;termossif&#xE3;o&#x20;bif&#xE1;sico&#x20;combinam&#x20;a&#x20;tecnologia&#x20;de&#x20;resfriamento&#x20;bif&#xE1;sico&#x20;com&#x20;sua&#x20;inerente&#x20;natureza&#x20;passiva,&#x20;j&#xE1;&#x20;que&#x20;o&#x20;sistema&#x20;n&#xE3;o&#x20;requer&#x20;uma&#x20;bomba&#x20;para&#x20;fornecer&#x20;circula&#xE7;&#xE3;o&#x20;para&#x20;seu&#x20;fluido&#x20;de&#x20;trabalho,&#x20;gra&#xE7;as&#x20;&#xE0;s&#x20;for&#xE7;as&#x20;da&#x20;gravidade&#x20;e&#x20;de&#x20;empuxo.&#x20;Um&#x20;dissipador&#x20;de&#x20;calor&#x20;de&#x20;microcanais,&#x20;localizado&#x20;bem&#x20;em&#x20;cima&#x20;do&#x20;dispositivo&#x20;eletr&#xF4;nico,&#x20;dissipa&#x20;o&#x20;calor&#x20;gerado.&#x20;Isto&#x20;o&#x20;torna&#x20;uma&#x20;solu&#xE7;&#xE3;o&#x20;de&#x20;baixo&#x20;custo&#x20;e&#x20;energia.&#x20;Al&#xE9;m&#x20;disso,&#x20;ter&#x20;um&#x20;circuito&#x20;de&#x20;termossif&#xE3;o&#x20;operando&#x20;com&#x20;um&#x20;refrigerante&#x20;de&#x20;baixo&#x20;GWP,&#x20;como&#x20;o&#x20;R-1234yf,&#x20;resulta&#x20;em&#x20;baixo&#x20;impacto&#x20;para&#x20;o&#x20;meio&#x20;ambiente,&#x20;uma&#x20;vez&#x20;que&#x20;&#xE9;&#x20;um&#x20;refrigerante&#x20;ecologicamente&#x20;correto&#x20;e&#x20;o&#x20;sistema&#x20;tem&#x20;baixo&#x20;ou&#x20;nenhum&#x20;consumo&#x20;de&#x20;energia.&#x20;Este&#x20;trabalho&#x20;fornece&#x20;um&#x20;modelo&#x20;num&#xE9;rico&#x20;detalhado&#x20;para&#x20;a&#x20;simula&#xE7;&#xE3;o&#x20;de&#x20;um&#x20;circuito&#x20;de&#x20;termossif&#xE3;o&#x20;bif&#xE1;sico,&#x20;operando&#x20;em&#x20;condi&#xE7;&#xF5;es&#x20;de&#x20;regime&#x20;permanente.&#x20;O&#x20;circuito&#x20;compreende&#x20;um&#x20;evaporador&#x20;&#x28;chip&#x20;e&#x20;dissipador&#x20;de&#x20;calor&#x20;de&#x20;micro-aletas&#x29;,&#x20;um&#x20;riser,&#x20;um&#x20;condensador&#x20;refrigerado&#x20;a&#x20;&#xE1;gua&#x20;de&#x20;tubo&#x20;duplo&#x20;e&#x20;um&#x20;downcomer.&#x20;Equa&#xE7;&#xF5;es&#x20;fundamentais&#x20;e&#x20;constitutivas&#x20;foram&#x20;estabelecidas&#x20;para&#x20;cada&#x20;componente.&#x20;Um&#x20;m&#xE9;todo&#x20;num&#xE9;rico&#x20;de&#x20;diferen&#xE7;as&#x20;finitas,&#x20;1-D&#x20;para&#x20;o&#x20;escoamento&#x20;do&#x20;fluido&#x20;por&#x20;todos&#x20;os&#x20;componentes&#x20;do&#x20;sistema,&#x20;e&#x20;2-D&#x20;para&#x20;a&#x20;condu&#xE7;&#xE3;o&#x20;de&#x20;calor&#x20;no&#x20;chip&#x20;e&#x20;evaporador&#x20;foi&#x20;empregado.&#x20;O&#x20;modelo&#x20;foi&#x20;validado&#x20;com&#x20;dados&#x20;experimentais&#x20;para&#x20;o&#x20;refrigerante&#x20;R134a,&#x20;mostrando&#x20;uma&#x20;discrep&#xE2;ncia&#x20;em&#x20;rela&#xE7;&#xE3;o&#x20;ao&#x20;fluxo&#x20;de&#x20;massa&#x20;em&#x20;torno&#x20;de&#x20;6&#x20;por&#x20;cento,&#x20;para&#x20;quando&#x20;o&#x20;sistema&#x20;operava&#x20;sob&#x20;regime&#x20;dominado&#x20;pela&#x20;gravidade.&#x20;A&#x20;press&#xE3;o&#x20;de&#x20;entrada&#x20;do&#x20;evaporador&#x20;prevista&#x20;apresentou&#x20;um&#x20;erro&#x20;relativo&#x20;m&#xE1;ximo&#x20;de&#x20;4,8&#x20;por&#x20;cento&#x20;quando&#x20;comparada&#x20;aos&#x20;resultados&#x20;experimentais.&#x20;Al&#xE9;m&#x20;disso,&#x20;a&#x20;maior&#x20;discrep&#xE2;ncia&#x20;da&#x20;temperatura&#x20;do&#x20;chip&#x20;foi&#x20;inferior&#x20;a&#x20;1&#x20;grau&#x20;C.&#x20;Simula&#xE7;&#xF5;es&#x20;foram&#x20;realizadas&#x20;para&#x20;apresentar&#x20;uma&#x20;compara&#xE7;&#xE3;o&#x20;de&#x20;desempenho&#x20;entre&#x20;o&#x20;R134a&#x20;e&#x20;seu&#x20;substituto&#x20;ecologicamente&#x20;correto,&#x20;R1234yf.&#x20;Os&#x20;resultados&#x20;mostraram&#x20;que&#x20;quando&#x20;o&#x20;sistema&#x20;operava&#x20;com&#x20;R134a,&#x20;ele&#x20;trabalhava&#x20;com&#x20;uma&#x20;press&#xE3;o&#x20;de&#x20;entrada&#x20;no&#x20;evaporador&#x20;mais&#x20;alta,&#x20;assim&#x20;como,&#x20;com&#x20;um&#x20;fluxo&#x20;de&#x20;massa&#x20;mais&#x20;alto.&#x20;Por&#x20;causa&#x20;disso,&#x20;o&#x20;R134a&#x20;foi&#x20;capaz&#x20;de&#x20;manter&#x20;a&#x20;temperatura&#x20;do&#x20;chip&#x20;mais&#x20;baixa&#x20;do&#x20;que&#x20;o&#x20;R1234yf.&#x20;No&#x20;entanto,&#x20;essa&#x20;diferen&#xE7;a&#x20;na&#x20;temperatura&#x20;do&#x20;chip&#x20;foi&#x20;levemente&#x20;inferior&#x20;a&#x20;1&#x20;grau&#x20;C,&#x20;mostrando&#x20;o&#x20;R1234yf&#x20;como&#x20;compar&#xE1;vel&#x20;em&#x20;desempenho&#x20;ao&#x20;R134a.&#x20;Al&#xE9;m&#x20;disso,&#x20;o&#x20;fator&#x20;de&#x20;seguran&#xE7;a&#x20;da&#x20;opera&#xE7;&#xE3;o&#x20;do&#x20;sistema&#x20;foi&#x20;avaliado&#x20;para&#x20;ambos&#x20;os&#x20;refrigerantes,&#x20;e&#x20;para&#x20;um&#x20;fluxo&#x20;de&#x20;calor&#x20;m&#xE1;ximo&#x20;do&#x20;chip&#x20;de&#x20;33,1&#x20;W&#x2F;cm2,&#x20;R1234yf&#x20;mostrou&#x20;um&#x20;fator&#x20;de&#x20;seguran&#xE7;a&#x20;acima&#x20;de&#x20;3.&#x20;Isso&#x20;significa&#x20;que&#x20;o&#x20;circuito&#x20;de&#x20;termossif&#xE3;o&#x20;pode&#x20;operar&#x20;com&#x20;seguran&#xE7;a&#x20;abaixo&#x20;do&#x20;ponto&#x20;cr&#xED;tico&#x20;de&#x20;fluxo&#x20;de&#x20;calor.&#x20;Dada&#x20;a&#x20;investiga&#xE7;&#xE3;o&#x20;sobre&#x20;a&#x20;compara&#xE7;&#xE3;o&#x20;de&#x20;desempenho&#x20;dos&#x20;refrigerantes&#x20;R134a&#x20;e&#x20;R1234yf,&#x20;os&#x20;resultados&#x20;apontaram&#x20;o&#x20;R1234yf&#x20;como&#x20;um&#x20;excelente&#x20;substituto&#x20;ecologicamente&#x20;correto&#x20;para&#x20;o&#x20;R134a,&#x20;para&#x20;opera&#xE7;&#xE3;o&#x20;em&#x20;um&#x20;circuito&#x20;de&#x20;termossif&#xE3;o&#x20;bif&#xE1;sico.">
+<meta name="citation_author" content="VERONICA&#x20;DA&#x20;ROCHA&#x20;WEAVER">
+<meta name="citation_date" content="2021">
+<meta name="citation_language" content="eng">
+<meta name="citation_title" content="&#x5B;pt&#x5D;&#x20;MODELAGEM&#x20;DE&#x20;UM&#x20;CIRCUITO&#x20;DE&#x20;TERMOSSIF&#xC3;O&#x20;DE&#x20;BAIXO&#x20;IMPACTO&#x20;AMBIENTAL&#x20;COM&#x20;APLICA&#xC7;&#xC3;O&#x20;EM&#x20;RESFRIAMENTO&#x20;DE&#x20;ELETR&#xD4;NICOS">
+<meta name="Generator" content="VuFind&#x20;7.1.1">  <title>Metadados do item: [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS</title>    <!-- RTL styling -->
+    <link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;compiled.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;print.css&#x3F;_&#x3D;1703767367" media="print" rel="stylesheet" type="text&#x2F;css">
+<!--[if lt IE 10]><link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;flex-fallback.css&#x3F;_&#x3D;1703767367" media="" rel="stylesheet" type="text&#x2F;css"><![endif]-->
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;style.css&#x3F;_&#x3D;1731068447" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;custom.css&#x3F;_&#x3D;1761139766" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;datatables.min.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;dataTables.bootstrap.min.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;images&#x2F;icons&#x2F;favicon.ico&#x3F;_&#x3D;1703767367" rel="shortcut&#x20;icon" type="image&#x2F;x-icon">
+<link href="&#x2F;vufind&#x2F;Search&#x2F;OpenSearch&#x3F;method&#x3D;describe" rel="search" type="application&#x2F;opensearchdescription&#x2B;xml" title="Busca&#x20;no&#x20;Cat&#xE1;logo&#x20;da&#x20;Biblioteca">    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script  nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;">
+    //<!--
+    var userIsLoggedIn = false;
+    //-->
+</script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;jquery.min.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;bootstrap.min.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;bootstrap-accessibility.min.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;validator.min.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lib&#x2F;form-attr-polyfill.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lib&#x2F;autocomplete.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;common.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lightbox.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;languages.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;format.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;base.js&#x3F;_&#x3D;1704812434" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;lib&#x2F;axios.min.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;record.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;check_save_statuses.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;open-close-tab.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;account_ajax.js&#x3F;_&#x3D;1703767367" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>
+<script  nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;">
+    //<!--
+    VuFind.path = '/vufind';
+VuFind.defaultSearchBackend = 'Solr';
+VuFind.addTranslations({"add_tag_success": "Tags guardadas","bulk_email_success": "O(s) item(ns) foram enviados por e-mail","bulk_noitems_advice": "Nenhum item foi selecionado. Por favor, clique na caixa de seleção ao lado de um item e tente novamente.","bulk_save_success": "O(s) registro(s) foram salvos com sucesso","close": "fechar","collection_empty": "Não há registros para mostrar.","eol_ellipsis": "…","error_occurred": "Erro na aplicação.","go_to_list": "Ir para a lista","hold_available": "Disponível para levantamento","libphonenumber_invalid": "Número de telefone inválido","libphonenumber_invalidcountry": "Código telefônico de país inválido","libphonenumber_invalidregion": "Código de região inválido (DDD):","libphonenumber_notanumber": "A informação fornecida não se assemelha a um número telefônico","libphonenumber_toolong": "A informação fornecida é muito longa para ser um número telefônico","libphonenumber_tooshort": "A informação fornecida é muito curta para ser um número telefônico","libphonenumber_tooshortidd": "O número telefônico é muito curto depois do DDI","loading": "Carregando","more": "Mais","number_thousands_separator": ".","sms_success": "Mensagem enviada.","Phone number invalid": "Número de telefone inválido","Invalid country calling code": "Código telefônico de país inválido","Invalid region code": "Código de região inválido (DDD):","The string supplied did not seem to be a phone number": "A informação fornecida não se assemelha a um número telefônico","The string supplied is too long to be a phone number": "A informação fornecida é muito longa para ser um número telefônico","The string supplied is too short to be a phone number": "A informação fornecida é muito curta para ser um número telefônico","Phone number too short after IDD": "O número telefônico é muito curto depois do DDI","account_checkouts_due": "Itens com vencimento próximo","account_checkouts_overdue": "Itens vencidos","account_has_alerts": "Sua conta tem alertas","account_normal_checkouts": "Itens emprestados","account_requests_available": "Disponível para levantamento","account_requests_in_transit": "Em trânsito para Coletar Localização"});
+    //-->
+</script>  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDE70XCBE2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDE70XCBE2');
+  </script>
+</head>
+
+<body class="template-dir-record template-name-view ">
+    <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+    <ul id="menu-barra-temp" style="list-style:none;">
+      <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+        <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do
+          Governo Brasileiro</a>
+      </li>
+    </ul>s
+  </div>
+  <header class="navbar">
+        <a class="sr-only" href="#content">Pular para o conteúdo</a>
+    <div class="container">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-collapse">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <a class="logo-bdtd lang-pt-br" href="/vufind/">
+    <img class="logo-img" src="/vufind/themes/bdtd/images/logo.png?_=1703767367" alt="Logo da BDTD" />
+  </a>
+      <div class="collapse navbar-collapse" id="header-collapse">
+      <nav class="nav-main">
+        <ul role="navigation" class="nav navbar-nav flip">
+          <li>
+            <a href="/vufind/"><i class="uil uil-home"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Institucional</a>
+            <ul class="dropdown-menu">
+              <li class="">
+                <a href="/vufind/about/home">Sobre</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Participate/Home">Como participa</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Diretrizes/Home">Diretrizes</a>
+              </li>
+              <li class="">
+                <a href="/vufind/indicators/home">Indicadores</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Rede</a>
+            <ul class="dropdown-menu network-menu">
+              <li class="">
+                <a href="/vufind/datasources/home">Instituições participantes</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Technology/Home">Tecnologia</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/vufind/faq/home">Dúvidas frequentes</a>
+          </li>
+                      <li>
+              <a id="feedbackLink" data-lightbox href="/vufind/Feedback/Home">Contato</a>
+            </li>
+          
+                                <li class="logoutOptions hidden">
+              <a href="/vufind/MyResearch/Home?redirect=0"><i id="account-icon" class="fa fa-user-circle" aria-hidden="true"></i> A sua conta</a>
+            </li>
+                        <li class="logoutOptions hidden">
+              <a href="/vufind/MyResearch/Logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a>
+            </li>
+            <li id="loginOptions" class="hidden" >
+                              <a href="/vufind/MyResearch/UserLogin" data-lightbox><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a>
+                          </li>
+          
+          
+          </ul>
+      </nav>
+    </div>
+    <a class="logo-ibict" href="https://www.gov.br/ibict">
+      <img class="logo-img" src="/vufind/themes/bdtd/images/ibict.png?_=1703767367" alt="Logo do Ibict" />
+    </a>
+  </div>  </header>
+      <div class="searchHomeContent">
+      <div class="search container navbar">
+        <nav class="nav searchbox hidden-print">
+            <form id="searchForm" method="get" action="/vufind/Search/Results" name="searchForm" autocomplete="off">
+            <div class="search-form">
+      <input data-search placeholder="Pesquise por teses e dissertações" id="searchForm_lookfor" class="search-input search-query 
+        autocomplete searcher:Solr         ac-auto-submit        " type="text" name="lookfor" value=""  aria-label="Termos&#x20;de&#x20;pesquisa" />
+
+              <select id="searchForm_type" class="searchForm_type form-control" name="type" data-native-menu="false" aria-label="Search&#x20;type">
+                                            <option value="AllFields" >Todos os campos</option>
+                                  <option value="Title" >Título</option>
+                                  <option value="year" >Ano da publicação</option>
+                                  <option value="Author" >Autor</option>
+                                  <option value="Subject" >Assunto</option>
+                                  <option value="Abstract" >Resumo</option>
+                            </select>
+      
+      <button type="submit" class="btn contained-primary">
+        Buscar</button>
+              <a href="/vufind/Search/Advanced" class="btn outlined-primary" rel="nofollow">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i> Busca avançada        </a>
+            
+                              
+    </div>
+  </form>
+        </nav>
+      </div>
+    </div>
+    <nav class="breadcrumbs" aria-label="Trilhas&#x20;de&#x20;Navega&#xE7;&#xE3;o">
+    <div class="container">
+              <ul class="breadcrumb hidden-print">
+                      <li class="active" aria-current="page"><a href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c">[pt] MODELAGEM DE UM CIRCUITO...</a></li> <li class="">Metadados do item</li>                  </ul>
+          </div>
+  </nav>
+  <div role="main" class="main">
+    <div id="content" class="container">
+      
+
+<nav class="record-nav">
+  <ul class="action-toolbar" aria-label="Ferramentas">
+          <li role="none"><a class="cite-record toolbar-btn btn-type-cite" data-lightbox href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Cite" rel="nofollow">Citar</a></li>
+    
+    
+    <!-- <li role="none"><a class="mail-record toolbar-btn btn-type-email" data-lightbox href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Email" rel="nofollow">Enviar por e-mail</a></li> -->
+
+    <li><a class="print-record toolbar-btn btn-type-print" href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c?print=1" rel="nofollow">Imprimir</a></li>
+
+              <li role="none" class="dropdown">
+        <a class="export-toggle toolbar-btn btn-type-export dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Export" rel="nofollow" aria-expanded="false" aria-controls="export-options">Exportar registro</a>
+        <ul class="dropdown-menu" id="export-options" role="menu">
+                      <li role="none"><a href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Export?style=RefWorks" rel="nofollow" role="menuitem">Exportar para RefWorks</a></li>
+                      <li role="none"><a target="EndNoteWebMain" href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Export?style=EndNoteWeb" rel="nofollow" role="menuitem">Exportar para EndNoteWeb</a></li>
+                      <li role="none"><a href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Export?style=EndNote" rel="nofollow" role="menuitem">Exportar para EndNote</a></li>
+                  </ul>
+      </li>
+    
+              </ul>
+</nav>
+<div class="record sourceSolr">
+    <div class="mainbody right">
+    <input type="hidden" value="PUC_RIO-1_b43b785eae71411439a85bea6984ee0c" class="hiddenId" />
+    <input type="hidden" value="Solr" class="hiddenSource" />
+        <div class="media" vocab="http://schema.org/" resource="#record" typeof="CreativeWork Product">
+      <div class="media-body">
+
+    <h1 property="name">[pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS</h1>
+
+    
+              
+    <!-- ocultar resumo abaixo do titulo
+               <p>[pt] Diante dos constantes avanços da tecnologia os dispositivos eletrônicos vêm passando por um processo de miniaturização, ao mesmo tempo em que sustentam um aumento de potência. Essa tendência se mostra um desafio para seu gerenciamento térmico, uma vez que os sistemas de resfriamento típicos par...</p>
+
+          <p><a href='/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Description#tabnav'>ver descrição completa</a></p>
+       -->
+
+    
+                  <table class="table table-striped">
+        <caption class="sr-only">Detalhes bibliográficos</caption>
+                  <tr>
+            <th>Ano de defesa:</th>
+            <td>2021</td>
+          </tr>
+                  <tr>
+            <th>Autor(a) principal:</th>
+            <td><span class="author-data" property="author">
+      <a href="  /vufind/Author/Home?author=VERONICA+DA+ROCHA+WEAVER">
+        VERONICA DA ROCHA WEAVER</a></span></td>
+          </tr>
+                  <tr>
+            <th>Orientador(a):</th>
+            <td><span class="author-data" property="contributor">
+      <a href="  /vufind/Author/Home?author=N%C3%A3o+Informado+pela+institui%C3%A7%C3%A3o">
+        Não Informado pela instituição</a></span></td>
+          </tr>
+                  <tr>
+            <th>Banca de defesa:</th>
+            <td><span class="author-data" property="contributor">
+      <a href="  /vufind/Author/Home?author=N%C3%A3o+Informado+pela+institui%C3%A7%C3%A3o">
+        Não Informado pela instituição</a></span></td>
+          </tr>
+                  <tr>
+            <th>Tipo de documento:</th>
+            <td>      <span class="format doctoralthesis">Tese</span>
+  </td>
+          </tr>
+                  <tr>
+            <th>Tipo de acesso:</th>
+            <td><!-- traduzido  -->
+Acesso aberto</td>
+          </tr>
+                  <tr>
+            <th>Idioma:</th>
+            <td>eng</td>
+          </tr>
+                  <tr>
+            <th>Instituição de defesa:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">MAXWELL</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Programa de Pós-Graduação:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Departamento:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>País:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Palavras-chave em Português:</th>
+            <td><div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;MODELAGEM" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+MODELAGEM%22&amp;type=Subject
+" rel="nofollow">[pt] MODELAGEM</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;MICRO&#x20;CANAIS" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+MICRO+CANAIS%22&amp;type=Subject
+" rel="nofollow">[pt] MICRO CANAIS</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;BAIXO&#x20;CONSUMO&#x20;DE&#x20;ENERGIA" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+BAIXO+CONSUMO+DE+ENERGIA%22&amp;type=Subject
+" rel="nofollow">[pt] BAIXO CONSUMO DE ENERGIA</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;RESFRIAMENTO&#x20;DE&#x20;CHIP" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+RESFRIAMENTO+DE+CHIP%22&amp;type=Subject
+" rel="nofollow">[pt] RESFRIAMENTO DE CHIP</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;R1234YF" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+R1234YF%22&amp;type=Subject
+" rel="nofollow">[pt] R1234YF</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;DISSIPADOR&#x20;DE&#x20;CALOR" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+DISSIPADOR+DE+CALOR%22&amp;type=Subject
+" rel="nofollow">[pt] DISSIPADOR DE CALOR</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;RESFRIAMENTO&#x20;PASSIVO" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+RESFRIAMENTO+PASSIVO%22&amp;type=Subject
+" rel="nofollow">[pt] RESFRIAMENTO PASSIVO</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;RESFRIAMENTO&#x20;DE&#x20;ELETRONICOS" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+RESFRIAMENTO+DE+ELETRONICOS%22&amp;type=Subject
+" rel="nofollow">[pt] RESFRIAMENTO DE ELETRONICOS</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;CIRCUITO&#x20;DE&#x20;TERMOSSIFAO" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+CIRCUITO+DE+TERMOSSIFAO%22&amp;type=Subject
+" rel="nofollow">[pt] CIRCUITO DE TERMOSSIFAO</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;PERFORMANCE&#x20;TERMICA" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+PERFORMANCE+TERMICA%22&amp;type=Subject
+" rel="nofollow">[pt] PERFORMANCE TERMICA</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;DATA&#x20;CENTER" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+DATA+CENTER%22&amp;type=Subject
+" rel="nofollow">[pt] DATA CENTER</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;BAIXO&#x20;GWP" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+BAIXO+GWP%22&amp;type=Subject
+" rel="nofollow">[pt] BAIXO GWP</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;pt&#x5D;&#x20;ESCOAMENTO&#x20;BIFASICO" href="/vufind/Search/Results?lookfor=%22%5Bpt%5D+ESCOAMENTO+BIFASICO%22&amp;type=Subject
+" rel="nofollow">[pt] ESCOAMENTO BIFASICO</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;MODELLING" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+MODELLING%22&amp;type=Subject
+" rel="nofollow">[en] MODELLING</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;MICROCHANNEL" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+MICROCHANNEL%22&amp;type=Subject
+" rel="nofollow">[en] MICROCHANNEL</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;LOW&#x20;ENERGY&#x20;CONSUMPTION" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+LOW+ENERGY+CONSUMPTION%22&amp;type=Subject
+" rel="nofollow">[en] LOW ENERGY CONSUMPTION</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;CHIP&#x20;COOLING" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+CHIP+COOLING%22&amp;type=Subject
+" rel="nofollow">[en] CHIP COOLING</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;R1234YF" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+R1234YF%22&amp;type=Subject
+" rel="nofollow">[en] R1234YF</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;HEAT&#x20;SINK" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+HEAT+SINK%22&amp;type=Subject
+" rel="nofollow">[en] HEAT SINK</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;PASSIVE&#x20;COOLING" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+PASSIVE+COOLING%22&amp;type=Subject
+" rel="nofollow">[en] PASSIVE COOLING</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;ELECTRONIC&#x20;COOLING" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+ELECTRONIC+COOLING%22&amp;type=Subject
+" rel="nofollow">[en] ELECTRONIC COOLING</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;THERMOSYPHON&#x20;LOOP" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+THERMOSYPHON+LOOP%22&amp;type=Subject
+" rel="nofollow">[en] THERMOSYPHON LOOP</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;THERMAL&#x20;PERFORMANCE" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+THERMAL+PERFORMANCE%22&amp;type=Subject
+" rel="nofollow">[en] THERMAL PERFORMANCE</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;DATA&#x20;CENTER" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+DATA+CENTER%22&amp;type=Subject
+" rel="nofollow">[en] DATA CENTER</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;LOW&#x20;GWP" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+LOW+GWP%22&amp;type=Subject
+" rel="nofollow">[en] LOW GWP</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="&#x5B;en&#x5D;&#x20;TWO&#x20;PHASE&#x20;FLOW" href="/vufind/Search/Results?lookfor=%22%5Ben%5D+TWO+PHASE+FLOW%22&amp;type=Subject
+" rel="nofollow">[en] TWO PHASE FLOW</a>
+      </div></td>
+          </tr>
+                  <tr>
+            <th>Link de acesso:</th>
+            <td><a href="https&#x3A;&#x2F;&#x2F;www.maxwell.vrac.puc-rio.br&#x2F;colecao.php&#x3F;strSecao&#x3D;resultado&amp;nrSeq&#x3D;55177&amp;idi&#x3D;1">https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=1</a><br/>
+  <a href="https&#x3A;&#x2F;&#x2F;www.maxwell.vrac.puc-rio.br&#x2F;colecao.php&#x3F;strSecao&#x3D;resultado&amp;nrSeq&#x3D;55177&amp;idi&#x3D;2">https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=2</a><br/>
+  <a href="http&#x3A;&#x2F;&#x2F;doi.org&#x2F;10.17771&#x2F;PUCRio.acad.55177">http://doi.org/10.17771/PUCRio.acad.55177</a><br/></td>
+          </tr>
+                                  <th>Resumo:</th>
+          <td>[pt] Diante dos constantes avanços da tecnologia os dispositivos eletrônicos vêm passando por um processo de miniaturização, ao mesmo tempo em que sustentam um aumento de potência. Essa tendência se mostra um desafio para seu gerenciamento térmico, uma vez que os sistemas de resfriamento típicos para eletrônicos utilizam ar como fluido de trabalho, e o seu baixo coeficiente de transferência de calor limita sua capacidade de atender às necessidades térmicas da indústria atual. Nesse sentido, o resfriamento bifásico tem sido considerado uma solução promissora para fornecer resfriamento adequado para dispositivos eletrônicos. Circuitos de termossifão bifásico combinam a tecnologia de resfriamento bifásico com sua inerente natureza passiva, já que o sistema não requer uma bomba para fornecer circulação para seu fluido de trabalho, graças às forças da gravidade e de empuxo. Um dissipador de calor de microcanais, localizado bem em cima do dispositivo eletrônico, dissipa o calor gerado. Isto o torna uma solução de baixo custo e energia. Além disso, ter um circuito de termossifão operando com um refrigerante de baixo GWP, como o R-1234yf, resulta em baixo impacto para o meio ambiente, uma vez que é um refrigerante ecologicamente correto e o sistema tem baixo ou nenhum consumo de energia. Este trabalho fornece um modelo numérico detalhado para a simulação de um circuito de termossifão bifásico, operando em condições de regime permanente. O circuito compreende um evaporador (chip e dissipador de calor de micro-aletas), um riser, um condensador refrigerado a água de tubo duplo e um downcomer. Equações fundamentais e constitutivas foram estabelecidas para cada componente. Um método numérico de diferenças finitas, 1-D para o escoamento do fluido por todos os componentes do sistema, e 2-D para a condução de calor no chip e evaporador foi empregado. O modelo foi validado com dados experimentais para o refrigerante R134a, mostrando uma discrepância em relação ao fluxo de massa em torno de 6 por cento, para quando o sistema operava sob regime dominado pela gravidade. A pressão de entrada do evaporador prevista apresentou um erro relativo máximo de 4,8 por cento quando comparada aos resultados experimentais. Além disso, a maior discrepância da temperatura do chip foi inferior a 1 grau C. Simulações foram realizadas para apresentar uma comparação de desempenho entre o R134a e seu substituto ecologicamente correto, R1234yf. Os resultados mostraram que quando o sistema operava com R134a, ele trabalhava com uma pressão de entrada no evaporador mais alta, assim como, com um fluxo de massa mais alto. Por causa disso, o R134a foi capaz de manter a temperatura do chip mais baixa do que o R1234yf. No entanto, essa diferença na temperatura do chip foi levemente inferior a 1 grau C, mostrando o R1234yf como comparável em desempenho ao R134a. Além disso, o fator de segurança da operação do sistema foi avaliado para ambos os refrigerantes, e para um fluxo de calor máximo do chip de 33,1 W/cm2, R1234yf mostrou um fator de segurança acima de 3. Isso significa que o circuito de termossifão pode operar com segurança abaixo do ponto crítico de fluxo de calor. Dada a investigação sobre a comparação de desempenho dos refrigerantes R134a e R1234yf, os resultados apontaram o R1234yf como um excelente substituto ecologicamente correto para o R134a, para operação em um circuito de termossifão bifásico.</td>
+              </table>
+          </div>
+</div>
+          <a name="tabnav"></a>
+      <div class="record-tabs">
+        <ul class="nav nav-tabs">
+                                  <li class="record-tab details" data-tab="details" >
+              <a data-open-close href="/vufind/Record/PUC_RIO-1_b43b785eae71411439a85bea6984ee0c/Details#tabnav" data-lightbox-ignore>
+                Metadados do item              </a>
+            </li>
+                  </ul>
+
+        <div class="tab-content">
+                      <div class="tab-pane details-tab">
+              <table class="citation table table-striped">
+      <tr>
+      <th>id</th>
+      <td>
+                  PUC_RIO-1_b43b785eae71411439a85bea6984ee0c<br />
+              </td>
+    </tr>
+      <tr>
+      <th>oai_identifier_str</th>
+      <td>
+                  oai:MAXWELL.puc-rio.br:55177<br />
+              </td>
+    </tr>
+      <tr>
+      <th>network_acronym_str</th>
+      <td>
+                  PUC_RIO-1<br />
+              </td>
+    </tr>
+      <tr>
+      <th>network_name_str</th>
+      <td>
+                  Repositório Institucional da PUC-RIO (Projeto Maxwell)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository_id_str</th>
+      <td>
+                  <br />
+              </td>
+    </tr>
+      <tr>
+      <th>spelling</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS [en] MODELING OF A TWO-PHASE THERMOSYPHON LOOP WITH LOW ENVIRONMENTAL IMPACT REFRIGERANT APPLIED TO ELECTRONIC COOLING [pt] MODELAGEM[pt] MICRO CANAIS[pt] BAIXO CONSUMO DE ENERGIA[pt] RESFRIAMENTO DE CHIP[pt] R1234YF[pt] DISSIPADOR DE CALOR[pt] RESFRIAMENTO PASSIVO[pt] RESFRIAMENTO DE ELETRONICOS[pt] CIRCUITO DE TERMOSSIFAO[pt] PERFORMANCE TERMICA[pt] DATA CENTER[pt] BAIXO GWP[pt] ESCOAMENTO BIFASICO[en] MODELLING[en] MICROCHANNEL[en] LOW ENERGY CONSUMPTION[en] CHIP COOLING[en] R1234YF[en] HEAT SINK[en] PASSIVE COOLING[en] ELECTRONIC COOLING[en] THERMOSYPHON LOOP[en] THERMAL PERFORMANCE[en] DATA CENTER[en] LOW GWP[en] TWO PHASE FLOW[pt] Diante dos constantes avanços da tecnologia os dispositivos eletrônicos vêm passando por um processo de miniaturização, ao mesmo tempo em que sustentam um aumento de potência. Essa tendência se mostra um desafio para seu gerenciamento térmico, uma vez que os sistemas de resfriamento típicos para eletrônicos utilizam ar como fluido de trabalho, e o seu baixo coeficiente de transferência de calor limita sua capacidade de atender às necessidades térmicas da indústria atual. Nesse sentido, o resfriamento bifásico tem sido considerado uma solução promissora para fornecer resfriamento adequado para dispositivos eletrônicos. Circuitos de termossifão bifásico combinam a tecnologia de resfriamento bifásico com sua inerente natureza passiva, já que o sistema não requer uma bomba para fornecer circulação para seu fluido de trabalho, graças às forças da gravidade e de empuxo. Um dissipador de calor de microcanais, localizado bem em cima do dispositivo eletrônico, dissipa o calor gerado. Isto o torna uma solução de baixo custo e energia. Além disso, ter um circuito de termossifão operando com um refrigerante de baixo GWP, como o R-1234yf, resulta em baixo impacto para o meio ambiente, uma vez que é um refrigerante ecologicamente correto e o sistema tem baixo ou nenhum consumo de energia. Este trabalho fornece um modelo numérico detalhado para a simulação de um circuito de termossifão bifásico, operando em condições de regime permanente. O circuito compreende um evaporador (chip e dissipador de calor de micro-aletas), um riser, um condensador refrigerado a água de tubo duplo e um downcomer. Equações fundamentais e constitutivas foram estabelecidas para cada componente. Um método numérico de diferenças finitas, 1-D para o escoamento do fluido por todos os componentes do sistema, e 2-D para a condução de calor no chip e evaporador foi empregado. O modelo foi validado com dados experimentais para o refrigerante R134a, mostrando uma discrepância em relação ao fluxo de massa em torno de 6 por cento, para quando o sistema operava sob regime dominado pela gravidade. A pressão de entrada do evaporador prevista apresentou um erro relativo máximo de 4,8 por cento quando comparada aos resultados experimentais. Além disso, a maior discrepância da temperatura do chip foi inferior a 1 grau C. Simulações foram realizadas para apresentar uma comparação de desempenho entre o R134a e seu substituto ecologicamente correto, R1234yf. Os resultados mostraram que quando o sistema operava com R134a, ele trabalhava com uma pressão de entrada no evaporador mais alta, assim como, com um fluxo de massa mais alto. Por causa disso, o R134a foi capaz de manter a temperatura do chip mais baixa do que o R1234yf. No entanto, essa diferença na temperatura do chip foi levemente inferior a 1 grau C, mostrando o R1234yf como comparável em desempenho ao R134a. Além disso, o fator de segurança da operação do sistema foi avaliado para ambos os refrigerantes, e para um fluxo de calor máximo do chip de 33,1 W/cm2, R1234yf mostrou um fator de segurança acima de 3. Isso significa que o circuito de termossifão pode operar com segurança abaixo do ponto crítico de fluxo de calor. Dada a investigação sobre a comparação de desempenho dos refrigerantes R134a e R1234yf, os resultados apontaram o R1234yf como um excelente substituto ecologicamente correto para o R134a, para operação em um circuito de termossifão bifásico.[en] Given the constant advances in technology, electronic devices have been going through a process of miniaturization while sustaining an increase in power. This trend proves to be a challenge for thermal management since commonly electronic cooling systems are air-based, so that the low heat transfer coefficient of air limits its capacity to keep up with the thermal needs of today s industry. In this respect, two-phase cooling has been regarded as a promising solution to provide adequate cooling for electronic devices. Two-phase thermosyphon loops combine the technology of two-phase cooling with its inherent passive nature, as the system does not require a pump to provide circulation for its working fluid, thanks to gravity and buoyancy forces. A micro-channel heat sink located right on top of the electronic device dissipates the heat generated. This makes for an energy and cost-efficient solution. Moreover, having a thermosyphon loop operating with a low GWP refrigerant such as R-1234yf results in low impact for the environment since it is an environmentally friendly refrigerant, and the system has low to none energy consumption. This work provides a detailed numerical model for the simulation of a two-phase thermosyphon loop operating under steady-state conditions. The loop comprises an evaporator (chip and micro-fin heat sink), a riser, a tube-in-tube water-cooled condenser and a downcomer. Fundamental and constitutive equations were established for each component. A finite-difference method, 1-D for the flow throughout the thermoysphon s components and 2-D for the heat conduction in the evaporator and chip, was employed. The model was validated against experimental data for refrigerant R134a, showing a mass flux discrepancy of around 6 percent for when the system operated under gravity dominant regime. The predicted evaporator inlet pressure showed a maximum relative error of 4.8 percent when compared to the experimental results. Also, the chip temperature s largest discrepancy was lower than 1 C degree. Simulations were performed to present a performance comparison between R134a and its environmentally friendly substitute, R1234yf. Results showed that when the system operated with R134a, it yielded a higher evaporator inlet pressure as well as a higher mass flux. Because of that, R134a was able to keep the chip temperature lower than R1234yf. Yet, that difference in chip temperature was slightly lower than 1 C degree, showing R1234yf as comparable in performance to R134a. In addition, the safety factor of the system s operation was evaluated for both refrigerants, and for a maximum chip heat flux of 33.1 W/cm2, R1234yf showed a safety factor above 3. This means the thermosyphon loop can operate safely under the critical heat flux. Given the investigation on the performance comparison of refrigerants R134a and R1234yf, results pointed to R1234yf being a great environmentally friendly substitute for R134a for the two-phase thermosyphon loop.MAXWELLJOSE ALBERTO DOS REIS PARISEJOSE ALBERTO DOS REIS PARISEVERONICA DA ROCHA WEAVER2021-10-04info:eu-repo/semantics/publishedVersioninfo:eu-repo/semantics/doctoralThesishttps://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=1https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=2http://doi.org/10.17771/PUCRio.acad.55177engreponame:Repositório Institucional da PUC-RIO (Projeto Maxwell)instname:Pontifícia Universidade Católica do Rio de Janeiro (PUC-RIO)instacron:PUC_RIOinfo:eu-repo/semantics/openAccess2022-08-17T00:00:00Zoai:MAXWELL.puc-rio.br:55177Repositório InstitucionalPRIhttps://www.maxwell.vrac.puc-rio.br/ibict.phpopendoar:5342022-08-17T00:00Repositório Institucional da PUC-RIO (Projeto Maxwell) - Pontifícia Universidade Católica do Rio de Janeiro (PUC-RIO)false<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.title.none.fl_str_mv</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+                  [en] MODELING OF A TWO-PHASE THERMOSYPHON LOOP WITH LOW ENVIRONMENTAL IMPACT REFRIGERANT APPLIED TO ELECTRONIC COOLING<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+              </td>
+    </tr>
+      <tr>
+      <th>spellingShingle</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+                  VERONICA DA ROCHA WEAVER<br />
+                  [pt] MODELAGEM<br />
+                  [pt] MICRO CANAIS<br />
+                  [pt] BAIXO CONSUMO DE ENERGIA<br />
+                  [pt] RESFRIAMENTO DE CHIP<br />
+                  [pt] R1234YF<br />
+                  [pt] DISSIPADOR DE CALOR<br />
+                  [pt] RESFRIAMENTO PASSIVO<br />
+                  [pt] RESFRIAMENTO DE ELETRONICOS<br />
+                  [pt] CIRCUITO DE TERMOSSIFAO<br />
+                  [pt] PERFORMANCE TERMICA<br />
+                  [pt] DATA CENTER<br />
+                  [pt] BAIXO GWP<br />
+                  [pt] ESCOAMENTO BIFASICO<br />
+                  [en] MODELLING<br />
+                  [en] MICROCHANNEL<br />
+                  [en] LOW ENERGY CONSUMPTION<br />
+                  [en] CHIP COOLING<br />
+                  [en] R1234YF<br />
+                  [en] HEAT SINK<br />
+                  [en] PASSIVE COOLING<br />
+                  [en] ELECTRONIC COOLING<br />
+                  [en] THERMOSYPHON LOOP<br />
+                  [en] THERMAL PERFORMANCE<br />
+                  [en] DATA CENTER<br />
+                  [en] LOW GWP<br />
+                  [en] TWO PHASE FLOW<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_short</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_full</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_fullStr</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_full_unstemmed</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_sort</th>
+      <td>
+                  [pt] MODELAGEM DE UM CIRCUITO DE TERMOSSIFÃO DE BAIXO IMPACTO AMBIENTAL COM APLICAÇÃO EM RESFRIAMENTO DE ELETRÔNICOS<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author</th>
+      <td>
+                  VERONICA DA ROCHA WEAVER<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author_facet</th>
+      <td>
+                  VERONICA DA ROCHA WEAVER<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author_role</th>
+      <td>
+                  author<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.contributor.none.fl_str_mv</th>
+      <td>
+                  JOSE ALBERTO DOS REIS PARISE<br />
+                  JOSE ALBERTO DOS REIS PARISE<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.contributor.author.fl_str_mv</th>
+      <td>
+                  VERONICA DA ROCHA WEAVER<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.subject.por.fl_str_mv</th>
+      <td>
+                  [pt] MODELAGEM<br />
+                  [pt] MICRO CANAIS<br />
+                  [pt] BAIXO CONSUMO DE ENERGIA<br />
+                  [pt] RESFRIAMENTO DE CHIP<br />
+                  [pt] R1234YF<br />
+                  [pt] DISSIPADOR DE CALOR<br />
+                  [pt] RESFRIAMENTO PASSIVO<br />
+                  [pt] RESFRIAMENTO DE ELETRONICOS<br />
+                  [pt] CIRCUITO DE TERMOSSIFAO<br />
+                  [pt] PERFORMANCE TERMICA<br />
+                  [pt] DATA CENTER<br />
+                  [pt] BAIXO GWP<br />
+                  [pt] ESCOAMENTO BIFASICO<br />
+                  [en] MODELLING<br />
+                  [en] MICROCHANNEL<br />
+                  [en] LOW ENERGY CONSUMPTION<br />
+                  [en] CHIP COOLING<br />
+                  [en] R1234YF<br />
+                  [en] HEAT SINK<br />
+                  [en] PASSIVE COOLING<br />
+                  [en] ELECTRONIC COOLING<br />
+                  [en] THERMOSYPHON LOOP<br />
+                  [en] THERMAL PERFORMANCE<br />
+                  [en] DATA CENTER<br />
+                  [en] LOW GWP<br />
+                  [en] TWO PHASE FLOW<br />
+              </td>
+    </tr>
+      <tr>
+      <th>topic</th>
+      <td>
+                  [pt] MODELAGEM<br />
+                  [pt] MICRO CANAIS<br />
+                  [pt] BAIXO CONSUMO DE ENERGIA<br />
+                  [pt] RESFRIAMENTO DE CHIP<br />
+                  [pt] R1234YF<br />
+                  [pt] DISSIPADOR DE CALOR<br />
+                  [pt] RESFRIAMENTO PASSIVO<br />
+                  [pt] RESFRIAMENTO DE ELETRONICOS<br />
+                  [pt] CIRCUITO DE TERMOSSIFAO<br />
+                  [pt] PERFORMANCE TERMICA<br />
+                  [pt] DATA CENTER<br />
+                  [pt] BAIXO GWP<br />
+                  [pt] ESCOAMENTO BIFASICO<br />
+                  [en] MODELLING<br />
+                  [en] MICROCHANNEL<br />
+                  [en] LOW ENERGY CONSUMPTION<br />
+                  [en] CHIP COOLING<br />
+                  [en] R1234YF<br />
+                  [en] HEAT SINK<br />
+                  [en] PASSIVE COOLING<br />
+                  [en] ELECTRONIC COOLING<br />
+                  [en] THERMOSYPHON LOOP<br />
+                  [en] THERMAL PERFORMANCE<br />
+                  [en] DATA CENTER<br />
+                  [en] LOW GWP<br />
+                  [en] TWO PHASE FLOW<br />
+              </td>
+    </tr>
+      <tr>
+      <th>description</th>
+      <td>
+                  [pt] Diante dos constantes avanços da tecnologia os dispositivos eletrônicos vêm passando por um processo de miniaturização, ao mesmo tempo em que sustentam um aumento de potência. Essa tendência se mostra um desafio para seu gerenciamento térmico, uma vez que os sistemas de resfriamento típicos para eletrônicos utilizam ar como fluido de trabalho, e o seu baixo coeficiente de transferência de calor limita sua capacidade de atender às necessidades térmicas da indústria atual. Nesse sentido, o resfriamento bifásico tem sido considerado uma solução promissora para fornecer resfriamento adequado para dispositivos eletrônicos. Circuitos de termossifão bifásico combinam a tecnologia de resfriamento bifásico com sua inerente natureza passiva, já que o sistema não requer uma bomba para fornecer circulação para seu fluido de trabalho, graças às forças da gravidade e de empuxo. Um dissipador de calor de microcanais, localizado bem em cima do dispositivo eletrônico, dissipa o calor gerado. Isto o torna uma solução de baixo custo e energia. Além disso, ter um circuito de termossifão operando com um refrigerante de baixo GWP, como o R-1234yf, resulta em baixo impacto para o meio ambiente, uma vez que é um refrigerante ecologicamente correto e o sistema tem baixo ou nenhum consumo de energia. Este trabalho fornece um modelo numérico detalhado para a simulação de um circuito de termossifão bifásico, operando em condições de regime permanente. O circuito compreende um evaporador (chip e dissipador de calor de micro-aletas), um riser, um condensador refrigerado a água de tubo duplo e um downcomer. Equações fundamentais e constitutivas foram estabelecidas para cada componente. Um método numérico de diferenças finitas, 1-D para o escoamento do fluido por todos os componentes do sistema, e 2-D para a condução de calor no chip e evaporador foi empregado. O modelo foi validado com dados experimentais para o refrigerante R134a, mostrando uma discrepância em relação ao fluxo de massa em torno de 6 por cento, para quando o sistema operava sob regime dominado pela gravidade. A pressão de entrada do evaporador prevista apresentou um erro relativo máximo de 4,8 por cento quando comparada aos resultados experimentais. Além disso, a maior discrepância da temperatura do chip foi inferior a 1 grau C. Simulações foram realizadas para apresentar uma comparação de desempenho entre o R134a e seu substituto ecologicamente correto, R1234yf. Os resultados mostraram que quando o sistema operava com R134a, ele trabalhava com uma pressão de entrada no evaporador mais alta, assim como, com um fluxo de massa mais alto. Por causa disso, o R134a foi capaz de manter a temperatura do chip mais baixa do que o R1234yf. No entanto, essa diferença na temperatura do chip foi levemente inferior a 1 grau C, mostrando o R1234yf como comparável em desempenho ao R134a. Além disso, o fator de segurança da operação do sistema foi avaliado para ambos os refrigerantes, e para um fluxo de calor máximo do chip de 33,1 W/cm2, R1234yf mostrou um fator de segurança acima de 3. Isso significa que o circuito de termossifão pode operar com segurança abaixo do ponto crítico de fluxo de calor. Dada a investigação sobre a comparação de desempenho dos refrigerantes R134a e R1234yf, os resultados apontaram o R1234yf como um excelente substituto ecologicamente correto para o R134a, para operação em um circuito de termossifão bifásico.<br />
+              </td>
+    </tr>
+      <tr>
+      <th>publishDate</th>
+      <td>
+                  2021<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.date.none.fl_str_mv</th>
+      <td>
+                  2021-10-04<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.type.status.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/publishedVersion<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.type.driver.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/doctoralThesis<br />
+              </td>
+    </tr>
+      <tr>
+      <th>format</th>
+      <td>
+                  doctoralThesis<br />
+              </td>
+    </tr>
+      <tr>
+      <th>status_str</th>
+      <td>
+                  publishedVersion<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.identifier.uri.fl_str_mv</th>
+      <td>
+                  https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=1<br />
+                  https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=2<br />
+                  http://doi.org/10.17771/PUCRio.acad.55177<br />
+              </td>
+    </tr>
+      <tr>
+      <th>url</th>
+      <td>
+                  https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=1<br />
+                  https://www.maxwell.vrac.puc-rio.br/colecao.php?strSecao=resultado&amp;nrSeq=55177&amp;idi=2<br />
+                  http://doi.org/10.17771/PUCRio.acad.55177<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.language.iso.fl_str_mv</th>
+      <td>
+                  eng<br />
+              </td>
+    </tr>
+      <tr>
+      <th>language</th>
+      <td>
+                  eng<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.rights.driver.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/openAccess<br />
+              </td>
+    </tr>
+      <tr>
+      <th>eu_rights_str_mv</th>
+      <td>
+                  openAccess<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.publisher.none.fl_str_mv</th>
+      <td>
+                  MAXWELL<br />
+              </td>
+    </tr>
+      <tr>
+      <th>publisher.none.fl_str_mv</th>
+      <td>
+                  MAXWELL<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.source.none.fl_str_mv</th>
+      <td>
+                  reponame:Repositório Institucional da PUC-RIO (Projeto Maxwell)<br />
+                  instname:Pontifícia Universidade Católica do Rio de Janeiro (PUC-RIO)<br />
+                  instacron:PUC_RIO<br />
+              </td>
+    </tr>
+      <tr>
+      <th>instname_str</th>
+      <td>
+                  Pontifícia Universidade Católica do Rio de Janeiro (PUC-RIO)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>instacron_str</th>
+      <td>
+                  PUC_RIO<br />
+              </td>
+    </tr>
+      <tr>
+      <th>institution</th>
+      <td>
+                  PUC_RIO<br />
+              </td>
+    </tr>
+      <tr>
+      <th>reponame_str</th>
+      <td>
+                  Repositório Institucional da PUC-RIO (Projeto Maxwell)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>collection</th>
+      <td>
+                  Repositório Institucional da PUC-RIO (Projeto Maxwell)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository.name.fl_str_mv</th>
+      <td>
+                  Repositório Institucional da PUC-RIO (Projeto Maxwell) - Pontifícia Universidade Católica do Rio de Janeiro (PUC-RIO)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository.mail.fl_str_mv</th>
+      <td>
+                  <br />
+              </td>
+    </tr>
+      <tr>
+      <th>_version_</th>
+      <td>
+                  1845797030718341120<br />
+              </td>
+    </tr>
+  </table>
+            </div>
+                  </div>
+      </div>
+    
+    <span class="Z3988" title="url_ver&#x3D;Z39.88-2004&amp;ctx_ver&#x3D;Z39.88-2004&amp;ctx_enc&#x3D;info&#x25;3Aofi&#x25;2Fenc&#x25;3AUTF-8&amp;rfr_id&#x3D;info&#x25;3Asid&#x25;2Fvufind.svn.sourceforge.net&#x25;3Agenerator&amp;rft.title&#x3D;&#x25;5Bpt&#x25;5D&#x2B;MODELAGEM&#x2B;DE&#x2B;UM&#x2B;CIRCUITO&#x2B;DE&#x2B;TERMOSSIF&#x25;C3&#x25;83O&#x2B;DE&#x2B;BAIXO&#x2B;IMPACTO&#x2B;AMBIENTAL&#x2B;COM&#x2B;APLICA&#x25;C3&#x25;87&#x25;C3&#x25;83O&#x2B;EM&#x2B;RESFRIAMENTO&#x2B;DE&#x2B;ELETR&#x25;C3&#x25;94NICOS&amp;rft.date&#x3D;2021&amp;rft_val_fmt&#x3D;info&#x25;3Aofi&#x25;2Ffmt&#x25;3Akev&#x25;3Amtx&#x25;3Adc&amp;rft.creator&#x3D;VERONICA&#x2B;DA&#x2B;ROCHA&#x2B;WEAVER&amp;rft.format&#x3D;doctoralThesis&amp;rft.language&#x3D;eng"></span>  </div>
+
+  <div class="sidebar left hidden-print">
+          <h2>Registros relacionados</h2>
+  <ul class="list-group">
+          <li class="list-group-item">
+                <i class="fa fa-x fa-doctoralthesis" title="doctoralThesis"></i>
+        <a href="/vufind/Record/UFMG_14225f7c3f80a4c84fb80a1ace0161cc">
+          Estudo experimental da perda de pressão em canais convencionais com o refrigerante R1234yf em ebulição convectiva        </a>
+                  <br/>por: Juan Jose Garcia Pabon                          <br/>Publicado em: (2018)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/UNSP_718486275d67417a3f856a4582424129">
+          Desenvolvimento de um dissipador de calor compacto para o resfriamento de células fotovoltaicas de alta concentração (HCPV)        </a>
+                  <br/>por: Arroyave Ortegón, Jorge Andrés                          <br/>Publicado em: (2018)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-doctoralthesis" title="doctoralThesis"></i>
+        <a href="/vufind/Record/UNSP_8cf1121d75c914b30cdbd3e97f53893d">
+          Sistemas de resfriamento evaporativo-adsortivo aplicados ao condicionamento de ar        </a>
+                  <br/>por: Camargo, José Rui [UNESP]                          <br/>Publicado em: (2003)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/USP_d5d8329ca36203492237324d78bacd52">
+          Modelagem e otimização de um sistema de água de resfriamento e validação experimental.        </a>
+                  <br/>por: Cortinovis, Giorgia Francine                          <br/>Publicado em: (2004)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/URGS_404a8b8a3c11f81c88739d09276492d8">
+          Free cooling potential for data centers in Brazil        </a>
+                  <br/>por: Amado, Eduardo Alves                          <br/>Publicado em: (2019)
+              </li>
+      </ul>
+      </div>
+</div>
+<script type="text&#x2F;javascript" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;">
+    //<!--
+    $(document).ready(recordDocReady);
+    //-->
+</script>    </div>
+  </div>
+  <footer class="hidden-print">
+  <div class="container-fluid social-media">
+    <div class="flex-row-center gap-2">
+      <a href="https://www.youtube.com/user/IBICTbr/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/youtube.png?_=1703767367" alt="Youtube Logo" />
+      </a>
+      <a href="https://www.facebook.com/IBICTbr/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/facebook.png?_=1703767367" alt="Facebook Logo" />
+      </a>
+      <a href="https://twitter.com/ibictbr" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/twitter.png?_=1703767367" alt="Twitter Logo" />
+      </a>
+      <a href="https://www.linkedin.com/company/ibict---instituto-brasileiro-de-informa-o-em-ci-ncia-e-tecnologia/mycompany/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/linkedin.svg?_=1703767367" alt="Linkedin Logo" />
+      </a>
+    </div>
+  </div>
+  <div class="assinatura">
+    <a href="https://www.gov.br/ibict" target="_blank" rel="noopener noreferrer">
+      <img class="img-responsive" src="/vufind/themes/bdtd/images/footeratualizado.png?_=1761139766" alt="Logo do Ibict e do ministério da ciência e tecnologia" />
+    </a>
+  </div>
+  <p>
+    Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict) <br />
+    SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF
+  </p>
+  <div class="poweredby">
+      </div>
+  <script async src="https://barra.brasil.gov.br/barra_2.0.js"></script>
+</footer>  <!-- MODAL IN CASE WE NEED ONE -->
+  <div id="modal" class="modal fade hidden-print" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal">
+          <svg aria-label="Close" viewBox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="modal-body">Carregando...</div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-overlay" data-toggle="offcanvas"></div>
+    <script  nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;">
+    //<!--
+    
+function initVuFindPiwikTracker1762802581203(){
+    var VuFindPiwikTracker = Piwik.getTracker();
+
+    VuFindPiwikTracker.setSiteId();
+    VuFindPiwikTracker.setTrackerUrl('https://matomo.lareferencia.info/piwik.php');
+    VuFindPiwikTracker.setCustomUrl('https\x3A\x2F\x2Fbdtd.ibict.br\x2Fvufind\x2FRecord\x2FPUC_RIO\x2D1_b43b785eae71411439a85bea6984ee0c');
+    VuFindPiwikTracker.setCustomVariable(1, 'RecordFormat', 'doctoralThesis', 'page');
+    VuFindPiwikTracker.setCustomVariable(2, 'RecordData', 'PUC_RIO-1_b43b785eae71411439a85bea6984ee0c&#x7C;VERONICA&#x20;DA&#x20;ROCHA&#x20;WEAVER&#x7C;&#x5B;pt&#x5D;&#x20;MODELAGEM&#x20;DE&#x20;UM&#x20;CIRCUITO&#x20;DE&#x20;TERMOSSIF&#xC3;O&#x20;DE&#x20;BAIXO&#x20;IMPACTO&#x20;AMBIENTAL&#x20;COM&#x20;APLICA&#xC7;&#xC3;O&#x20;EM&#x20;RESFRIAMENTO&#x20;DE&#x20;ELETR&#xD4;NICOS', 'page');
+    VuFindPiwikTracker.setCustomVariable(3, 'RecordInstitution', 'PUC_RIO', 'page');
+    VuFindPiwikTracker.trackPageView();
+    VuFindPiwikTracker.enableLinkTracking();
+};
+(function(){
+    if (typeof Piwik === 'undefined') {
+        var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.defer=true; g.async=true;
+        g.src='https://matomo.lareferencia.info/piwik.js';
+        g.onload=initVuFindPiwikTracker1762802581203;
+        s.parentNode.insertBefore(g,s);
+    } else {
+        initVuFindPiwikTracker1762802581203();
+    }
+})();
+    //-->
+</script>      <script  src="https&#x3A;&#x2F;&#x2F;www.google.com&#x2F;recaptcha&#x2F;api.js&#x3F;onload&#x3D;recaptchaOnLoad&amp;render&#x3D;explicit&amp;hl&#x3D;pt-br" nonce="vPsIxd&#x2F;JXLqVQ16UWdcwIT1qki5nj4yr0eMVyTsna04&#x3D;"></script>  
+  <div class="translateBtn">
+    <div>
+      <a class="toggle-me" tooltipbtn="Traduzir página">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 998.1 998.3" xml:space="preserve">
+          <path fill="#DBDBDB" d="M931.7 998.3c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4H283.6l260.1 797.9h388z" />
+          <path fill="#DCDCDC" d="M931.7 230.4c9.7 0 18.9 3.8 25.8 10.6 6.8 6.7 10.6 15.5 10.6 24.8v667.1c0 9.3-3.7 18.1-10.6 24.8-6.9 6.8-16.1 10.6-25.8 10.6H565.5L324.9 230.4h606.8m0-30H283.6l260.1 797.9h388c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4z" />
+          <polygon fill="#4352B8" points="482.3,809.8 543.7,998.3 714.4,809.8" />
+          <path fill="#607988" d="M936.1 476.1V437H747.6v-63.2h-61.2V437H566.1v39.1h239.4c-12.8 45.1-41.1 87.7-68.7 120.8-48.9-57.9-49.1-76.7-49.1-76.7h-50.8s2.1 28.2 70.7 108.6c-22.3 22.8-39.2 36.3-39.2 36.3l15.6 48.8s23.6-20.3 53.1-51.6c29.6 32.1 67.8 70.7 117.2 116.7l32.1-32.1c-52.9-48-91.7-86.1-120.2-116.7 38.2-45.2 77-102.1 85.2-154.2H936v.1z" />
+          <path fill="#4285F4" d="M66.4 0C29.9 0 0 29.9 0 66.5v677c0 36.5 29.9 66.4 66.4 66.4h648.1L454.4 0h-388z" />
+          <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="534.3" y1="433.2" x2="998.1" y2="433.2">
+            <stop offset="0" stop-color="#fff" stop-opacity=".2" />
+            <stop offset="1" stop-color="#fff" stop-opacity=".02" />
+          </linearGradient>
+          <path fill="url(#a)" d="M534.3 200.4h397.4c36.5 0 66.4 29.4 66.4 65.4V666L534.3 200.4z" />
+          <path fill="#EEEEEE" d="M371.4 430.6c-2.5 30.3-28.4 75.2-91.1 75.2-54.3 0-98.3-44.9-98.3-100.2s44-100.2 98.3-100.2c30.9 0 51.5 13.4 63.3 24.3l41.2-39.6c-27.1-25-62.4-40.6-104.5-40.6-86.1 0-156 69.9-156 156s69.9 156 156 156c90.2 0 149.8-63.3 149.8-152.6 0-12.8-1.6-22.2-3.7-31.8h-146v53.4l91 .1z" />
+          <radialGradient id="b" cx="65.208" cy="19.366" r="1398.271" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff" stop-opacity=".1" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+          </radialGradient>
+          <path fill="url(#b)" d="M931.7 200.4H518.8L454.4 0h-388C29.9 0 0 29.9 0 66.5v677c0 36.5 29.9 66.4 66.4 66.4h415.9l61.4 188.4h388c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4z" />
+        </svg>
+      </a>
+    </div>
+    <div id="google_translate_element"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt'
+      }, 'google_translate_element');
+    }
+  </script>
+  <script>
+    jQuery('.toggle-me').click(function() {
+      jQuery('.translateBtn').toggleClass('active');
+    });
+  </script>
+  <script async type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Plugin de acessibilidade user way -->
+  <script src="https://cdn.userway.org/widget.js" data-account="gxYK4Xrqhn"></script>
+
+</body>
+
+</html>

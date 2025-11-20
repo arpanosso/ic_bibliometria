@@ -1,0 +1,318 @@
+---
+title: "Untitled"
+author: "Rodrigo Perim"
+date: "2025-11-11"
+output: html_document
+---
+
+
+```{r}
+library(rvest)
+library(dplyr)
+library(stringr)
+library(httr)
+```
+
+
+```{r}
+url_pagina <- "https://bdtd.ibict.br/vufind/Record/PUC_SP-1_ce5664e3ad44b3244c1ad19469a54c1d"
+
+resposta <- GET(
+  url_pagina, 
+  user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+)
+
+if (http_status(resposta)$category != "Success") {
+  stop("Erro na conexão HTTP: ", http_status(resposta)$reason)
+}
+
+pagina_html <- read_html(resposta)
+```
+
+```{r}
+texto_pagina <- pagina_html %>%
+  html_text()
+
+linhas <- str_split(texto_pagina, "\n")[[1]]
+
+linhas_completas <- linhas %>%
+  str_trim() %>% 
+  str_subset("^$|^\\s*$", negate = TRUE) 
+
+dados_brutos <- data.frame(
+  Texto_Completo = linhas_completas,
+  stringsAsFactors = FALSE
+)
+
+cat("--- Amostra do Conteúdo Bruto Extraído ---\n")
+print(head(dados_brutos, 20)) 
+cat(paste0("\nTotal de linhas (itens) extraídas: ", nrow(dados_brutos), "\n"))
+```
+```{r}
+# Exportar para CSV
+write.csv(
+  dados_brutos,
+  "conteudo_completo_bruto.csv",
+  row.names = FALSE,
+  fileEncoding = "UTF-8" 
+)
+
+cat("\nArquivo 'conteudo_bdtd.csv' salvo com sucesso.\n")
+```
+
+
+```{r}
+vetor_texto <- dados_brutos$Texto_Completo
+```
+
+
+```{r}
+palavra_chave_inst <- "Instituição de defesa:" 
+indice_instituicao <- which(str_detect(vetor_texto, regex(palavra_chave_inst, ignore_case = TRUE)))
+
+if (length(indice_instituicao) > 0) {
+  indice_conteudo <- indice_instituicao[1] + 1
+  
+  if (indice_conteudo <= length(vetor_texto)) {
+    conteudo_instituicao <- vetor_texto[indice_conteudo]
+    cat(paste0("Conteúdo de ", palavra_chave_inst, " (Linha Seguinte):\n"))
+    print(conteudo_instituicao)
+  } else {
+    conteudo_instituicao <- paste0("[ERRO] Conteúdo não encontrado após '", palavra_chave_inst, "' (fim do arquivo)")
+    print(conteudo_instituicao)
+  }
+} else {
+  conteudo_instituicao <- paste0("[ERRO] Palavra-chave '", palavra_chave_inst, "' não encontrada.")
+  print(conteudo_instituicao)
+}
+
+cat("\n-----------------------------------------\n")
+
+
+
+# O nome da variável de resultado será 'conteudo_ano'
+palavra_chave_ano <- "Ano de defesa:"
+indice_ano <- which(str_detect(vetor_texto, regex(palavra_chave_ano, ignore_case = TRUE)))
+
+if (length(indice_ano) > 0) {
+  indice_conteudo <- indice_ano[1] + 1
+  
+  if (indice_conteudo <= length(vetor_texto)) {
+    conteudo_ano <- vetor_texto[indice_conteudo]
+    cat(paste0("Conteúdo de ", palavra_chave_ano, " (Linha Seguinte):\n"))
+    print(conteudo_ano)
+  } else {
+    conteudo_ano <- paste0("[ERRO] Conteúdo não encontrado após '", palavra_chave_ano, "' (fim do arquivo)")
+    print(conteudo_ano)
+  }
+} else {
+  conteudo_ano <- paste0("[ERRO] Palavra-chave '", palavra_chave_ano, "' não encontrada.")
+  print(conteudo_ano)
+}
+
+cat("\n-----------------------------------------\n")
+
+
+
+# O nome da variável de resultado será 'conteudo_palavra_chave'
+palavra_chave_pt <- "Palavras-chave em Português:"
+indice_palavras_pt <- which(str_detect(vetor_texto, regex(palavra_chave_pt, ignore_case = TRUE)))
+
+
+if (length(indice_palavras_pt) > 0) {
+  
+  indice_inicio <- indice_palavras_pt[1]
+  
+  indice_primeira_linha <- indice_inicio + 1
+  
+  indice_ultima_linha <- indice_inicio + 5
+  
+  if (indice_ultima_linha <= length(vetor_texto)) {
+    
+    linhas_extraidas <- vetor_texto[indice_primeira_linha:indice_ultima_linha]
+    
+    conteudo_palavras_pt <- str_c(linhas_extraidas, collapse = ", ")
+    
+    cat(paste0("Conteúdo de 5 linhas após '", palavra_chave_pt, "':\n"))
+    print(conteudo_palavras_pt)
+    
+  } else {
+    conteudo_palavras_pt <- paste0("[ERRO] Não há 5 linhas suficientes após '", palavra_chave_pt, "' para extração completa.")
+    print(conteudo_palavras_pt)
+  }
+  
+} else {
+  conteudo_palavras_pt <- paste0("[ERRO] Palavra-chave '", palavra_chave_pt, "' não encontrada.")
+  print(conteudo_palavras_pt)
+}
+
+cat("\n-----------------------------------------\n")
+
+
+numero_da_linha_autor <- 48
+
+if (numero_da_linha_autor <= length(vetor_texto)) {
+    
+    conteudo_autor <- vetor_texto[numero_da_linha_autor]
+    
+    cat("Conteúdo do Autor (Linha Fixa 48):\n")
+    print(conteudo_autor)
+    
+} else {
+    conteudo_autor <- paste0("[ERRO] O vetor de texto não possui a linha ", numero_da_linha_autor, ".")
+    print(conteudo_autor)
+}
+
+cat("\n-----------------------------------------\n")
+
+
+
+
+```
+
+```{r}
+
+## 1. Cria um data frame com uma linha, onde cada variável extraída é uma coluna
+dados_consolidado_novo <- data.frame(
+    Instituicao_Defesa = conteudo_instituicao,
+    Ano_Defesa = conteudo_ano,
+    Palavras_Chave_PT = conteudo_palavras_pt,
+   
+    
+    Autor_Linha_48 = conteudo_autor, 
+    
+    stringsAsFactors = FALSE
+)
+
+cat("Estrutura do Data Frame Final:\n")
+print(dados_consolidado_novo)
+```
+
+
+
+```{r}
+
+caminho_excel <- "../data_raw/bdtd.xlsx"
+
+nome_coluna_url <- "links" 
+
+lista_de_urls_df <- read_excel(caminho_excel)
+
+vetor_urls <- lista_de_urls_df %>%
+  pull(!!sym(nome_coluna_url))
+
+```
+
+
+```{r}
+
+resultados_por_link <- list()
+
+for (i in 1:length(vetor_urls)) {
+  url_atual <- vetor_urls[i]
+  
+  cat(paste0("Processando link ", i, " de ", length(vetor_urls), ": ", url_atual, "...\n"))
+  
+  tryCatch({
+    resposta <- GET(
+      url_atual, 
+      user_agent("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"),
+      timeout(30)
+    )
+    
+    if (http_status(resposta)$category != "Success") {
+      stop("Erro HTTP: ", http_status(resposta)$reason)
+    }
+    
+    pagina_html <- read_html(resposta)
+    
+    texto_pagina <- pagina_html %>% html_text()
+    linhas <- str_split(texto_pagina, "\n")[[1]]
+    
+    vetor_texto <- linhas %>%
+      str_trim() %>% 
+      str_subset("^$|^\\s*$", negate = TRUE)
+      
+    
+    extrair_proxima_linha <- function(palavra_chave) {
+      indice <- which(str_detect(vetor_texto, regex(palavra_chave, ignore_case = TRUE)))
+      if (length(indice) > 0 && (indice[1] + 1) <= length(vetor_texto)) {
+        return(vetor_texto[indice[1] + 1])
+      }
+      return(NA_character_)
+    }
+    
+    extrair_bloco_5_linhas <- function(palavra_chave) {
+      indice_inicio <- which(str_detect(vetor_texto, regex(palavra_chave, ignore_case = TRUE)))
+      
+      if (length(indice_inicio) > 0) {
+        indice_primeira <- indice_inicio[1] + 1
+        indice_ultima <- indice_inicio[1] + 5
+        
+        if (indice_ultima <= length(vetor_texto)) {
+          linhas_extraidas <- vetor_texto[indice_primeira:indice_ultima]
+          return(str_c(linhas_extraidas, collapse = ", "))
+        }
+      }
+      return(NA_character_)
+    }
+    
+    
+    numero_linha_autor <- 48
+    Autor_Linha_48 <- if (numero_linha_autor <= length(vetor_texto)) {
+      vetor_texto[numero_linha_autor]
+    } else {
+      NA_character_
+    }
+    
+    Instituicao_Defesa <- extrair_proxima_linha("Instituição de defesa:")
+    Ano_Defesa <- extrair_proxima_linha("Ano de defesa:")
+    Autor_Principal_Busca <- extrair_proxima_linha("Autor(a) principal:")
+    
+    Palavras_Chave_PT <- extrair_bloco_5_linhas("Palavras-chave em Português:")
+    
+    resultado_parcial <- data.frame(
+      URL_Fonte = url_atual,
+      Autor_Linha_48 = Autor_Linha_48, 
+      Instituicao_Defesa = Instituicao_Defesa, 
+      Ano_Defesa = Ano_Defesa, 
+      Palavras_Chave_PT = Palavras_Chave_PT, 
+      Autor_Principal_Busca = Autor_Principal_Busca, 
+      Status = "Sucesso",
+      stringsAsFactors = FALSE
+    )
+    
+  }, error = function(e) {
+     message("Erro ao processar URL ", url_atual, ": ", e$message)
+    resultado_parcial <- data.frame(
+      URL_Fonte = url_atual,
+      Autor_Linha_48 = NA_character_,
+      Instituicao_Defesa = NA_character_,
+      Ano_Defesa = NA_character_,
+      Palavras_Chave_PT = NA_character_,
+      Autor_Principal_Busca = NA_character_,
+      Status = paste("ERRO:", e$message),
+      stringsAsFactors = FALSE
+    )
+  })
+  
+   resultados_por_link[[i]] <- resultado_parcial
+}
+
+dados_finais_consolidados <- bind_rows(resultados_por_link)
+
+cat("\n-----------------------------------------\n")
+cat(paste0("✅ Processamento concluído. Total de linhas extraídas: ", nrow(dados_finais_consolidados), "\n"))
+
+
+```
+
+```{r}
+nome_arquivo_saida <- "extracao_bdtd.xlsx"
+
+
+write_xlsx(dados_finais_consolidados, nome_arquivo_saida)
+
+
+```
+

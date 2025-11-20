@@ -1,0 +1,62 @@
+---
+title: "Untitled"
+author: "Rodrigo Perim"
+date: "2025-11-11"
+output: html_document
+---
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(stringr)
+library(janitor)
+
+ARQUIVO_XLSX <- "../data_raw/dados_ic_tratados.xlsx"
+COLUNA_LINKS <- "link_de_acesso"
+```
+
+
+```{r}
+raw <- read_excel(ARQUIVO_XLSX) %>% clean_names()
+stopifnot(COLUNA_LINKS %in% names(raw))
+
+links_df <- raw %>%
+  transmute(link = .data[[COLUNA_LINKS]] %>% trimws()) %>%
+  filter(!is.na(link), str_detect(link, "^https?://")) %>%
+  mutate(dominio = str_extract(link, "(?<=://)[^/]+"))
+
+wos_df      <- links_df %>% filter(dominio == "www-webofscience-com.ez87.periodicos.capes.gov.br")
+bdtd_df     <- links_df %>% filter(dominio == "bdtd.ibict.br")
+sucupira_df <- links_df %>% filter(dominio == "sucupira-legado.capes.gov.br")
+
+print(count(links_df, dominio, sort = TRUE))
+
+```
+
+```{r}
+# 1) instalar (se ainda não tiver)
+
+library(bibliometrix)
+
+# Substitua pelo arquivo que você exportou do WoS:
+ARQ_WOS <- "../data_raw/wos_export_plaintext.txt"  # ou .bib se exportou BibTeX
+
+# Se for Plain Text (ISI):
+M_wos <- convert2df(file = ARQ_WOS, dbsource = "wos", format = "plaintext")
+
+# Se for BibTeX (WoS):
+# M_wos <- convert2df(file = ARQ_WOS, dbsource = "wos", format = "bibtex")
+
+# Padronizar campos que você precisa (temas/ano/local/instituição):
+wos_min <- M_wos %>%
+  transmute(
+    link = NA_character_,                        # WoS export não traz o seu link original
+    titulo = TI,
+    temas  = coalesce(DE, ID),                   # DE = Author Keywords; ID = Keywords Plus
+    ano    = as.character(PY),
+    local_defesa = NA_character_,                # WoS não tem "local de defesa"
+    instituicao  = SO %||% PU                    # SO = Source; PU = Publisher
+  )
+
+```
+

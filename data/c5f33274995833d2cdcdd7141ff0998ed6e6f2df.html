@@ -1,0 +1,843 @@
+<!DOCTYPE html><html lang="pt-br" >
+
+<head>
+    <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta name="google-site-verification" content="O4MlrfmxB744id4GdcKmv79sPQNLIjWzEB_VV9o1byw" />
+  <meta http-equiv="Content-Type" content="text&#x2F;html&#x3B;&#x20;charset&#x3D;UTF-8">
+<meta name="DC.creator" content="Storti,&#x20;Gabriel&#x20;Jos&#xE9;,&#x20;1985-">
+<meta name="DC.issued" content="2023">
+<meta name="DC.language" content="por">
+<meta name="DC.title" content="Uma&#x20;abordagem&#x20;h&#xED;brida&#x20;para&#x20;alterar&#x20;o&#x20;design&#x20;t&#xED;pico&#x20;de&#x20;data&#x20;center">
+<meta name="DC.description" content="Orientador&#x3A;&#x20;Luiz&#x20;Carlos&#x20;Pereira&#x20;da&#x20;Silva">
+<meta name="citation_author" content="Storti,&#x20;Gabriel&#x20;Jos&#xE9;,&#x20;1985-">
+<meta name="citation_date" content="2023">
+<meta name="citation_language" content="por">
+<meta name="citation_title" content="Uma&#x20;abordagem&#x20;h&#xED;brida&#x20;para&#x20;alterar&#x20;o&#x20;design&#x20;t&#xED;pico&#x20;de&#x20;data&#x20;center">
+<meta name="Generator" content="VuFind&#x20;7.1.1">  <title>Metadados do item: Uma abordagem híbrida para alterar o design típico de data center</title>    <!-- RTL styling -->
+    <link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;compiled.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;print.css&#x3F;_&#x3D;1703767367" media="print" rel="stylesheet" type="text&#x2F;css">
+<!--[if lt IE 10]><link href="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;css&#x2F;flex-fallback.css&#x3F;_&#x3D;1703767367" media="" rel="stylesheet" type="text&#x2F;css"><![endif]-->
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;style.css&#x3F;_&#x3D;1731068447" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;custom.css&#x3F;_&#x3D;1761139766" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;datatables.min.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;css&#x2F;dataTables.bootstrap.min.css&#x3F;_&#x3D;1703767367" media="all" rel="stylesheet" type="text&#x2F;css">
+<link href="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;images&#x2F;icons&#x2F;favicon.ico&#x3F;_&#x3D;1703767367" rel="shortcut&#x20;icon" type="image&#x2F;x-icon">
+<link href="&#x2F;vufind&#x2F;Search&#x2F;OpenSearch&#x3F;method&#x3D;describe" rel="search" type="application&#x2F;opensearchdescription&#x2B;xml" title="Busca&#x20;no&#x20;Cat&#xE1;logo&#x20;da&#x20;Biblioteca">    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <script  nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;">
+    //<!--
+    var userIsLoggedIn = false;
+    //-->
+</script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;jquery.min.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;bootstrap.min.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;bootstrap-accessibility.min.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;vendor&#x2F;validator.min.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lib&#x2F;form-attr-polyfill.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lib&#x2F;autocomplete.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;common.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;lightbox.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;languages.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;format.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;base.js&#x3F;_&#x3D;1704812434" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;lib&#x2F;axios.min.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;record.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;check_save_statuses.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bdtd&#x2F;js&#x2F;open-close-tab.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  src="&#x2F;vufind&#x2F;themes&#x2F;bootstrap3&#x2F;js&#x2F;account_ajax.js&#x3F;_&#x3D;1703767367" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>
+<script  nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;">
+    //<!--
+    VuFind.path = '/vufind';
+VuFind.defaultSearchBackend = 'Solr';
+VuFind.addTranslations({"add_tag_success": "Tags guardadas","bulk_email_success": "O(s) item(ns) foram enviados por e-mail","bulk_noitems_advice": "Nenhum item foi selecionado. Por favor, clique na caixa de seleção ao lado de um item e tente novamente.","bulk_save_success": "O(s) registro(s) foram salvos com sucesso","close": "fechar","collection_empty": "Não há registros para mostrar.","eol_ellipsis": "…","error_occurred": "Erro na aplicação.","go_to_list": "Ir para a lista","hold_available": "Disponível para levantamento","libphonenumber_invalid": "Número de telefone inválido","libphonenumber_invalidcountry": "Código telefônico de país inválido","libphonenumber_invalidregion": "Código de região inválido (DDD):","libphonenumber_notanumber": "A informação fornecida não se assemelha a um número telefônico","libphonenumber_toolong": "A informação fornecida é muito longa para ser um número telefônico","libphonenumber_tooshort": "A informação fornecida é muito curta para ser um número telefônico","libphonenumber_tooshortidd": "O número telefônico é muito curto depois do DDI","loading": "Carregando","more": "Mais","number_thousands_separator": ".","sms_success": "Mensagem enviada.","Phone number invalid": "Número de telefone inválido","Invalid country calling code": "Código telefônico de país inválido","Invalid region code": "Código de região inválido (DDD):","The string supplied did not seem to be a phone number": "A informação fornecida não se assemelha a um número telefônico","The string supplied is too long to be a phone number": "A informação fornecida é muito longa para ser um número telefônico","The string supplied is too short to be a phone number": "A informação fornecida é muito curta para ser um número telefônico","Phone number too short after IDD": "O número telefônico é muito curto depois do DDI","account_checkouts_due": "Itens com vencimento próximo","account_checkouts_overdue": "Itens vencidos","account_has_alerts": "Sua conta tem alertas","account_normal_checkouts": "Itens emprestados","account_requests_available": "Disponível para levantamento","account_requests_in_transit": "Em trânsito para Coletar Localização"});
+    //-->
+</script>  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HDE70XCBE2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'G-HDE70XCBE2');
+  </script>
+</head>
+
+<body class="template-dir-record template-name-view ">
+    <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+    <ul id="menu-barra-temp" style="list-style:none;">
+      <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+        <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do
+          Governo Brasileiro</a>
+      </li>
+    </ul>s
+  </div>
+  <header class="navbar">
+        <a class="sr-only" href="#content">Pular para o conteúdo</a>
+    <div class="container">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-collapse">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </button>
+  <a class="logo-bdtd lang-pt-br" href="/vufind/">
+    <img class="logo-img" src="/vufind/themes/bdtd/images/logo.png?_=1703767367" alt="Logo da BDTD" />
+  </a>
+      <div class="collapse navbar-collapse" id="header-collapse">
+      <nav class="nav-main">
+        <ul role="navigation" class="nav navbar-nav flip">
+          <li>
+            <a href="/vufind/"><i class="uil uil-home"></i></a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Institucional</a>
+            <ul class="dropdown-menu">
+              <li class="">
+                <a href="/vufind/about/home">Sobre</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Participate/Home">Como participa</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Diretrizes/Home">Diretrizes</a>
+              </li>
+              <li class="">
+                <a href="/vufind/indicators/home">Indicadores</a>
+              </li>
+            </ul>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Rede</a>
+            <ul class="dropdown-menu network-menu">
+              <li class="">
+                <a href="/vufind/datasources/home">Instituições participantes</a>
+              </li>
+              <li class="">
+                <a href="/vufind/Technology/Home">Tecnologia</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="/vufind/faq/home">Dúvidas frequentes</a>
+          </li>
+                      <li>
+              <a id="feedbackLink" data-lightbox href="/vufind/Feedback/Home">Contato</a>
+            </li>
+          
+                                <li class="logoutOptions hidden">
+              <a href="/vufind/MyResearch/Home?redirect=0"><i id="account-icon" class="fa fa-user-circle" aria-hidden="true"></i> A sua conta</a>
+            </li>
+                        <li class="logoutOptions hidden">
+              <a href="/vufind/MyResearch/Logout" class="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Sair</a>
+            </li>
+            <li id="loginOptions" class="hidden" >
+                              <a href="/vufind/MyResearch/UserLogin" data-lightbox><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a>
+                          </li>
+          
+          
+          </ul>
+      </nav>
+    </div>
+    <a class="logo-ibict" href="https://www.gov.br/ibict">
+      <img class="logo-img" src="/vufind/themes/bdtd/images/ibict.png?_=1703767367" alt="Logo do Ibict" />
+    </a>
+  </div>  </header>
+      <div class="searchHomeContent">
+      <div class="search container navbar">
+        <nav class="nav searchbox hidden-print">
+            <form id="searchForm" method="get" action="/vufind/Search/Results" name="searchForm" autocomplete="off">
+            <div class="search-form">
+      <input data-search placeholder="Pesquise por teses e dissertações" id="searchForm_lookfor" class="search-input search-query 
+        autocomplete searcher:Solr         ac-auto-submit        " type="text" name="lookfor" value=""  aria-label="Termos&#x20;de&#x20;pesquisa" />
+
+              <select id="searchForm_type" class="searchForm_type form-control" name="type" data-native-menu="false" aria-label="Search&#x20;type">
+                                            <option value="AllFields" >Todos os campos</option>
+                                  <option value="Title" >Título</option>
+                                  <option value="year" >Ano da publicação</option>
+                                  <option value="Author" >Autor</option>
+                                  <option value="Subject" >Assunto</option>
+                                  <option value="Abstract" >Resumo</option>
+                            </select>
+      
+      <button type="submit" class="btn contained-primary">
+        Buscar</button>
+              <a href="/vufind/Search/Advanced" class="btn outlined-primary" rel="nofollow">
+          <i class="fa fa-plus-circle" aria-hidden="true"></i> Busca avançada        </a>
+            
+                              
+    </div>
+  </form>
+        </nav>
+      </div>
+    </div>
+    <nav class="breadcrumbs" aria-label="Trilhas&#x20;de&#x20;Navega&#xE7;&#xE3;o">
+    <div class="container">
+              <ul class="breadcrumb hidden-print">
+                      <li class="active" aria-current="page"><a href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00">Uma abordagem híbrida para alt...</a></li> <li class="">Metadados do item</li>                  </ul>
+          </div>
+  </nav>
+  <div role="main" class="main">
+    <div id="content" class="container">
+      
+
+<nav class="record-nav">
+  <ul class="action-toolbar" aria-label="Ferramentas">
+          <li role="none"><a class="cite-record toolbar-btn btn-type-cite" data-lightbox href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00/Cite" rel="nofollow">Citar</a></li>
+    
+    
+    <!-- <li role="none"><a class="mail-record toolbar-btn btn-type-email" data-lightbox href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00/Email" rel="nofollow">Enviar por e-mail</a></li> -->
+
+    <li><a class="print-record toolbar-btn btn-type-print" href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00?print=1" rel="nofollow">Imprimir</a></li>
+
+              <li role="none" class="dropdown">
+        <a class="export-toggle toolbar-btn btn-type-export dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00/Export" rel="nofollow" aria-expanded="false" aria-controls="export-options">Exportar registro</a>
+        <ul class="dropdown-menu" id="export-options" role="menu">
+                      <li role="none"><a href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00/Export?style=RefWorks" rel="nofollow" role="menuitem">Exportar para RefWorks</a></li>
+                      <li role="none"><a target="EndNoteWebMain" href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00/Export?style=EndNoteWeb" rel="nofollow" role="menuitem">Exportar para EndNoteWeb</a></li>
+                      <li role="none"><a href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00/Export?style=EndNote" rel="nofollow" role="menuitem">Exportar para EndNote</a></li>
+                  </ul>
+      </li>
+    
+              </ul>
+</nav>
+<div class="record sourceSolr">
+    <div class="mainbody right">
+    <input type="hidden" value="UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00" class="hiddenId" />
+    <input type="hidden" value="Solr" class="hiddenSource" />
+        <div class="media" vocab="http://schema.org/" resource="#record" typeof="CreativeWork Product">
+      <div class="media-body">
+
+    <h1 property="name">Uma abordagem híbrida para alterar o design típico de data center</h1>
+
+    
+              
+    <!-- ocultar resumo abaixo do titulo
+               <p>Orientador: Luiz Carlos Pereira da Silva</p>
+
+       -->
+
+    
+                  <table class="table table-striped">
+        <caption class="sr-only">Detalhes bibliográficos</caption>
+                  <tr>
+            <th>Ano de defesa:</th>
+            <td>2023</td>
+          </tr>
+                  <tr>
+            <th>Autor(a) principal:</th>
+            <td><span class="author-data" property="author">
+      <a href="  /vufind/Author/Home?author=Storti%2C+Gabriel+Jos%C3%A9%2C+1985-">
+        Storti, Gabriel José, 1985-</a></span></td>
+          </tr>
+                  <tr>
+            <th>Orientador(a):</th>
+            <td><span class="author-data" property="contributor">
+      <a href="  /vufind/Author/Home?author=N%C3%A3o+Informado+pela+institui%C3%A7%C3%A3o">
+        Não Informado pela instituição</a></span></td>
+          </tr>
+                  <tr>
+            <th>Banca de defesa:</th>
+            <td><span class="author-data" property="contributor">
+      <a href="  /vufind/Author/Home?author=N%C3%A3o+Informado+pela+institui%C3%A7%C3%A3o">
+        Não Informado pela instituição</a></span></td>
+          </tr>
+                  <tr>
+            <th>Tipo de documento:</th>
+            <td>      <span class="format masterthesis">Dissertação</span>
+  </td>
+          </tr>
+                  <tr>
+            <th>Tipo de acesso:</th>
+            <td><!-- traduzido  -->
+Acesso aberto</td>
+          </tr>
+                  <tr>
+            <th>Idioma:</th>
+            <td>por</td>
+          </tr>
+                  <tr>
+            <th>Instituição de defesa:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">[s.n.]</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Programa de Pós-Graduação:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Departamento:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>País:</th>
+            <td><span property="publisher" typeof="Organization">
+        <span property="name">Não Informado pela instituição</span>
+    </span>
+    <br/></td>
+          </tr>
+                  <tr>
+            <th>Palavras-chave em Português:</th>
+            <td><div class="subject-line" property="keywords">
+                              <a title="Centros&#x20;de&#x20;processamento&#x20;de&#x20;dados" href="/vufind/Search/Results?lookfor=%22Centros+de+processamento+de+dados%22&amp;type=Subject
+" rel="nofollow">Centros de processamento de dados</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Colocation" href="/vufind/Search/Results?lookfor=%22Colocation%22&amp;type=Subject
+" rel="nofollow">Colocation</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Miss&#xE3;o&#x20;cr&#xED;tica" href="/vufind/Search/Results?lookfor=%22Miss%C3%A3o+cr%C3%ADtica%22&amp;type=Subject
+" rel="nofollow">Missão crítica</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Infraestrutura&#x20;cr&#xED;tica" href="/vufind/Search/Results?lookfor=%22Infraestrutura+cr%C3%ADtica%22&amp;type=Subject
+" rel="nofollow">Infraestrutura crítica</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Infraestrutura&#x20;de&#x20;miss&#xE3;o&#x20;critica" href="/vufind/Search/Results?lookfor=%22Infraestrutura+de+miss%C3%A3o+critica%22&amp;type=Subject
+" rel="nofollow">Infraestrutura de missão critica</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Data&#x20;centers" href="/vufind/Search/Results?lookfor=%22Data+centers%22&amp;type=Subject
+" rel="nofollow">Data centers</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Mission&#x20;critical" href="/vufind/Search/Results?lookfor=%22Mission+critical%22&amp;type=Subject
+" rel="nofollow">Mission critical</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Critical&#x20;infrastructure" href="/vufind/Search/Results?lookfor=%22Critical+infrastructure%22&amp;type=Subject
+" rel="nofollow">Critical infrastructure</a>
+      </div>
+  <div class="subject-line" property="keywords">
+                              <a title="Mission&#x20;critical&#x20;infrastructure" href="/vufind/Search/Results?lookfor=%22Mission+critical+infrastructure%22&amp;type=Subject
+" rel="nofollow">Mission critical infrastructure</a>
+      </div></td>
+          </tr>
+                  <tr>
+            <th>Link de acesso:</th>
+            <td><a href="https&#x3A;&#x2F;&#x2F;hdl.handle.net&#x2F;20.500.12733&#x2F;8792">https://hdl.handle.net/20.500.12733/8792</a><br/></td>
+          </tr>
+                                  <th>Resumo:</th>
+          <td>Orientador: Luiz Carlos Pereira da Silva</td>
+              </table>
+          </div>
+</div>
+          <a name="tabnav"></a>
+      <div class="record-tabs">
+        <ul class="nav nav-tabs">
+                                  <li class="record-tab details" data-tab="details" >
+              <a data-open-close href="/vufind/Record/UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00/Details#tabnav" data-lightbox-ignore>
+                Metadados do item              </a>
+            </li>
+                  </ul>
+
+        <div class="tab-content">
+                      <div class="tab-pane details-tab">
+              <table class="citation table table-striped">
+      <tr>
+      <th>id</th>
+      <td>
+                  UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00<br />
+              </td>
+    </tr>
+      <tr>
+      <th>oai_identifier_str</th>
+      <td>
+                  oai::1267490<br />
+              </td>
+    </tr>
+      <tr>
+      <th>network_acronym_str</th>
+      <td>
+                  UNICAMP-30<br />
+              </td>
+    </tr>
+      <tr>
+      <th>network_name_str</th>
+      <td>
+                  Biblioteca Digital de Teses e Dissertações da Universidade Estadual de Campinas (UNICAMP)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository_id_str</th>
+      <td>
+                  <br />
+              </td>
+    </tr>
+      <tr>
+      <th>spelling</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data centerA hybrid approach to changing the typical data center designCentros de processamento de dadosColocationMissão críticaInfraestrutura críticaInfraestrutura de missão criticaData centersColocationMission criticalCritical infrastructureMission critical infrastructureOrientador: Luiz Carlos Pereira da SilvaDissertação (mestrado) - Universidade Estadual de Campinas, Faculdade de Engenharia Elétrica e de ComputaçãoResumo: O aumento exponencial da demanda por data centers no mundo tem exigido uma formação acelerada de profissionais para atuarem neste ramo de trabalho. Grande parte do conhecimento exigido para operar com excelência tal infraestrutura crítica não tem sido proporcionado por meios acadêmicos (e raramente é encontrado em literatura), e sim no ambiente de trabalho, junto a especialistas do ramo. No entanto, como atualmente existe uma escassez de profissionais experientes no mundo, como também muitos destes profissionais estão se aposentando, o conhecimento especializado muitas vezes não é repassado aos novos entrantes do mercado, ocasionando em uma falta de confiança pelos novos profissionais em proporem soluções diferentes em relação aos modelos típicos, consequentemente resultando em uma perda significativa de inovação nestes ambientes. Novas tecnologias têm sido criadas com níveis similares de confiabilidade, custos operacionais menores, e muitas vezes que produzem menos impacto ambiental em relação aos modelos padrões, e ainda assim projetos como os que envolvem sistemas de backup de energia de emergência suportadas por fontes de alimentação ininterruptas (UPS) com baterias de chumbo-ácido (LA) continuam a serem adotado na maior parte do mundo. Um dos possíveis aspectos por esta &quot;falta de inovação&quot; é o medo de errar, pois apesar de poder se generalizar um data center em conceitos simples, como em qualquer ambiente de missão crítica não pode haver erro. São abordados de maneira estruturada os principais conceitos para se construir, operar, manter e gerenciar uma infraestrutura de data center de colocation, como também é realizada uma apresentação e discussão de novas tendências e tecnologias sendo introduzidas neste mercado. Por fim são discutidas as dificuldades de penetração de algumas destas novas tecnologias no mercado, e proposto um processo metodológico considerando, risco x retorno, para a adoção destas novas tecnologias no contexto convencional. O conteúdo abordado conta com as melhores práticas até o momento, como também mais de 12 anos de experiência prática no mercado pelo autor entre aprendizados com diversos mentores durante sua carreiraAbstract: The exponential increase in demand for data centers in the world has required an accelerated training of professionals to work in this field of work. Much of the knowledge required to operate such critical infrastructure with excellence has not been provided by academic means (and is rarely found in the literature), but in the work environment, with experts in the field. However, as there is currently a shortage of experienced professionals in the world, as well as many of these professionals are retiring, the expertise knowledge is often not passed on to new market entrants, resulting in a lack of confidence by new professionals in proposing different solutions compared to typical models, consequently resulting in a significant loss of innovation in these environments. New technologies have been created with similar levels of reliability, lower operating costs, and often producing less environmental impact than standard models, and yet projects such as those involving emergency power backup systems supported by uninterruptible power supplies (UPS) with lead-acid (LA) batteries continue to be adopted throughout most of the world. One of the possible aspects of this &quot;lack of innovation&quot; is the fear of making mistakes, because despite being able to generalize a data center in simple concepts, as in any mission critical environment there can be no mistakes. The main concepts for building, operating, maintaining and managing a colocation data center infrastructure are addressed in a structured way, as well as a presentation and discussion of new trends and technologies being introduced in this market. Finally, the difficulties of penetration of some of these new technologies in the market are discussed, and a methodological process is proposed considering, risk x return, for the adoption of these new technologies in the conventional context. The content covered includes the best practices to date, as well as the author’s more than 12 years of practical experience in the industry, among learnings with several mentors during his careerMestradoEnergia ElétricaMestre em Engenharia Elétrica[s.n.]Silva, Luiz Carlos Pereira da, 1972-Bonatto, Benedito DonizetiPanato, Victor HugoUniversidade Estadual de Campinas (UNICAMP). Faculdade de Engenharia Elétrica e de ComputaçãoPrograma de Pós-Graduação em Engenharia ElétricaUNIVERSIDADE ESTADUAL DE CAMPINASStorti, Gabriel José, 1985-20232023-02-09T00:00:00Zinfo:eu-repo/semantics/publishedVersioninfo:eu-repo/semantics/masterThesisapplication/pdf1 recurso online (145 p.) : il., digital, arquivo PDF.https://hdl.handle.net/20.500.12733/8792STORTI, Gabriel José. Uma abordagem híbrida para alterar o design típico de data center. 2023. 1 recurso online (145 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Faculdade de Engenharia Elétrica e de Computação, Campinas, SP. Disponível em: 20.500.12733/8792. Acesso em: 29 set. 2025.https://repositorio.unicamp.br/acervo/detalhe/1267490https://repositorio.unicamp.br/acervo/detalhe/1267490Requisitos do sistema: Software para leitura de arquivo em PDFporreponame:Biblioteca Digital de Teses e Dissertações da Universidade Estadual de Campinas (UNICAMP)instname:Universidade Estadual de Campinas (UNICAMP)instacron:UNICAMPinfo:eu-repo/semantics/openAccess2025-07-17T16:05:17Zoai::1267490Biblioteca Digital de Teses e DissertaçõesPUBhttp://repositorio.unicamp.br/oai/tese/oai.aspsbubd@unicamp.bropendoar:2025-07-17T16:05:17Biblioteca Digital de Teses e Dissertações da Universidade Estadual de Campinas (UNICAMP) - Universidade Estadual de Campinas (UNICAMP)false<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.title.none.fl_str_mv</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+                  A hybrid approach to changing the typical data center design<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+              </td>
+    </tr>
+      <tr>
+      <th>spellingShingle</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+                  Storti, Gabriel José, 1985-<br />
+                  Centros de processamento de dados<br />
+                  Colocation<br />
+                  Missão crítica<br />
+                  Infraestrutura crítica<br />
+                  Infraestrutura de missão critica<br />
+                  Data centers<br />
+                  Colocation<br />
+                  Mission critical<br />
+                  Critical infrastructure<br />
+                  Mission critical infrastructure<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_short</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_full</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_fullStr</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_full_unstemmed</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+              </td>
+    </tr>
+      <tr>
+      <th>title_sort</th>
+      <td>
+                  Uma abordagem híbrida para alterar o design típico de data center<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author</th>
+      <td>
+                  Storti, Gabriel José, 1985-<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author_facet</th>
+      <td>
+                  Storti, Gabriel José, 1985-<br />
+              </td>
+    </tr>
+      <tr>
+      <th>author_role</th>
+      <td>
+                  author<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.contributor.none.fl_str_mv</th>
+      <td>
+                  Silva, Luiz Carlos Pereira da, 1972-<br />
+                  Bonatto, Benedito Donizeti<br />
+                  Panato, Victor Hugo<br />
+                  Universidade Estadual de Campinas (UNICAMP). Faculdade de Engenharia Elétrica e de Computação<br />
+                  Programa de Pós-Graduação em Engenharia Elétrica<br />
+                  UNIVERSIDADE ESTADUAL DE CAMPINAS<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.contributor.author.fl_str_mv</th>
+      <td>
+                  Storti, Gabriel José, 1985-<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.subject.por.fl_str_mv</th>
+      <td>
+                  Centros de processamento de dados<br />
+                  Colocation<br />
+                  Missão crítica<br />
+                  Infraestrutura crítica<br />
+                  Infraestrutura de missão critica<br />
+                  Data centers<br />
+                  Colocation<br />
+                  Mission critical<br />
+                  Critical infrastructure<br />
+                  Mission critical infrastructure<br />
+              </td>
+    </tr>
+      <tr>
+      <th>topic</th>
+      <td>
+                  Centros de processamento de dados<br />
+                  Colocation<br />
+                  Missão crítica<br />
+                  Infraestrutura crítica<br />
+                  Infraestrutura de missão critica<br />
+                  Data centers<br />
+                  Colocation<br />
+                  Mission critical<br />
+                  Critical infrastructure<br />
+                  Mission critical infrastructure<br />
+              </td>
+    </tr>
+      <tr>
+      <th>description</th>
+      <td>
+                  Orientador: Luiz Carlos Pereira da Silva<br />
+              </td>
+    </tr>
+      <tr>
+      <th>publishDate</th>
+      <td>
+                  2023<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.date.none.fl_str_mv</th>
+      <td>
+                  2023<br />
+                  2023-02-09T00:00:00Z<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.type.status.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/publishedVersion<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.type.driver.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/masterThesis<br />
+              </td>
+    </tr>
+      <tr>
+      <th>format</th>
+      <td>
+                  masterThesis<br />
+              </td>
+    </tr>
+      <tr>
+      <th>status_str</th>
+      <td>
+                  publishedVersion<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.identifier.uri.fl_str_mv</th>
+      <td>
+                  https://hdl.handle.net/20.500.12733/8792<br />
+                  STORTI, Gabriel José. Uma abordagem híbrida para alterar o design típico de data center. 2023. 1 recurso online (145 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Faculdade de Engenharia Elétrica e de Computação, Campinas, SP. Disponível em: 20.500.12733/8792. Acesso em: 29 set. 2025.<br />
+              </td>
+    </tr>
+      <tr>
+      <th>url</th>
+      <td>
+                  https://hdl.handle.net/20.500.12733/8792<br />
+              </td>
+    </tr>
+      <tr>
+      <th>identifier_str_mv</th>
+      <td>
+                  STORTI, Gabriel José. Uma abordagem híbrida para alterar o design típico de data center. 2023. 1 recurso online (145 p.) Dissertação (mestrado) - Universidade Estadual de Campinas, Faculdade de Engenharia Elétrica e de Computação, Campinas, SP. Disponível em: 20.500.12733/8792. Acesso em: 29 set. 2025.<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.language.iso.fl_str_mv</th>
+      <td>
+                  por<br />
+              </td>
+    </tr>
+      <tr>
+      <th>language</th>
+      <td>
+                  por<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.relation.none.fl_str_mv</th>
+      <td>
+                  https://repositorio.unicamp.br/acervo/detalhe/1267490<br />
+                  https://repositorio.unicamp.br/acervo/detalhe/1267490<br />
+                  Requisitos do sistema: Software para leitura de arquivo em PDF<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.rights.driver.fl_str_mv</th>
+      <td>
+                  info:eu-repo/semantics/openAccess<br />
+              </td>
+    </tr>
+      <tr>
+      <th>eu_rights_str_mv</th>
+      <td>
+                  openAccess<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.format.none.fl_str_mv</th>
+      <td>
+                  application/pdf<br />
+                  1 recurso online (145 p.) : il., digital, arquivo PDF.<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.publisher.none.fl_str_mv</th>
+      <td>
+                  [s.n.]<br />
+              </td>
+    </tr>
+      <tr>
+      <th>publisher.none.fl_str_mv</th>
+      <td>
+                  [s.n.]<br />
+              </td>
+    </tr>
+      <tr>
+      <th>dc.source.none.fl_str_mv</th>
+      <td>
+                  reponame:Biblioteca Digital de Teses e Dissertações da Universidade Estadual de Campinas (UNICAMP)<br />
+                  instname:Universidade Estadual de Campinas (UNICAMP)<br />
+                  instacron:UNICAMP<br />
+              </td>
+    </tr>
+      <tr>
+      <th>instname_str</th>
+      <td>
+                  Universidade Estadual de Campinas (UNICAMP)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>instacron_str</th>
+      <td>
+                  UNICAMP<br />
+              </td>
+    </tr>
+      <tr>
+      <th>institution</th>
+      <td>
+                  UNICAMP<br />
+              </td>
+    </tr>
+      <tr>
+      <th>reponame_str</th>
+      <td>
+                  Biblioteca Digital de Teses e Dissertações da Universidade Estadual de Campinas (UNICAMP)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>collection</th>
+      <td>
+                  Biblioteca Digital de Teses e Dissertações da Universidade Estadual de Campinas (UNICAMP)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository.name.fl_str_mv</th>
+      <td>
+                  Biblioteca Digital de Teses e Dissertações da Universidade Estadual de Campinas (UNICAMP) - Universidade Estadual de Campinas (UNICAMP)<br />
+              </td>
+    </tr>
+      <tr>
+      <th>repository.mail.fl_str_mv</th>
+      <td>
+                  sbubd@unicamp.br<br />
+              </td>
+    </tr>
+      <tr>
+      <th>_version_</th>
+      <td>
+                  1844628695425220608<br />
+              </td>
+    </tr>
+  </table>
+            </div>
+                  </div>
+      </div>
+    
+    <span class="Z3988" title="url_ver&#x3D;Z39.88-2004&amp;ctx_ver&#x3D;Z39.88-2004&amp;ctx_enc&#x3D;info&#x25;3Aofi&#x25;2Fenc&#x25;3AUTF-8&amp;rfr_id&#x3D;info&#x25;3Asid&#x25;2Fvufind.svn.sourceforge.net&#x25;3Agenerator&amp;rft.title&#x3D;Uma&#x2B;abordagem&#x2B;h&#x25;C3&#x25;ADbrida&#x2B;para&#x2B;alterar&#x2B;o&#x2B;design&#x2B;t&#x25;C3&#x25;ADpico&#x2B;de&#x2B;data&#x2B;center&amp;rft.date&#x3D;2023&amp;rft_val_fmt&#x3D;info&#x25;3Aofi&#x25;2Ffmt&#x25;3Akev&#x25;3Amtx&#x25;3Adc&amp;rft.creator&#x3D;Storti&#x25;2C&#x2B;Gabriel&#x2B;Jos&#x25;C3&#x25;A9&#x25;2C&#x2B;1985-&amp;rft.format&#x3D;masterThesis&amp;rft.language&#x3D;por"></span>  </div>
+
+  <div class="sidebar left hidden-print">
+          <h2>Registros relacionados</h2>
+  <ul class="list-group">
+          <li class="list-group-item">
+                <i class="fa fa-x fa-doctoralthesis" title="doctoralThesis"></i>
+        <a href="/vufind/Record/URGS_56a514d7549565c5d7a544e9def73805">
+          Towards a dynamic Internet interconnection ecosystem for improved wide-area traffic delivery        </a>
+                  <br/>por: Marcos, Pedro de Botelho                          <br/>Publicado em: (2019)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-doctoralthesis" title="doctoralThesis"></i>
+        <a href="/vufind/Record/UFMA_e59e4b2e016f7fcc868c0f40b47f536f">
+          Estratégias de gerenciamento de energia e de proteção para microrredes de missão crítica: um estudo de caso        </a>
+                  <br/>por: CASTELO BRANCO, César Augusto Santana                          <br/>Publicado em: (2023)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-doctoralthesis" title="doctoralThesis"></i>
+        <a href="/vufind/Record/USP_6d8a6ab45681da837540e26e3633a30a">
+          Requirements analysis for technical interoperability driven by mission engineering        </a>
+                  <br/>por: Lana, Cristiane Aparecida                          <br/>Publicado em: (2020)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/METO_f504891121f542bbcf4dde1c7131d2bf">
+          Conceito de Missão em John Stott e René Padilla: relação entre proclamação da palavra e ação social.        </a>
+                  <br/>por: SILVA, Marcos Aurélio da                          <br/>Publicado em: (2012)
+              </li>
+          <li class="list-group-item">
+                <i class="fa fa-x fa-masterthesis" title="masterThesis"></i>
+        <a href="/vufind/Record/FGV_e9c523cbb0a0fe42993c186df735a705">
+          Missão organizacional, uma questão de discurso?: por uma análise crítica        </a>
+                  <br/>por: Harten, Bruno Anastassiu                          <br/>Publicado em: (2013)
+              </li>
+      </ul>
+      </div>
+</div>
+<script type="text&#x2F;javascript" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;">
+    //<!--
+    $(document).ready(recordDocReady);
+    //-->
+</script>    </div>
+  </div>
+  <footer class="hidden-print">
+  <div class="container-fluid social-media">
+    <div class="flex-row-center gap-2">
+      <a href="https://www.youtube.com/user/IBICTbr/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/youtube.png?_=1703767367" alt="Youtube Logo" />
+      </a>
+      <a href="https://www.facebook.com/IBICTbr/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/facebook.png?_=1703767367" alt="Facebook Logo" />
+      </a>
+      <a href="https://twitter.com/ibictbr" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/twitter.png?_=1703767367" alt="Twitter Logo" />
+      </a>
+      <a href="https://www.linkedin.com/company/ibict---instituto-brasileiro-de-informa-o-em-ci-ncia-e-tecnologia/mycompany/" target="_blank">
+        <img class="img-responsive" src="/vufind/themes/bdtd/images/linkedin.svg?_=1703767367" alt="Linkedin Logo" />
+      </a>
+    </div>
+  </div>
+  <div class="assinatura">
+    <a href="https://www.gov.br/ibict" target="_blank" rel="noopener noreferrer">
+      <img class="img-responsive" src="/vufind/themes/bdtd/images/footeratualizado.png?_=1761139766" alt="Logo do Ibict e do ministério da ciência e tecnologia" />
+    </a>
+  </div>
+  <p>
+    Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict) <br />
+    SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF
+  </p>
+  <div class="poweredby">
+      </div>
+  <script async src="https://barra.brasil.gov.br/barra_2.0.js"></script>
+</footer>  <!-- MODAL IN CASE WE NEED ONE -->
+  <div id="modal" class="modal fade hidden-print" tabindex="-1" role="dialog" aria-labelledby="modal-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="close" data-dismiss="modal">
+          <svg aria-label="Close" viewBox="0 0 24 24">
+            <path d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+        <div class="modal-body">Carregando...</div>
+      </div>
+    </div>
+  </div>
+  <div class="offcanvas-overlay" data-toggle="offcanvas"></div>
+    <script  nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;">
+    //<!--
+    
+function initVuFindPiwikTracker1762802589703(){
+    var VuFindPiwikTracker = Piwik.getTracker();
+
+    VuFindPiwikTracker.setSiteId();
+    VuFindPiwikTracker.setTrackerUrl('https://matomo.lareferencia.info/piwik.php');
+    VuFindPiwikTracker.setCustomUrl('https\x3A\x2F\x2Fbdtd.ibict.br\x2Fvufind\x2FRecord\x2FUNICAMP\x2D30_2c616acd0c8cd04ce415ca457a43ff00');
+    VuFindPiwikTracker.setCustomVariable(1, 'RecordFormat', 'masterThesis', 'page');
+    VuFindPiwikTracker.setCustomVariable(2, 'RecordData', 'UNICAMP-30_2c616acd0c8cd04ce415ca457a43ff00&#x7C;Storti,&#x20;Gabriel&#x20;Jos&#xE9;,&#x20;1985-&#x7C;Uma&#x20;abordagem&#x20;h&#xED;brida&#x20;para&#x20;alterar&#x20;o&#x20;design&#x20;t&#xED;pico&#x20;de&#x20;data&#x20;center', 'page');
+    VuFindPiwikTracker.setCustomVariable(3, 'RecordInstitution', 'UNICAMP', 'page');
+    VuFindPiwikTracker.trackPageView();
+    VuFindPiwikTracker.enableLinkTracking();
+};
+(function(){
+    if (typeof Piwik === 'undefined') {
+        var d=document, g=d.createElement('script'),
+            s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.defer=true; g.async=true;
+        g.src='https://matomo.lareferencia.info/piwik.js';
+        g.onload=initVuFindPiwikTracker1762802589703;
+        s.parentNode.insertBefore(g,s);
+    } else {
+        initVuFindPiwikTracker1762802589703();
+    }
+})();
+    //-->
+</script>      <script  src="https&#x3A;&#x2F;&#x2F;www.google.com&#x2F;recaptcha&#x2F;api.js&#x3F;onload&#x3D;recaptchaOnLoad&amp;render&#x3D;explicit&amp;hl&#x3D;pt-br" nonce="5imcaSh7MRo9pvTmU0lT8VHsZ0yIJnv&#x2B;qq9GmrXpekE&#x3D;"></script>  
+  <div class="translateBtn">
+    <div>
+      <a class="toggle-me" tooltipbtn="Traduzir página">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0" y="0" viewBox="0 0 998.1 998.3" xml:space="preserve">
+          <path fill="#DBDBDB" d="M931.7 998.3c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4H283.6l260.1 797.9h388z" />
+          <path fill="#DCDCDC" d="M931.7 230.4c9.7 0 18.9 3.8 25.8 10.6 6.8 6.7 10.6 15.5 10.6 24.8v667.1c0 9.3-3.7 18.1-10.6 24.8-6.9 6.8-16.1 10.6-25.8 10.6H565.5L324.9 230.4h606.8m0-30H283.6l260.1 797.9h388c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4z" />
+          <polygon fill="#4352B8" points="482.3,809.8 543.7,998.3 714.4,809.8" />
+          <path fill="#607988" d="M936.1 476.1V437H747.6v-63.2h-61.2V437H566.1v39.1h239.4c-12.8 45.1-41.1 87.7-68.7 120.8-48.9-57.9-49.1-76.7-49.1-76.7h-50.8s2.1 28.2 70.7 108.6c-22.3 22.8-39.2 36.3-39.2 36.3l15.6 48.8s23.6-20.3 53.1-51.6c29.6 32.1 67.8 70.7 117.2 116.7l32.1-32.1c-52.9-48-91.7-86.1-120.2-116.7 38.2-45.2 77-102.1 85.2-154.2H936v.1z" />
+          <path fill="#4285F4" d="M66.4 0C29.9 0 0 29.9 0 66.5v677c0 36.5 29.9 66.4 66.4 66.4h648.1L454.4 0h-388z" />
+          <linearGradient id="a" gradientUnits="userSpaceOnUse" x1="534.3" y1="433.2" x2="998.1" y2="433.2">
+            <stop offset="0" stop-color="#fff" stop-opacity=".2" />
+            <stop offset="1" stop-color="#fff" stop-opacity=".02" />
+          </linearGradient>
+          <path fill="url(#a)" d="M534.3 200.4h397.4c36.5 0 66.4 29.4 66.4 65.4V666L534.3 200.4z" />
+          <path fill="#EEEEEE" d="M371.4 430.6c-2.5 30.3-28.4 75.2-91.1 75.2-54.3 0-98.3-44.9-98.3-100.2s44-100.2 98.3-100.2c30.9 0 51.5 13.4 63.3 24.3l41.2-39.6c-27.1-25-62.4-40.6-104.5-40.6-86.1 0-156 69.9-156 156s69.9 156 156 156c90.2 0 149.8-63.3 149.8-152.6 0-12.8-1.6-22.2-3.7-31.8h-146v53.4l91 .1z" />
+          <radialGradient id="b" cx="65.208" cy="19.366" r="1398.271" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#fff" stop-opacity=".1" />
+            <stop offset="1" stop-color="#fff" stop-opacity="0" />
+          </radialGradient>
+          <path fill="url(#b)" d="M931.7 200.4H518.8L454.4 0h-388C29.9 0 0 29.9 0 66.5v677c0 36.5 29.9 66.4 66.4 66.4h415.9l61.4 188.4h388c36.5 0 66.4-29.4 66.4-65.4V265.8c0-36-29.9-65.4-66.4-65.4z" />
+        </svg>
+      </a>
+    </div>
+    <div id="google_translate_element"></div>
+  </div>
+
+
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({
+        pageLanguage: 'pt'
+      }, 'google_translate_element');
+    }
+  </script>
+  <script>
+    jQuery('.toggle-me').click(function() {
+      jQuery('.translateBtn').toggleClass('active');
+    });
+  </script>
+  <script async type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <!-- Plugin de acessibilidade user way -->
+  <script src="https://cdn.userway.org/widget.js" data-account="gxYK4Xrqhn"></script>
+
+</body>
+
+</html>

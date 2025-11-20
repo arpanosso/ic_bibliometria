@@ -1,0 +1,293 @@
+Texto_Completo
+Metadados do item: Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+//<!--
+"var userIsLoggedIn = false;"
+//-->
+//<!--
+"VuFind.path = '/vufind';"
+"VuFind.defaultSearchBackend = 'Solr';"
+"VuFind.addTranslations({""add_tag_success"": ""Tags guardadas"",""bulk_email_success"": ""O(s) item(ns) foram enviados por e-mail"",""bulk_noitems_advice"": ""Nenhum item foi selecionado. Por favor, clique na caixa de seleção ao lado de um item e tente novamente."",""bulk_save_success"": ""O(s) registro(s) foram salvos com sucesso"",""close"": ""fechar"",""collection_empty"": ""Não há registros para mostrar."",""eol_ellipsis"": ""…"",""error_occurred"": ""Erro na aplicação."",""go_to_list"": ""Ir para a lista"",""hold_available"": ""Disponível para levantamento"",""libphonenumber_invalid"": ""Número de telefone inválido"",""libphonenumber_invalidcountry"": ""Código telefônico de país inválido"",""libphonenumber_invalidregion"": ""Código de região inválido (DDD):"",""libphonenumber_notanumber"": ""A informação fornecida não se assemelha a um número telefônico"",""libphonenumber_toolong"": ""A informação fornecida é muito longa para ser um número telefônico"",""libphonenumber_tooshort"": ""A informação fornecida é muito curta para ser um número telefônico"",""libphonenumber_tooshortidd"": ""O número telefônico é muito curto depois do DDI"",""loading"": ""Carregando"",""more"": ""Mais"",""number_thousands_separator"": ""."",""sms_success"": ""Mensagem enviada."",""Phone number invalid"": ""Número de telefone inválido"",""Invalid country calling code"": ""Código telefônico de país inválido"",""Invalid region code"": ""Código de região inválido (DDD):"",""The string supplied did not seem to be a phone number"": ""A informação fornecida não se assemelha a um número telefônico"",""The string supplied is too long to be a phone number"": ""A informação fornecida é muito longa para ser um número telefônico"",""The string supplied is too short to be a phone number"": ""A informação fornecida é muito curta para ser um número telefônico"",""Phone number too short after IDD"": ""O número telefônico é muito curto depois do DDI"",""account_checkouts_due"": ""Itens com vencimento próximo"",""account_checkouts_overdue"": ""Itens vencidos"",""account_has_alerts"": ""Sua conta tem alertas"",""account_normal_checkouts"": ""Itens emprestados"",""account_requests_available"": ""Disponível para levantamento"",""account_requests_in_transit"": ""Em trânsito para Coletar Localização""});"
+//-->
+"window.dataLayer = window.dataLayer || [];"
+function gtag() {
+"dataLayer.push(arguments);"
+}
+"gtag('js', new Date());"
+"gtag('config', 'G-HDE70XCBE2');"
+Portal do
+Governo Brasileiro
+s
+Pular para o conteúdo
+Institucional
+Sobre
+Como participa
+Diretrizes
+Indicadores
+Rede
+Instituições participantes
+Tecnologia
+Dúvidas frequentes
+Contato
+A sua conta
+Sair
+Entrar
+Todos os camposTítuloAno da publicaçãoAutorAssuntoResumo
+Buscar
+Busca avançada
+Inteligência artificial e seu... Metadados do item
+Citar
+Imprimir
+Exportar registro
+Exportar para RefWorks
+Exportar para EndNoteWeb
+Exportar para EndNote
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+Detalhes bibliográficos
+Ano de defesa:
+2022
+Autor:
+Sayad, Alexandre Le Voci
+Orientador(a):
+Kaufman, Dora
+Banca de defesa:
+Não Informado pela instituição
+Tipo de documento:
+Dissertação
+Tipo de acesso:
+Acesso aberto
+Idioma:
+por
+Institui��o de defesa:
+Pontifícia Universidade Católica de São Paulo
+Programa de Pós-Graduação:
+Programa de Estudos Pós-Graduados em Tecnologias da Inteligência e Design Digital
+Departamento:
+Faculdade de Ciências Exatas e Tecnologia
+País:
+Brasil
+Palavras-chave em Português:
+Inteligência artificial
+Ética
+Pensamento crítico
+AMI
+Educação
+Palavras-chave em Inglês:
+Artificial intelligence
+Ethics
+Critical thinking
+MIL
+Education
+Área do conhecimento CNPq:
+CNPQ::ENGENHARIAS
+Link de acesso:
+https://repositorio.pucsp.br/jspui/handle/handle/29620
+Resumo:
+"Artificial intelligence (ai) is a multidisciplinary field of knowledge that may seem invisible to human perception, but its consequences are not. its technical advances are already impacting life in society at an unprecedented speed - which is why it now occupies a relevant role in the debate on public policies around the world. the everyday application of deep learning, a technique of the ai machine learning, walks a fine line between practicality and benefits for users, such as how predictive decision-making, and its ethical impacts, related to privacy, bias in results, propagation of prejudices, opacity of the algorithm's operation, among others. as a new mediation (kaufman, 2020), ai systems mediate socialization and communication between human beings and the world around them. in this sense, this research aims to evaluate the impact of artificial intelligence on the formation of so-called critical thinking. this, in turn, has its conceptual limits extended in the universe of public and private education, being used many times as a marketing concept. therefore, in search of accuracy, the research revisits the epistemology of critical thinking from selected essays by theodor adorno and max horkheimer (1989), and the scholars who followed them such as john mcpeck (1981), in addition to, later, evidencing its entry as a pillar of the democratic school by through john dewey (1953). in parallel, the research carried out focuses on the historical review of the birth principles of ai functioning through john mccarthy (2005), kai fu-lee (2019), stuart russell and peter norvig (2009) among others. by analyzing the ethical impacts caused by ai (kaufman, 2019, 2022; villani, 2019; pariser, 2011) in various fields, especially in education (fadel et al., 2020), the research presents how ai actually transforms what we know as critical thinking in five chosen aspects, from its epistemology in comparison to others such as the neomaterialists (lemos, 2016, 2020; kaufman, 2020), to elements that make up its basic principles, such as intellectual autonomy and citizenship"
+Metadados do item
+id
+PUC_SP-1_ce5664e3ad44b3244c1ad19469a54c1d
+oai_identifier_str
+oai:repositorio.pucsp.br:handle/29620
+network_acronym_str
+PUC_SP-1
+network_name_str
+Repositório Institucional da PUC_SP
+repository_id_str
+spelling
+"Kaufman, Dorahttp://lattes.cnpq.br/8045171889826285Sayad, Alexandre Le Voci2022-11-03T18:39:52Z2022-11-03T18:39:52Z2022-09-16Sayad, Alexandre Le Voci. Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico. 2022. Dissertação (Mestrado em Tecnologias da Inteligência e Design Digital) - Programa de Estudos Pós-Graduados em Tecnologias da Inteligência e Design Digital da Pontifícia Universidade Católica de São Paulo, São Paulo, 2022.https://repositorio.pucsp.br/jspui/handle/handle/29620Artificial intelligence (ai) is a multidisciplinary field of knowledge that may seem invisible to human perception, but its consequences are not. its technical advances are already impacting life in society at an unprecedented speed - which is why it now occupies a relevant role in the debate on public policies around the world. the everyday application of deep learning, a technique of the ai machine learning, walks a fine line between practicality and benefits for users, such as how predictive decision-making, and its ethical impacts, related to privacy, bias in results, propagation of prejudices, opacity of the algorithm's operation, among others. as a new mediation (kaufman, 2020), ai systems mediate socialization and communication between human beings and the world around them. in this sense, this research aims to evaluate the impact of artificial intelligence on the formation of so-called critical thinking. this, in turn, has its conceptual limits extended in the universe of public and private education, being used many times as a marketing concept. therefore, in search of accuracy, the research revisits the epistemology of critical thinking from selected essays by theodor adorno and max horkheimer (1989), and the scholars who followed them such as john mcpeck (1981), in addition to, later, evidencing its entry as a pillar of the democratic school by through john dewey (1953). in parallel, the research carried out focuses on the historical review of the birth principles of ai functioning through john mccarthy (2005), kai fu-lee (2019), stuart russell and peter norvig (2009) among others. by analyzing the ethical impacts caused by ai (kaufman, 2019, 2022; villani, 2019; pariser, 2011) in various fields, especially in education (fadel et al., 2020), the research presents how ai actually transforms what we know as critical thinking in five chosen aspects, from its epistemology in comparison to others such as the neomaterialists (lemos, 2016, 2020; kaufman, 2020), to elements that make up its basic principles, such as intellectual autonomy and citizenshipA inteligência artificial (IA) é um campo de multidisciplinar de conhecimento que pode parecer invisível à percepção humana, mas suas consequências não o são. Seus avanços técnicos já impactam a vida em sociedade em velocidade inédita - por isso ocupa hoje papel relevante no debate em políticas públicas no mundo todo. A aplicação cotidiana da aprendizagem profunda, técnica do aprendizado de máquina da IA, caminha sobre a linha tênue entre a praticidade e vantagens para os usuários, e seus impactos éticos, relacionados à privacidade, viés em resultados, opacidade de funcionamento do algoritmo, dentre outros. Como uma nova mediação (KAUFMAN, 2020), sistemas de IA intermediam a socialização e a comunicação entre seres humanos e o mundo a sua volta. Nesse sentido, esta pesquisa tem como objetivo avaliar o impacto da inteligência artificial sobre a formação do chamado pensamento crítico. Este, por sua vez, tem seus limites conceituais alargados no universo da educação pública e particular, sendo utilizado muitas vezes como conceito mercadológico. Por isso, em busca de acurácia, a pesquisa revisita a epistemologia do pensamento crítico a partir de ensaios selecionados de Theodor Adorno e Max Horkheimer (1989), e seus estudiosos como John McPeck (1981), além de, posteriormente, evidenciar sua entrada como pilar da escola democrática por meio de John Dewey (1953). Em paralelo, a pesquisa tem seu foco na revisão histórica do nascimento de princípios de funcionamento da IA por meio de John McCarthy (2005), Kai Fu-Lee (2019), Stuart Russell e Peter Norvig (2009) entre outros. Ao analisar os impactos éticos promovidos pela IA (KAUFMAN, 2019, 2022; VILLANI, 2019; PARISER, 2011) em diversos campos, sobretudo na educação (FADEL et al., 2020), a pesquisa apresenta como a IA de fato transforma o que conhecemos como pensamento crítico em cinco recortes escolhidos, desde sua epistemologia frente a outras como as neomaterialistas (LEMOS, 2016, 2020; KAUFMAN, 2020), até elementos que compõem seus princípios básicos, como a autonomia intelectual e o exercício da cidadaniaCoordenação de Aperfeiçoamento de Pessoal de Nível Superior – CAPESporPontifícia Universidade Católica de São PauloPrograma de Estudos Pós-Graduados em Tecnologias da Inteligência e Design DigitalPUC-SPBrasilFaculdade de Ciências Exatas e TecnologiaCNPQ::ENGENHARIASInteligência artificialÉticaPensamento críticoAMIEducaçãoArtificial intelligenceEthicsCritical thinkingMILEducationInteligência artificial e seu impacto no desenvolvimento do pensamento críticoinfo:eu-repo/semantics/publishedVersioninfo:eu-repo/semantics/masterThesisinfo:eu-repo/semantics/openAccessreponame:Repositório Institucional da PUC_SPinstname:Pontifícia Universidade Católica de São Paulo (PUC-SP)instacron:PUC_SPORIGINALAlexandre Le Voci Sayad.pdfapplication/pdf5087626https://repositorio.pucsp.br/xmlui/bitstream/handle/29620/1/Alexandre%20Le%20Voci%20Sayad.pdf722b853938900dbd339393cca57f5e37MD51TEXTAlexandre Le Voci Sayad.pdf.txtAlexandre Le Voci Sayad.pdf.txtExtracted texttext/plain236939https://repositorio.pucsp.br/xmlui/bitstream/handle/29620/2/Alexandre%20Le%20Voci%20Sayad.pdf.txtae09aac28537d7c9881653f1e9173f0eMD52THUMBNAILAlexandre Le Voci Sayad.pdf.jpgAlexandre Le Voci Sayad.pdf.jpgGenerated Thumbnailimage/jpeg1195https://repositorio.pucsp.br/xmlui/bitstream/handle/29620/3/Alexandre%20Le%20Voci%20Sayad.pdf.jpg59a834ab8dcbd76b36ae9f4abf7276bcMD53handle/296202022-11-04 10:08:44.662oai:repositorio.pucsp.br:handle/29620Repositório Institucionalhttps://sapientia.pucsp.br/https://sapientia.pucsp.br/oai/requestbngkatende@pucsp.br||rapassi@pucsp.bropendoar:2022-11-04T13:08:44Repositório Institucional da PUC_SP - Pontifícia Universidade Católica de São Paulo (PUC-SP)false"
+dc.title.pt_BR.fl_str_mv
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+title
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+spellingShingle
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+Sayad, Alexandre Le Voci
+CNPQ::ENGENHARIAS
+Inteligência artificial
+Ética
+Pensamento crítico
+AMI
+Educação
+Artificial intelligence
+Ethics
+Critical thinking
+MIL
+Education
+title_short
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+title_full
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+title_fullStr
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+title_full_unstemmed
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+title_sort
+Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico
+author
+Sayad, Alexandre Le Voci
+author_facet
+Sayad, Alexandre Le Voci
+author_role
+author
+dc.contributor.advisor1.fl_str_mv
+Kaufman, Dora
+dc.contributor.advisor1Lattes.fl_str_mv
+http://lattes.cnpq.br/8045171889826285
+dc.contributor.author.fl_str_mv
+Sayad, Alexandre Le Voci
+contributor_str_mv
+Kaufman, Dora
+dc.subject.cnpq.fl_str_mv
+CNPQ::ENGENHARIAS
+topic
+CNPQ::ENGENHARIAS
+Inteligência artificial
+Ética
+Pensamento crítico
+AMI
+Educação
+Artificial intelligence
+Ethics
+Critical thinking
+MIL
+Education
+dc.subject.por.fl_str_mv
+Inteligência artificial
+Ética
+Pensamento crítico
+AMI
+Educação
+dc.subject.eng.fl_str_mv
+Artificial intelligence
+Ethics
+Critical thinking
+MIL
+Education
+description
+"Artificial intelligence (ai) is a multidisciplinary field of knowledge that may seem invisible to human perception, but its consequences are not. its technical advances are already impacting life in society at an unprecedented speed - which is why it now occupies a relevant role in the debate on public policies around the world. the everyday application of deep learning, a technique of the ai machine learning, walks a fine line between practicality and benefits for users, such as how predictive decision-making, and its ethical impacts, related to privacy, bias in results, propagation of prejudices, opacity of the algorithm's operation, among others. as a new mediation (kaufman, 2020), ai systems mediate socialization and communication between human beings and the world around them. in this sense, this research aims to evaluate the impact of artificial intelligence on the formation of so-called critical thinking. this, in turn, has its conceptual limits extended in the universe of public and private education, being used many times as a marketing concept. therefore, in search of accuracy, the research revisits the epistemology of critical thinking from selected essays by theodor adorno and max horkheimer (1989), and the scholars who followed them such as john mcpeck (1981), in addition to, later, evidencing its entry as a pillar of the democratic school by through john dewey (1953). in parallel, the research carried out focuses on the historical review of the birth principles of ai functioning through john mccarthy (2005), kai fu-lee (2019), stuart russell and peter norvig (2009) among others. by analyzing the ethical impacts caused by ai (kaufman, 2019, 2022; villani, 2019; pariser, 2011) in various fields, especially in education (fadel et al., 2020), the research presents how ai actually transforms what we know as critical thinking in five chosen aspects, from its epistemology in comparison to others such as the neomaterialists (lemos, 2016, 2020; kaufman, 2020), to elements that make up its basic principles, such as intellectual autonomy and citizenship"
+publishDate
+2022
+dc.date.accessioned.fl_str_mv
+2022-11-03T18:39:52Z
+dc.date.available.fl_str_mv
+2022-11-03T18:39:52Z
+dc.date.issued.fl_str_mv
+16/09/2022
+dc.type.status.fl_str_mv
+info:eu-repo/semantics/publishedVersion
+dc.type.driver.fl_str_mv
+info:eu-repo/semantics/masterThesis
+format
+masterThesis
+status_str
+publishedVersion
+dc.identifier.citation.fl_str_mv
+Sayad, Alexandre Le Voci. Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico. 2022. Dissertação (Mestrado em Tecnologias da Inteligência e Design Digital) - Programa de Estudos Pós-Graduados em Tecnologias da Inteligência e Design Digital da Pontifícia Universidade Católica de São Paulo, São Paulo, 2022.
+dc.identifier.uri.fl_str_mv
+https://repositorio.pucsp.br/jspui/handle/handle/29620
+identifier_str_mv
+Sayad, Alexandre Le Voci. Inteligência artificial e seu impacto no desenvolvimento do pensamento crítico. 2022. Dissertação (Mestrado em Tecnologias da Inteligência e Design Digital) - Programa de Estudos Pós-Graduados em Tecnologias da Inteligência e Design Digital da Pontifícia Universidade Católica de São Paulo, São Paulo, 2022.
+url
+https://repositorio.pucsp.br/jspui/handle/handle/29620
+dc.language.iso.fl_str_mv
+por
+language
+por
+dc.rights.driver.fl_str_mv
+info:eu-repo/semantics/openAccess
+eu_rights_str_mv
+openAccess
+dc.publisher.none.fl_str_mv
+Pontifícia Universidade Católica de São Paulo
+dc.publisher.program.fl_str_mv
+Programa de Estudos Pós-Graduados em Tecnologias da Inteligência e Design Digital
+dc.publisher.initials.fl_str_mv
+PUC-SP
+dc.publisher.country.fl_str_mv
+Brasil
+dc.publisher.department.fl_str_mv
+Faculdade de Ciências Exatas e Tecnologia
+publisher.none.fl_str_mv
+Pontifícia Universidade Católica de São Paulo
+dc.source.none.fl_str_mv
+reponame:Repositório Institucional da PUC_SP
+instname:Pontifícia Universidade Católica de São Paulo (PUC-SP)
+instacron:PUC_SP
+instname_str
+Pontifícia Universidade Católica de São Paulo (PUC-SP)
+instacron_str
+PUC_SP
+institution
+PUC_SP
+reponame_str
+Repositório Institucional da PUC_SP
+collection
+Repositório Institucional da PUC_SP
+bitstream.url.fl_str_mv
+https://repositorio.pucsp.br/xmlui/bitstream/handle/29620/1/Alexandre%20Le%20Voci%20Sayad.pdf
+https://repositorio.pucsp.br/xmlui/bitstream/handle/29620/2/Alexandre%20Le%20Voci%20Sayad.pdf.txt
+https://repositorio.pucsp.br/xmlui/bitstream/handle/29620/3/Alexandre%20Le%20Voci%20Sayad.pdf.jpg
+bitstream.checksum.fl_str_mv
+722b853938900dbd339393cca57f5e37
+ae09aac28537d7c9881653f1e9173f0e
+59a834ab8dcbd76b36ae9f4abf7276bc
+bitstream.checksumAlgorithm.fl_str_mv
+MD5
+MD5
+MD5
+repository.name.fl_str_mv
+Repositório Institucional da PUC_SP - Pontifícia Universidade Católica de São Paulo (PUC-SP)
+repository.mail.fl_str_mv
+bngkatende@pucsp.br||rapassi@pucsp.br
+_version_
+1,84037E+18
+Registros relacionados
+Uma investigação sobre a ética aristotélica na inteligência artificial
+por: Bernardi, Mariana Rocha                          Publicado em: (2023)
+Ensino de ciências: A utilização da Inteligência Artificial e de metodologias ativas para promover o desenvolvimento do pensamento científico
+por: Silva, Samira Andrade da                          Publicado em: (2025)
+Inteligência Artificial e Instrumentalização Digital no Ensino: A Semiformação na Era da Automatização Computacional
+por: Campos, Luis Fernando Altenfelder de Arruda [UNESP]                          Publicado em: (2018)
+Ascenção homem - máquina: a ascensão da inteligência artificial e suas implicações éticas
+por: ASCENÇÃO, Graciângela de Jesus Abreu                          Publicado em: (2024)
+O uso de inteligência artificial em processos judiciais no Brasil: limites éticos
+por: Freitas, Tiago Alves Serbeto de                          Publicado em: (2022)
+//<!--
+"$(document).ready(recordDocReady);"
+//-->
+Instituto Brasileiro de Informação em Ciência e Tecnologia (Ibict)
+SAUS Quadra 5 - Lote 6 Bloco H - Asa sul - CEP: 70.070-912 - Brasília - DF
+Carregando...
+//<!--
+function initVuFindPiwikTracker1762879654418(){
+"var VuFindPiwikTracker = Piwik.getTracker();"
+"VuFindPiwikTracker.setSiteId();"
+"VuFindPiwikTracker.setTrackerUrl('https://matomo.lareferencia.info/piwik.php');"
+"VuFindPiwikTracker.setCustomUrl('https\x3A\x2F\x2Fbdtd.ibict.br\x2Fvufind\x2FRecord\x2FPUC_SP\x2D1_ce5664e3ad44b3244c1ad19469a54c1d');"
+"VuFindPiwikTracker.setCustomVariable(1, 'RecordFormat', 'masterThesis', 'page');"
+"VuFindPiwikTracker.setCustomVariable(2, 'RecordData', 'PUC_SP-1_ce5664e3ad44b3244c1ad19469a54c1d&#x7C;Sayad,&#x20;Alexandre&#x20;Le&#x20;Voci&#x7C;Intelig&#xEA;ncia&#x20;artificial&#x20;e&#x20;seu&#x20;impacto&#x20;no&#x20;desenvolvimento&#x20;do&#x20;pensamento&#x20;cr&#xED;tico', 'page');"
+"VuFindPiwikTracker.setCustomVariable(3, 'RecordInstitution', 'PUC_SP', 'page');"
+"VuFindPiwikTracker.trackPageView();"
+"VuFindPiwikTracker.enableLinkTracking();"
+"};"
+(function(){
+if (typeof Piwik === 'undefined') {
+var d=document, g=d.createElement('script'),
+"s=d.getElementsByTagName('script')[0];"
+"g.type='text/javascript'; g.defer=true; g.async=true;"
+"g.src='https://matomo.lareferencia.info/piwik.js';"
+"g.onload=initVuFindPiwikTracker1762879654418;"
+"s.parentNode.insertBefore(g,s);"
+} else {
+"initVuFindPiwikTracker1762879654418();"
+}
+"})();"
+//-->
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({
+pageLanguage: 'pt'
+"}, 'google_translate_element');"
+}
+jQuery('.toggle-me').click(function() {
+"jQuery('.translateBtn').toggleClass('active');"
+"});"
