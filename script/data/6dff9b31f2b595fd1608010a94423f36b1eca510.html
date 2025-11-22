@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"><head>
+
+    <title>Plataforma Sucupira</title>
+    <link rel="shortcut icon" href="/sucupira/images/favicon.ico" type="image/x-icon" />
+    
+    <meta name="author" content="UFRN - SINFO e CAPES - DTI" />
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="X-Frame-Options" content="sameorigin" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <meta http-equiv="cache-control" content="max-age=0" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="expires" content="0" />
+    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+    <meta http-equiv="pragma" content="no-cache" />
+	
+    
+    
+    <link rel="stylesheet" href="/sucupira/css/br-cookiebar.css" />
+ 	
+     
+    <link rel="stylesheet" href="/sucupira/css/portal_publico.css" />
+    <link rel="stylesheet" href="/sucupira/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/sucupira/css/animate.min.css" />
+    <link rel="stylesheet" href="/sucupira/css/sucupira.css" />
+    <link rel="stylesheet" href="/sucupira/css/template.css" />
+    <link rel="stylesheet" href="/sucupira/css/jquery-ui.css" />
+    <link rel="stylesheet" href="/sucupira/fonts/capesglyphs/css/CapesGlyphs.css" />
+    
+    
+
+	
+
+    <script src="/sucupira/resources/javascript/relogioSessao.js"></script>
+    <script src="/sucupira/resources/javascript/jquery.min.js"></script>
+    <script src="/sucupira/resources/javascript/jquery-ui-1.10.4.min.js"></script>
+	<script src="/sucupira/resources/javascript/jquery.easing.1.3.js"></script>
+	
+	<script>
+//<![CDATA[
+var contexto = '/sucupira'
+//]]>
+</script></head><body class="constraste">
+   	      
+   	  <div id="barra-brasil" style="background:#7F7F7F; height: 20px; padding:0 0 0 10px;display:block;">
+        <ul id="menu-barra-temp" style="list-style:none;">
+            <li style="display:inline; float:left;padding-right:10px; margin-right:10px; border-right:1px solid #EDEDED">
+                <a href="http://brasil.gov.br" style="font-family:sans,sans-serif; text-decoration:none; color:white;">Portal do Governo Brasileiro</a>
+            </li>
+        </ul>
+      </div>
+    <div class="container-fluid" id="cabecalho">
+      <div class="row">
+        <div class="col-sm-8 col-md-8 col-lg-9">
+          <h1 class="logo logo-img">
+            <a>Plataforma Sucupira</a>
+          </h1>
+        </div>
+      </div>
+    </div>
+      <div class="container">
+  	    <div class="row">
+  	      <div class="mensagem"><div id="mensagensGeraisDoSistema"></div>
+  		  </div>
+  	    </div>
+  	  </div>
+	
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="conteudo-container">
+          <h1>Dados do Trabalhos de Conclus&atilde;o</h1>
+          <div class="conteudo">
+            <fieldset>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="ies">Institui&ccedil;&atilde;o
+                    de Ensino Superior:</label>
+                </div>
+                <div class="col-md-10"><span id="ies">PONTIF&Iacute;CIA UNIVERSIDADE CAT&Oacute;LICA DE GOI&Aacute;S</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="programa">Programa:</label>
+                </div>
+                <div class="col-md-10"><span id="programa">EDUCA&Ccedil;&Atilde;O (52002012004P9)</span>
+                </div>
+              </div>
+               <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="nome">Modalidade de Ensino:</label>
+                </div>
+                <div class="col-md-10"><span id="modalidade"></span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="nome">T&iacute;tulo:</label>
+                </div>
+                <div class="col-md-10"><span id="nome">A TEORIA CR&Iacute;TICA FRANKFURTIANA, FREUD E A EDUCA&Ccedil;&Atilde;O</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="autor">Autor:</label>
+                </div>
+                <div class="col-md-10"><span id="autor">MARCIA CRISTINA FERNANDES PEREIRA BESSA</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="tipo">Tipo
+                    de Trabalho de Conclus&atilde;o:</label>
+                </div>
+                <div class="col-md-10"><span id="tipo">DISSERTA&Ccedil;&Atilde;O</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="data">Data
+                    Defesa:</label>
+                </div>
+                <div class="col-md-10"><span id="data">15/08/2023</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="resumo">Resumo:</label>
+                </div>
+                <div class="col-md-10">
+                  <p align="justify"><span id="resumo">Esta pesquisa, de natureza te&oacute;rica, est&aacute; vinculada &agrave; linha de pesquisa &#8220;Educa&ccedil;&atilde;o, Sociedade e Cultura&#8221;, do Programa de P&oacute;s-gradua&ccedil;&atilde;o em Educa&ccedil;&atilde;o da Pontif&iacute;cia Universidade Cat&oacute;lica de Goi&aacute;s (PPGE/PUC Goi&aacute;s), discute acerca do seguinte tema: Teoria Cr&iacute;tica Frankfurtiana, Freud e a Educa&ccedil;&atilde;o. Tem como finalidade, essencialmente, buscar, nas contribui&ccedil;&otilde;es de Freud, em di&aacute;logo com a Teoria Cr&iacute;tica, compreender os processos contradit&oacute;rios de forma&ccedil;&atilde;o do sujeito mediado pela cultura e a Educa&ccedil;&atilde;o, apontando reflex&otilde;es que tornam poss&iacute;veis uma educa&ccedil;&atilde;o mais humana. Para tanto, o objetivo geral deste trabalho &eacute; o de analisar e procurar responder a seguinte quest&atilde;o: Quais s&atilde;o as contribui&ccedil;&otilde;es de Freud, &agrave; luz da Teoria Cr&iacute;tica frankfurtiana, para a educa&ccedil;&atilde;o? A partir disso, a pesquisa visa contribuir, com base em algumas reflex&otilde;es sobre os impasses presentes na educa&ccedil;&atilde;o na contemporaneidade, a partir da &oacute;tica da Teoria Cr&iacute;tica frankfurtiana e da Teoria freudiana, possibilitando dar condi&ccedil;&otilde;es ao indiv&iacute;duo para que ele seja capaz de se autogerir pela autorreflex&atilde;o cr&iacute;tica. O primeiro visa conhecer o percurso hist&oacute;rico relativo &agrave; Escola de Frankfurt, bem como apontar a incorpora&ccedil;&atilde;o de Freud no &acirc;mbito da Teor&iacute;a Cr&iacute;tica frankfurtiana, e al&eacute;m disso, abordar um di&aacute;logo entre Freud e a obra Educa&ccedil;&atilde;o e Emancipa&ccedil;&atilde;o de Adorno (2020). O segundo cap&iacute;tulo destaca as contribui&ccedil;&otilde;es de Freud nas obras dos te&oacute;rico-cr&iacute;ticos frankfurtianos, a saber: Adorno (2020), Adorno e Horkheimer (1985), Marcuse (2015; 2021) e Benjamin (2012), tendo-se em vistas os impactos presentes na educa&ccedil;&atilde;o no contexto contempor&acirc;neo. O terceiro e &uacute;ltimo cap&iacute;tulo analisa as contribui&ccedil;&otilde;es trazidas pela Psican&aacute;lise freudiana &agrave; Educa&ccedil;&atilde;o, as quais, infere-se, p&otilde;em em relevo as contradi&ccedil;&otilde;es existentes nesse campo com refer&ecirc;ncia aos processos de forma&ccedil;&atilde;o humana. Por fim, destaca-se um di&aacute;logo elaborado por Adorno, Kant e Freud objetivando compreender o sentido da educa&ccedil;&atilde;o para emancipa&ccedil;&atilde;o para a autonomia. Este trabalho aponta para a reflex&atilde;o com vistas a uma educa&ccedil;&atilde;o mais humana.
+</span>
+                  </p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="palavras">Palavras-Chave:</label>
+                </div>
+                <div class="col-md-10"><span id="palavras">Teoria Cr&iacute;tica Frankfurtiana;Freud;Educa&ccedil;&atilde;o;Humaniza&ccedil;&atilde;o</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="abstract">Abstract:</label>
+                </div>
+                <div class="col-md-10"><span id="abstract">This research, of a theoretical nature, is linked to the line of research &#8220;Education, Society and Culture&#8221;, of the Graduate Program in Education at the Pontifical Catholic University of Goi&aacute;s (PPGE/PUC Goi&aacute;s), discussing the following theme: Frankfurtian Critical Theory, Freud and Education. It essentially aims to seek, in Freud's contributions, in dialogue with Critical Theory, to understand the contradictory processes of formation of the subject mediated by culture and Education, pointing out reflections that make possible a more humane education. Therefore, the general objective of this work is to analyze and try to answer the following question: What are Freud's contributions, in the light of Frankfurt's Critical Theory, to education? From this, the research aims to contribute, based on some reflections on the impasses present in education in contemporary times, from the perspective of Frankfurt's Critical Theory and Freud's Theory, enabling the individual to be able to manage himself through critical self-reflection. The first chapter aims to know the historical path related to the Frankfurt School, as well as to point out the incorporation of Freud in the scope of the Frankfurtian Critical Theory, and in addition, to approach a dialogue between Freud and the work Educa&ccedil;&atilde;o e Emancipa&ccedil;&atilde;o by Adorno (2020). The second chapter highlights Freud's contributions to the works of Frankfurtian critical theorists, namely: Adorno (2020), Adorno and Horkheimer (1985), Marcuse (2015; 2021) and Benjamin (2012), considering the impacts present in education in the contemporary context. The third and last chapter analyzes the contributions brought by Freudian Psychoanalysis to Education, which, it is inferred, highlight the existing contradictions in this field with reference to the processes of human formation. Finally, there is a dialogue elaborated by Adorno, Kant and Freud aiming to understand the meaning of education, aiming to understand the meaning of education for emancipation towards autonomy. This work points to reflection with a view to a more humane education. 
+</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="keyword">Keyword:</label>
+                </div>
+                <div class="col-md-10"><span id="keyword">Frankfurtian Critical Theory;Freud;Education;Humanization</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="volume">Volume:</label>
+                </div>
+                <div class="col-md-10"><span id="volume">1</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="paginas">P&aacute;ginas:</label>
+                </div>
+                <div class="col-md-10"><span id="paginas">144</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="idioma">Idioma:</label>
+                </div>
+                <div class="col-md-10"><span id="idioma">PORTUGUES</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="biblioteca">Biblioteca
+                    Deposit&aacute;ria:</label>
+                </div>
+                <div class="col-md-10"><span id="biblioteca">PONTIF&Iacute;CIA UNIVERSIDADE CAT&Oacute;LICA DE GOI&Aacute;S</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="biblioteca">Autoriza&ccedil;&atilde;o de divulga&ccedil;&atilde;o:</label>
+                </div>
+                <div class="col-md-10"><span id="sigiloso">O trabalho possui divulga&ccedil;&atilde;o autorizada</span>
+                </div>
+              </div>
+<form id="download" name="download" method="post" action="/sucupira/public/consultas/coleta/trabalhoConclusao/viewTrabalhoConclusao.jsf?cid=13" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="download" value="download" />
+
+                  <div class="row">
+                    <div class="col-md-2">
+                      <label class="control-label">Anexo:</label>
+                    </div>
+                    <div class="col-md-10">
+<script type="text/javascript" src="/sucupira/javax.faces.resource/jsf.js.jsf?ln=javax.faces"></script>
+<a id="download:link_download_arquivo" href="#" onclick="mojarra.jsfcljs(document.getElementById('download'),{'download:link_download_arquivo':'download:link_download_arquivo'},'');return false">Disserta&ccedil;&atilde;o M&aacute;rcia Cristina Fernandes Pereira Bessa ESTA.pdf</a>
+                    </div>
+                  </div><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="-5957878822441889564:7874167652399270963" autocomplete="off" />
+</form>
+            </fieldset>
+          </div>
+          <h1>Contexto</h1>
+          <div class="conteudo">
+            <fieldset>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="area">&Aacute;rea
+                    de Concentra&ccedil;&atilde;o:</label>
+                </div>
+                <div class="col-md-10"><span id="area">EDUCA&Ccedil;&Atilde;O E SOCIEDADE</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="linha">Linha
+                    de Pesquisa:</label>
+                </div>
+                <div class="col-md-10"><span id="linha">EDUCA&Ccedil;&Atilde;O, SOCIEDADE E CULTURA</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="projeto">Projeto
+                    de Pesquisa:</label>
+                </div>
+                <div class="col-md-10"><span id="projeto">THEODOR ADORNO: A DIAL&Eacute;TICA NEGATIVA, A EDUCA&Ccedil;&Atilde;O E A EXPERI&Ecirc;NCIA FORMATIVA PARA A HUMANIZA&Ccedil;&Atilde;O: PERSPECTIVAS ATUAIS.</span>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+          <h1>Banca Examinadora</h1>
+          <div class="conteudo">
+            <fieldset>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label">Orientador:</label>
+                </div>
+                <div class="col-md-10"><span id="orientador">ESTELAMARIS BRANT SCAREL</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label">Categoria:</label>
+                </div>
+                <div class="col-md-10">DOCENTE - PERMANENTE
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label">O orientador
+                    principal comp&ocirc;s a banca do discente?</label>
+                </div>
+                <div class="col-md-10">Sim
+                </div>
+              </div>
+                <div class="col-xs-12 table-responsive">
+                  <div class="resultados">
+                    <table class="table table-striped table-bordered">
+                      <caption></caption>
+                      <thead>
+                        <tr>
+                          <td>Nome</td>
+                          <td>Categoria</td>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                            <td>DIVINO DE JESUS DA SILVA RODRIGUES</td>
+                            <td>Docente - PERMANENTE</td>
+                          </tr>
+                          <tr>
+                            <td>ESTELAMARIS BRANT SCAREL</td>
+                            <td>Docente - PERMANENTE</td>
+                          </tr>
+                          <tr>
+                            <td>CRISTIANE SOUZA BORZUK</td>
+                            <td>Participante Externo</td>
+                          </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </fieldset>
+          </div>
+          <h1>V&iacute;nculo</h1>
+          <div class="conteudo">
+            <fieldset>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="tp_vinc">Tipo
+                    de V&iacute;nculo Empregat&iacute;cio:</label>
+                </div>
+                <div class="col-md-10"><span id="tp_vinc">Servidor P&uacute;blico</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="tp_ies">Tipo
+                    de Institui&ccedil;&atilde;o:</label>
+                </div>
+                <div class="col-md-10"><span id="tp_ies">Institui&ccedil;&atilde;o de Ensino e Pesquisa</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="tp_expc">Expectativa
+                    de Atua&ccedil;&atilde;o:</label>
+                </div>
+                <div class="col-md-10"><span id="tp_expc">Ensino e Pesquisa</span>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-2">
+                  <label class="control-label" for="m_area">Mesma
+                    &Aacute;rea de Atua&ccedil;&atilde;o:</label>
+                </div>
+                <div class="col-md-10"><span id="m_area">Sim</span>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+<form id="formFooter" name="formFooter" method="post" action="/sucupira/public/consultas/coleta/trabalhoConclusao/viewTrabalhoConclusao.jsf?cid=13" enctype="application/x-www-form-urlencoded">
+<input type="hidden" name="formFooter" value="formFooter" />
+
+	    <div id="main-footer" class="footer">
+		  <div class="container">
+		    <div class="bg">
+		      <div class="row">
+		        <div class="col-md-4"><a href="/sucupira/public/index.xhtml" class="sistema-logo"><span class="sistema-logo-icon"></span><span class="sistema-logo-text">Plataforma Sucupira</span></a></div>
+		          <div class="col-md-8">
+		            <div class="sistema-assinaturas">
+                      <a href="http://www.capes.gov.br" target="_blank" class="sistema-assinatura-capes"><span class="sl-only">Capes</span></a>
+                      <a href="http://www.ufrn.br" target="_blank" class="sistema-assinatura-ufrn"><span class="sl-only">UFRN</span></a>
+		              <a href="https://www.rnp.br" target="_blank" class="sistema-assinatura-rnp"><span class="sl-only">RNP</span></a>
+
+
+		            </div>
+		          </div>
+		      </div>
+		      <div class="row">
+		        <div class="sistema-info">
+		          <div class="col-md-2">
+	           	    <ul class="sistema-info-navegadores">
+	               	  <li class="sistema-info-navegadores-label">Compatibilidade</li>
+	                  <li>
+			          	<a target="_blank" href="http://www.google.com/intl/pt-BR/chrome/" class="capes-glyph-chrome"><span style="visibility: hidden;" class="sl-only">.</span></a>
+			          	<a target="_blank" href="http://br.mozdev.org/firefox/download/" class="capes-glyph-firefox"><span style="visibility: hidden;" class="sl-only">.</span></a>
+			          	<a target="_blank" href="http://www.apple.com/safari/download/" class="capes-glyph-safari"><span style="visibility: hidden;" class="sl-only">.</span></a>
+			          </li>
+	                </ul>
+		          </div>
+		          <div class="col-md-10 text-right">
+		            <ul>
+		              <li class="sistema-info-versao">Vers&atilde;o do sistema: 3.86.10</li>
+		              <li class="sistema-info-copyright">Copyright 2022 Capes. Todos os direitos reservados.</li>
+		            </ul>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+  		</div><input type="hidden" name="javax.faces.ViewState" id="javax.faces.ViewState" value="-5957878822441889564:7874167652399270963" autocomplete="off" />
+</form>		
+	
+			<div class="br-card" id="myModal" style="display: none">	          
+	            <div class="container-fluid p-1 p-sm-4">
+	              <div class="wrapper">
+	                <div class="br-modal-body" tabindex="-1" style="font-size: 18px">
+	                  <p>N&oacute;s usamos cookies para melhorar sua experi&ecirc;ncia de navega&ccedil;&atilde;o no portal. Ao utilizar o gov.br, voc&ecirc; concorda com a pol&iacute;tica de monitoramento de cookies. 
+					  Para ter mais informa&ccedil;&otilde;es sobre como isso &eacute; feito, acesse <a data-toggle="modal" data-dismiss="modal" href="#myModal1">Pol&iacute;tica de cookies</a>.Se voc&ecirc; concorda, clique em ACEITO.</p>
+	                  <div class="br-list main-content">
+	                  </div>
+	                </div>
+	               <div class="br-modal-footer actions">
+	                  <button href="#" data-dismiss="modal" class="br-button primary small">ACEITO</button>
+	                </div>
+	              </div>
+	            </div>
+	          </div>
+
+	
+	<div class="modal left fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content lcb-barra-wrapper">
+				<div class="lcb-barra-header">
+					<img src="/sucupira/images/logo.png" width="50" height="50" style="margin-right: 10px;margin-left: 10px" />
+					<span style="margin-left: 30px">Politica de Cookies</span>
+				</div>
+				<button type="button" class="close lcb-botao-fechar" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class="wrapper lcb-barra-conteudo">
+					<p class="wrapper">
+						<h4>O que s&atilde;o cookies?</h4>
+						
+						Cookies s&atilde;o arquivos salvos em seu computador, tablet ou telefone quando voc&ecirc; visita um site.Usamos os cookies necess&aacute;rios para fazer o site funcionar da melhor forma poss&iacute;vel e sempre aprimorar os nossos servi&ccedil;os.
+						Alguns cookies s&atilde;o classificados como necess&aacute;rios e permitem a funcionalidade central, como seguran&ccedil;a, gerenciamento de rede e acessibilidade. Estes cookies podem ser coletados e armazenados assim que voc&ecirc; inicia sua navega&ccedil;&atilde;o ou quando usa algum recurso que os requer.
+					</p>
+					
+					
+					<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+						<div class="cookie-accordion border-top border-bottom">
+							<h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+								<span>Cookies Prim&aacute;rios</span>
+								<span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+							</h4>
+							<div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+								Alguns cookies ser&atilde;o colocados em seu dispositivo diretamente pelo nosso site - s&atilde;o conhecidos como <strong>cookies prim&aacute;rios</strong>. Eles s&atilde;o essenciais para voc&ecirc; navegar no site e usar seus recursos.
+								<div class="c-box">
+									<h5>Tempor&aacute;rios</h5>
+									N&oacute;s utilizamos cookies de sess&atilde;o. Eles s&atilde;o tempor&aacute;rios e expiram quando voc&ecirc; fecha o navegador ou quando a sess&atilde;o termina.
+									<div class="c-box-gray">
+										<h5>Finalidade</h5>
+										Estabelecer controle de idioma e seguran&ccedil;a ao tempo da sess&atilde;o.
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="cookie-accordion border-bottom">
+							<h4 class="panel-title collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+								<span>Cookies de Terceiros</span>
+								<span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+								<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+							</h4>
+							<div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+								Outros cookies s&atilde;o colocados no seu dispositivo n&atilde;o pelo site que voc&ecirc; est&aacute; visitando, mas <strong>por terceiros</strong>, como, por exemplo, os sistemas anal&iacute;ticos.
+								<div class="c-box">
+									<h5>Tempor&aacute;rios</h5>
+									N&oacute;s utilizamos cookies de sess&atilde;o. Eles s&atilde;o tempor&aacute;rios e expiram quando voc&ecirc; fecha o navegador ou quando a sess&atilde;o termina.
+									<div class="c-box-gray">
+										<h5>Finalidade</h5>
+										Coletam informa&ccedil;&otilde;es sobre como voc&ecirc; usa o site, como as p&aacute;ginas que voc&ecirc; visitou e os links em que clicou. Nenhuma dessas informa&ccedil;&otilde;es pode ser usada para identific&aacute;-lo. Seu &uacute;nico objetivo &eacute; possibilitar an&aacute;lises e melhorar as fun&ccedil;&otilde;es do site.
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<p>
+						Voc&ecirc; pode desabilit&aacute;-los alterando as configura&ccedil;&otilde;es do seu navegador, <strong>mas saiba que isso pode afetar o funcionamento do site.</strong>
+					</p>
+					<p><a href="https://support.google.com/chrome/answer/95647" target="_blank" class="c-link">Chrome</a></p>
+					<p><a href="https://support.mozilla.org/pt-BR/kb/desative-cookies-terceiros-impedir-rastreamento" target="_blank" class="c-link">Firefox</a></p>
+					<p><a href="https://support.microsoft.com/pt-br/microsoft-edge/excluir-cookies-no-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" class="c-link">Microsoft Edge</a></p>
+					<p><a href="https://support.microsoft.com/pt-br/windows/excluir-e-gerenciar-cookies-168dab11-0753-043d-7c16-ede5947fc64d" target="_blank" class="c-link">Internet Explorer</a></p>
+					
+				</div>
+				<div class="lcb-botoes br-modal-footer actions">
+					<button href="#" data-dismiss="modal" class="br-button primary small">ACEITO</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+
+	
+	
+				
+				
+	<script type="text/javascript">
+//<![CDATA[
+
+			
+	$(window).load(function(){
+		let accepted = localStorage.getItem("accepted");
+		if(!accepted)
+			$('#myModal').show();
+		
+		$(".br-modal-footer.actions").on("click", function(){
+			$('#myModal').hide();
+			localStorage.setItem('accepted', "true");
+		});
+
+		if (window.location.hash){
+       		const element = $('[target="'+window.location.hash+'"]')
+         	if (element)
+             element.click();
+        }
+	}); 
+	
+	
+//]]>
+</script>
+    <script src="/sucupira/resources/javascript/jquery.min.js"></script>
+    <script src="/sucupira/resources/javascript/jquery-ui-1.10.4.min.js"></script>
+	<script src="/sucupira/resources/javascript/jquery.easing.1.3.js"></script>
+    <script src="/sucupira/resources/javascript/jquery.mask.js"></script>
+	<script src="/sucupira/resources/javascript/bootstrap.min.js"></script>
+	<script src="/sucupira/resources/javascript/sucupira.js"></script>
+	<script src="/sucupira/resources/javascript/snap.svg.js"></script>
+	<script src="/sucupira/resources/javascript/effects.min.js"></script>
+	<script src="/sucupira/resources/javascript/notify.min.js"></script>
+	<script src="/sucupira/resources/javascript/template.js"></script>
+	<script src="/sucupira/public/googlemaps/mapa.js"></script>
+    <script>
+//<![CDATA[
+
+      $('.colagem').on('paste', function(e) {
+          e.preventDefault();
+      });
+    
+//]]>
+</script>
+    <noscript>
+    </noscript>
+    
+	
+	<script>
+//<![CDATA[
+
+		(function(h,o,t,j,a,r){
+			h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+			h._hjSettings={hjid:3744712,hjsv:6};
+			a=o.getElementsByTagName('head')[0];
+			r=o.createElement('script');r.async=1;
+			r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+			a.appendChild(r);
+		})(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+	
+//]]>
+</script>
+	
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-D2LKG264F6"></script>
+	<script>
+//<![CDATA[
+
+	  window.dataLayer = window.dataLayer || [];
+	  function gtag(){dataLayer.push(arguments);}
+	  gtag('js', new Date());
+	
+	  gtag('config', 'G-D2LKG264F6');
+	
+//]]>
+</script>
+	
+    <script>
+//<![CDATA[
+
+//   	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+//   	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+//   	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+//   	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  		 
+//   	  ga('create', 'UA-4253018-23', 'capes.gov.br');
+//   	  ga('send', 'pageview');
+  
+  	  //Isso aqui vai prevenir que haja duplo click em todos os botões do sistema
+  	  jQuery(".only-one-click").click(function(e){			
+  			if (jQuery(this).data("click") == undefined){
+  				jQuery(this).data("click",1);
+  			} else {
+  				return false;
+  			} 	
+  	  });
+
+	  jQuery("document").ready(function($){
+			
+			var result = $('.redirectResult');
+			if (result != null){
+				$(window).scrollTop(result.offset().top);
+			}
+	  });
+	  
+	  registraAlertSelecao();
+    
+//]]>
+</script>
+    <script defer="defer" src="https://barrabrasil.capes.gov.br/2.0/barra_2.0.js" type="text/javascript"></script></body>
+</html>
