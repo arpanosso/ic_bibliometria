@@ -5,32 +5,34 @@ date: "2025-11-11"
 output: html_document
 ---
 
-```{r}
-# Instale se ainda não tiver:
-# install.packages("RSelenium")
-
-library(RSelenium)
-library(rvest)
-library(dplyr)
-library(stringr)
-
-# ⚠️ Variáveis de Credenciais (PREENCHA COM SEUS DADOS)
-USUARIO_CAPES <- "rodrigo.perim@unesp.br"
-SENHA_CAPES <- "Santos04@@@@"
-```
-
 
 ```{r}
-# ⚠️ Opção A (Recomendada - via Docker):
-# 1. Instale o Docker Desktop.
-# 2. No terminal, inicie o container: docker run -d -p 4445:4444 selenium/standalone-chrome
-# 3. Use o comando R:
-remDr <- remoteDriver(remoteServerAddr = "localhost", port = 4445L, browserName = "chrome")
+link_start <- "https://www-webofscience-com.ez87.periodicos.capes.gov.br/wos/pqdt/full-record/"
 
+xls_files <- list.files("data_raw/Arquivos Extraídos/",
+           full.names = TRUE,
+           pattern = ".xls")
 
-```
+xls_readr <- function(path){
+  readxl::read_xls(path) |> 
+  janitor::clean_names() |> 
+    
+  dplyr::mutate(link = paste0(link_start,ut_unique_id)) 
 
-```{r}
-remDr$open() # Abre o navegador
+};xls_readr(xls_files[1])
+df <- purrr::map_df(xls_files, xls_readr)
+link <- df |> 
+   dplyr::pull(link)
+
+n <- length(link)
+lote <- 10
+for (i in seq(1, n, by = lote)) {
+  fim <- min(i + lote - 1, n)
+  for (j in i:fim) {
+    browseURL(link[j])
+  }
+  print(i)
+  readline("Pressione ENTER para abrir o próximo lote...")
+}
 ```
 
