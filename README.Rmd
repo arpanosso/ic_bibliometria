@@ -112,7 +112,7 @@ extrair_wos <- function(caminho_html) {
     Committee        = committee_member
   )
 }
-df <- map_df(html_files,extrair_wos)
+df <- map_df(html_files[-c(53,109, 241,282)],extrair_wos)
 df
 writexl::write_xlsx(df,"data_raw/wob_extraidos.xlsx")
 ```
