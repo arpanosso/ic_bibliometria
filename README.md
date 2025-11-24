@@ -76,7 +76,8 @@ base_me |>
 ) |> 
   distinct() |> 
   mutate(
-    pais = str_replace(pais, "BR|Brasil|brasil|brazil","Brazil")
+    pais = str_replace(pais, "BR|Brasil|brasil|brazil","Brazil"),
+    ano = as.numeric(ano)
   )
 ```
 
@@ -127,3 +128,45 @@ base_completa |>
 ```
 
 ![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+
+##### Exemplo
+
+``` r
+base_completa |> 
+  mutate(
+    ia_count = as.numeric(str_detect(
+      str_to_lower(resumo), 
+      "(artificial\\s+inteligente|\\bai\\b|environmental impact)"))
+  ) |> group_by(ano) |> 
+  summarise(
+    n = sum(ia_count),
+    .groups = "drop"
+  ) |> 
+  ggplot(aes(x=ano, y=n)) + 
+  geom_point() +
+  geom_line() +
+  theme_bw()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+#### 1
+
+``` r
+library(quanteda)
+library(quanteda.textstats)
+library(igraph)
+
+vetor_de_resumos <- base_completa |> 
+  slice(1:10) |> 
+  pull(resumo)
+corp <- corpus(vetor_de_resumos)
+toks <- tokens(corp, remove_punct = TRUE, remove_numbers = TRUE)
+toks <- tokens_remove(toks, stopwords("en"))
+
+fcmat <- fcm(toks, context = "window", tri = FALSE)
+g <- graph_from_adjacency_matrix(fcmat, weighted = TRUE, mode = "undirected")
+plot(g)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
