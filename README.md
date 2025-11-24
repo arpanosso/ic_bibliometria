@@ -3,114 +3,127 @@
 
 ## TCC - Maria Eduarda - Bibliometria
 
+### Carregando Pacotes
+
 ``` r
-library(rvest)
 library(tidyverse)
+```
 
-# Caminho dos arquivos HTML
-html_files <- list.files("data_raw/wos/",
-                         full.names = TRUE,
-                         pattern = "\\.htm|\\.html")
-html_files <- html_files[-c(95,228)]
-pg <- read_html(html_files[1])
+### Carregando a Base
 
-
-pg |> 
-    html_element("title") |> 
-    html_text2() |> 
-    str_replace(" Web of Science", "")
-#> [1] "“O Direito à Smart City”: Desafios da Integração das \r Tecnologias Digitais e da Coesão Socio-Espacial-ProQuest ™ Dissertations\r & Theses Citation Index"
-
-pg |> html_elements("h1") |> html_text2()
-#> [1] "WOS Top Header"
+``` r
+base_wos <- readxl::read_xlsx("data_raw/wob_extraidos.xlsx") |> 
+  janitor::clean_names() |> 
+  mutate(
+    abstract_1 = str_remove_all(abstract_1, "\r"),
+    abstract_2 = str_remove_all(abstract_2, "\r"),
+    research_areas   = str_replace_all(research_areas, "\n", " "),
+    research_areas   = str_replace_all(research_areas, "  ", " "),
+    titulo = str_remove_all(titulo, "\r|™"),
+    autor = str_to_title(autor),
+    nome_base = "wos"
+  ) |> 
+  rename( resumo = abstract_1)
+base_me <- readxl::read_xlsx("data_raw/Arquivos Extraídos/search_result--1968698800-csv/search_result--1968698800-csv.xlsx") |> janitor::clean_names() |> 
+  rename(autor = autor_a,ano = ano_de_defesa,
+         instituicao = instituicao_de_defesa,
+         pais = pais_da_instituicao_de_defesa) |> 
+  mutate(pais = ifelse(pais == "Não informado pela instituição","Brasil",pais),
+         assuntos_em_portugues = str_remove_all(assuntos_em_portugues,"\\|"),
+         assuntos_em_ingles = str_remove_all(assuntos_em_portugues,"\\|"),
+         autor = str_to_title(autor),
+         nome_base = "bdtd")
 ```
 
 ``` r
-library(rvest)
-library(stringr)
-library(purrr)
-library(dplyr)
-library(tibble)
-
-extrair_wos <- function(caminho_html) {
-  pg <- read_html(caminho_html)
-  # ---- TÍTULO ----
-  titulo <- pg |> 
-    html_element("title") |> 
-    html_text2() |> 
-    str_replace(" Web of Science", "")
-  # ---- ABSTRACT ----
-  h2_abs <- pg |>
-    html_elements("h2") |>
-    (\(x) x[html_text2(x) == "Abstract"])()
-  abstract <- h2_abs |>
-    html_elements(xpath = "following-sibling::*[position() < 5]") |>
-    html_text2()
-  # ---- H3 BÁSICOS ----
-  pegar_bloco <- function(label) {
-    node <- pg |>
-      html_elements("h3") |>
-      (\(x) x[html_text2(x) == label])()
-    if (length(node) == 0) return(NA_character_)
-    node |>
-      html_elements(xpath = "following-sibling::*[position() < 5]") |>
-      html_text2() |>
-      paste(collapse = "\n")
-  }
-  by <- pegar_bloco("By")
-  year <- pegar_bloco("Published")
-  source <- pegar_bloco("Source")
-  address <- pegar_bloco("Addresses")
-  indexed <- pegar_bloco("Indexed")
-  doc_type <- pegar_bloco("Document Type")
-  research_areas <- pegar_bloco("Research Areas")
-  language <- pegar_bloco("Language")
-  acc_number <- pegar_bloco("Accession Number")
-  isbn <- pegar_bloco("ISBN")
-  advisor <- pegar_bloco("Advisor")
-  committee_member <- pegar_bloco("Committee member")
-  
-  # ---- Data frame ----
-  tibble(
-    Autor       = by,
-    Ano         = year,
-    Instituicao = source,
-    Endereco    = address,
-    Pais        = case_when(
-      str_detect(source, "\\(") ~ str_extract(source, "(?<=\\().+?(?=\\))"),
-      TRUE ~ "USA"
-    ),
-    Titulo      = titulo,
-    abstract_1  = abstract[1],
-    abstract_2  = abstract[2],
-    Indexed          = indexed,
-    Document_Type    = doc_type,
-    Research_Areas   = research_areas,
-    Language         = language,
-    Accession_Number = acc_number,
-    ISBN             = isbn,
-    Advisor          = advisor,
-    Committee        = committee_member
-  )
-}
-df <- map_df(html_files[-c(53,109, 241,282)],extrair_wos)
-df
-#> # A tibble: 348 × 16
-#>    Autor   Ano   Instituicao Endereco Pais  Titulo abstract_1 abstract_2 Indexed
-#>    <chr>   <chr> <chr>       <chr>    <chr> <chr>  <chr>      <chr>      <chr>  
-#>  1 Rodrig… 2021  Universida… Univers… Port… "“O D… "Today,\r… "Com\r a … 2023-0…
-#>  2 Menend… 2022  ISCTE - In… ISCTE -… Port… "“We … "The\r co… "A\r empr… 2024-1…
-#>  3 Santos… 2021  Universida… Univers… Port… "Abor… "With\r t… "Com\r a … 2023-0…
-#>  4 Narang… 2025  Washington… Washing… USA   "Adva… "The\r ca…  <NA>      2025-1…
-#>  5 Saini,… 2022  The Univer… The Uni… USA   "Asse… "The\r la…  <NA>      2023-0…
-#>  6 Luís, … 2020  Universida… Univers… Port… "Cons… "Loyalty\…  <NA>      2024-0…
-#>  7 Pires,… 2020  Universida… Univers… Port… "Cons… "A\r new …  <NA>      2024-0…
-#>  8 Sanche… 2024  Universida… Univers… Colo… "Deve… "The\r ma… "La\r pre… 2025-1…
-#>  9 Morris… 2022  San Diego … San Die… USA   "Fast… "With\r t…  <NA>      2023-0…
-#> 10 Hoque,… 2025  Morgan Sta… Morgan … USA   "Gene… "Defect\r…  <NA>      2025-0…
-#> # ℹ 338 more rows
-#> # ℹ 7 more variables: Document_Type <chr>, Research_Areas <chr>,
-#> #   Language <chr>, Accession_Number <chr>, ISBN <chr>, Advisor <chr>,
-#> #   Committee <chr>
-writexl::write_xlsx(df,"data_raw/wob_extraidos.xlsx")
+glimpse(base_me) 
+#> Rows: 587
+#> Columns: 25
+#> $ autor                                              <chr> "Reis, Thiago Nelso…
+#> $ id_lattes_do_a_autor_a                             <chr> "http://lattes.cnpq…
+#> $ orientadores                                       <chr> "TEIXEIRA, Mário An…
+#> $ id_lattes_dos_orientadores                         <chr> "http://lattes.cnpq…
+#> $ membros_da_banca                                   <chr> "TEIXEIRA, Mário An…
+#> $ id_lattes_dos_membros_da_banca                     <chr> "http://lattes.cnpq…
+#> $ titulo                                             <chr> "Sustentabilidade n…
+#> $ ano                                                <dbl> 2024, 2025, 2021, 2…
+#> $ instituicao                                        <chr> "Universidade Feder…
+#> $ sigla_da_instituicao_de_defesa                     <chr> "UFMA", "UFMG", "UF…
+#> $ pais                                               <chr> "Brasil", "Brasil",…
+#> $ departamento_da_instituicao_de_defesa              <chr> "DEPARTAMENTO DE IN…
+#> $ programa_de_pos_graduacao_da_instituicao_de_defesa <chr> "PROGRAMA DE PÓS-GR…
+#> $ area_do_conhecimento_cn_pq                         <chr> "Ciência da Computa…
+#> $ tipos_de_acesso                                    <chr> "openAccess", "open…
+#> $ tipo_de_documento                                  <chr> "doctoralThesis", "…
+#> $ assuntos_em_portugues                              <chr> "emissão de carbono…
+#> $ assuntos_em_ingles                                 <chr> "emissão de carbono…
+#> $ idioma                                             <chr> "por", "por", "por"…
+#> $ resumo                                             <chr> "This thesis explor…
+#> $ link_de_acesso                                     <chr> "https://tedebc.ufm…
+#> $ identificador_persistente_ark                      <chr> "ark:/70116/0013000…
+#> $ resumo_em_ingles                                   <chr> "Não informado pela…
+#> $ referencia_bibliografica                           <chr> "REIS, Thiago Nelso…
+#> $ nome_base                                          <chr> "bdtd", "bdtd", "bd…
 ```
+
+## Juntando e tratando as Bases
+
+``` r
+base_completa <- rbind(base_wos |> 
+  select(nome_base, autor, ano, titulo, instituicao, resumo, pais),
+base_me |> 
+  select(nome_base, autor, ano, titulo, instituicao, resumo, pais)
+) |> 
+  distinct() |> 
+  mutate(
+    pais = str_replace(pais, "BR|Brasil|brasil|brazil","Brazil")
+  )
+```
+
+### Estatística Descritiva
+
+#### Número de Documentos por Ano
+
+``` r
+base_completa |> 
+  group_by(ano) |> 
+  count() |> 
+  ggplot(aes(ano, n)) +
+  geom_col(color="black", fill="gray") +
+  labs(x="Ano", y = "Número de Documentos") +
+  theme_minimal()
+```
+
+![](README_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+#### Número de Documentos por Ano / País
+
+``` r
+base_completa |> 
+  group_by(ano,pais,nome_base) |> 
+  count() |> 
+  ggplot(aes(ano, n, fill=pais)) +
+  geom_col(color="black") +
+  labs(x="Ano", y = "Número de Documentos") +
+  theme_minimal() +
+  facet_wrap(~nome_base)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+#### Soma do número de documentos para o período todo (2020 a 2025)
+
+``` r
+base_completa |> 
+  group_by(pais,nome_base) |> 
+  count() |> 
+  ungroup() |> 
+  mutate(pais = fct_reorder(pais,n)) |> 
+  ggplot(aes(y=pais, x=n)) +
+  geom_col(color="black",fill="aquamarine4") +
+  labs(x="Soma dos Documentos", y = "País") +
+  theme_minimal() +
+  facet_wrap(~nome_base)
+```
+
+![](README_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->

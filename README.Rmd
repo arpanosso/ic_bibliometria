@@ -19,101 +19,91 @@ knitr::opts_chunk$set(
 
 ## TCC - Maria Eduarda - Bibliometria
 
+### Carregando Pacotes
+
 ```{r}
-library(rvest)
 library(tidyverse)
-
-# Caminho dos arquivos HTML
-html_files <- list.files("data_raw/wos/",
-                         full.names = TRUE,
-                         pattern = "\\.htm|\\.html")
-html_files <- html_files[-c(95,228)]
-pg <- read_html(html_files[1])
-
-
-pg |> 
-    html_element("title") |> 
-    html_text2() |> 
-    str_replace(" Web of Science", "")
-
-pg |> html_elements("h1") |> html_text2()
-
-
 ```
 
-
-
+###  Carregando a Base
+```{r}
+base_wos <- readxl::read_xlsx("data_raw/wob_extraidos.xlsx") |> 
+  janitor::clean_names() |> 
+  mutate(
+    abstract_1 = str_remove_all(abstract_1, "\r"),
+    abstract_2 = str_remove_all(abstract_2, "\r"),
+    research_areas   = str_replace_all(research_areas, "\n", " "),
+    research_areas   = str_replace_all(research_areas, "  ", " "),
+    titulo = str_remove_all(titulo, "\r|™"),
+    autor = str_to_title(autor),
+    nome_base = "wos"
+  ) |> 
+  rename( resumo = abstract_1)
+base_me <- readxl::read_xlsx("data_raw/Arquivos Extraídos/search_result--1968698800-csv/search_result--1968698800-csv.xlsx") |> janitor::clean_names() |> 
+  rename(autor = autor_a,ano = ano_de_defesa,
+         instituicao = instituicao_de_defesa,
+         pais = pais_da_instituicao_de_defesa) |> 
+  mutate(pais = ifelse(pais == "Não informado pela instituição","Brasil",pais),
+         assuntos_em_portugues = str_remove_all(assuntos_em_portugues,"\\|"),
+         assuntos_em_ingles = str_remove_all(assuntos_em_portugues,"\\|"),
+         autor = str_to_title(autor),
+         nome_base = "bdtd")
+```
 
 ```{r}
-library(rvest)
-library(stringr)
-library(purrr)
-library(dplyr)
-library(tibble)
-
-extrair_wos <- function(caminho_html) {
-  pg <- read_html(caminho_html)
-  # ---- TÍTULO ----
-  titulo <- pg |> 
-    html_element("title") |> 
-    html_text2() |> 
-    str_replace(" Web of Science", "")
-  # ---- ABSTRACT ----
-  h2_abs <- pg |>
-    html_elements("h2") |>
-    (\(x) x[html_text2(x) == "Abstract"])()
-  abstract <- h2_abs |>
-    html_elements(xpath = "following-sibling::*[position() < 5]") |>
-    html_text2()
-  # ---- H3 BÁSICOS ----
-  pegar_bloco <- function(label) {
-    node <- pg |>
-      html_elements("h3") |>
-      (\(x) x[html_text2(x) == label])()
-    if (length(node) == 0) return(NA_character_)
-    node |>
-      html_elements(xpath = "following-sibling::*[position() < 5]") |>
-      html_text2() |>
-      paste(collapse = "\n")
-  }
-  by <- pegar_bloco("By")
-  year <- pegar_bloco("Published")
-  source <- pegar_bloco("Source")
-  address <- pegar_bloco("Addresses")
-  indexed <- pegar_bloco("Indexed")
-  doc_type <- pegar_bloco("Document Type")
-  research_areas <- pegar_bloco("Research Areas")
-  language <- pegar_bloco("Language")
-  acc_number <- pegar_bloco("Accession Number")
-  isbn <- pegar_bloco("ISBN")
-  advisor <- pegar_bloco("Advisor")
-  committee_member <- pegar_bloco("Committee member")
-  
-  # ---- Data frame ----
-  tibble(
-    Autor       = by,
-    Ano         = year,
-    Instituicao = source,
-    Endereco    = address,
-    Pais        = case_when(
-      str_detect(source, "\\(") ~ str_extract(source, "(?<=\\().+?(?=\\))"),
-      TRUE ~ "USA"
-    ),
-    Titulo      = titulo,
-    abstract_1  = abstract[1],
-    abstract_2  = abstract[2],
-    Indexed          = indexed,
-    Document_Type    = doc_type,
-    Research_Areas   = research_areas,
-    Language         = language,
-    Accession_Number = acc_number,
-    ISBN             = isbn,
-    Advisor          = advisor,
-    Committee        = committee_member
-  )
-}
-df <- map_df(html_files[-c(53,109, 241,282)],extrair_wos)
-df
-writexl::write_xlsx(df,"data_raw/wob_extraidos.xlsx")
+glimpse(base_me) 
 ```
 
+## Juntando  e tratando as Bases
+
+```{r}
+base_completa <- rbind(base_wos |> 
+  select(nome_base, autor, ano, titulo, instituicao, resumo, pais),
+base_me |> 
+  select(nome_base, autor, ano, titulo, instituicao, resumo, pais)
+) |> 
+  distinct() |> 
+  mutate(
+    pais = str_replace(pais, "BR|Brasil|brasil|brazil","Brazil")
+  )
+```
+
+### Estatística Descritiva
+
+#### Número de Documentos por Ano
+```{r}
+base_completa |> 
+  group_by(ano) |> 
+  count() |> 
+  ggplot(aes(ano, n)) +
+  geom_col(color="black", fill="gray") +
+  labs(x="Ano", y = "Número de Documentos") +
+  theme_minimal()
+```
+
+#### Número de Documentos por Ano / País
+```{r}
+base_completa |> 
+  group_by(ano,pais,nome_base) |> 
+  count() |> 
+  ggplot(aes(ano, n, fill=pais)) +
+  geom_col(color="black") +
+  labs(x="Ano", y = "Número de Documentos") +
+  theme_minimal() +
+  facet_wrap(~nome_base)
+```
+
+#### Soma do número de documentos para o período todo (2020 a 2025)
+
+```{r}
+base_completa |> 
+  group_by(pais,nome_base) |> 
+  count() |> 
+  ungroup() |> 
+  mutate(pais = fct_reorder(pais,n)) |> 
+  ggplot(aes(y=pais, x=n)) +
+  geom_col(color="black",fill="aquamarine4") +
+  labs(x="Soma dos Documentos", y = "País") +
+  theme_minimal() +
+  facet_wrap(~nome_base)
+```

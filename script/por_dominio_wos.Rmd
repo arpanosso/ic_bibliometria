@@ -36,3 +36,100 @@ for (i in seq(1, n, by = lote)) {
 }
 ```
 
+```{r}
+library(rvest)
+library(tidyverse)
+
+# Caminho dos arquivos HTML
+html_files <- list.files("../data_raw/wos/",
+                         full.names = TRUE,
+                         pattern = "\\.htm|\\.html")
+html_files <- html_files[-c(95,228)]
+pg <- read_html(html_files[1])
+
+
+pg |> 
+    html_element("title") |> 
+    html_text2() |> 
+    str_replace(" Web of Science", "")
+
+pg |> html_elements("h1") |> html_text2()
+
+
+```
+
+
+
+
+```{r}
+library(rvest)
+library(stringr)
+library(purrr)
+library(dplyr)
+library(tibble)
+
+extrair_wos <- function(caminho_html) {
+  pg <- read_html(caminho_html)
+  # ---- TÍTULO ----
+  titulo <- pg |> 
+    html_element("title") |> 
+    html_text2() |> 
+    str_replace(" Web of Science", "")
+  # ---- ABSTRACT ----
+  h2_abs <- pg |>
+    html_elements("h2") |>
+    (\(x) x[html_text2(x) == "Abstract"])()
+  abstract <- h2_abs |>
+    html_elements(xpath = "following-sibling::*[position() < 5]") |>
+    html_text2()
+  # ---- H3 BÁSICOS ----
+  pegar_bloco <- function(label) {
+    node <- pg |>
+      html_elements("h3") |>
+      (\(x) x[html_text2(x) == label])()
+    if (length(node) == 0) return(NA_character_)
+    node |>
+      html_elements(xpath = "following-sibling::*[position() < 5]") |>
+      html_text2() |>
+      paste(collapse = "\n")
+  }
+  by <- pegar_bloco("By")
+  year <- pegar_bloco("Published")
+  source <- pegar_bloco("Source")
+  address <- pegar_bloco("Addresses")
+  indexed <- pegar_bloco("Indexed")
+  doc_type <- pegar_bloco("Document Type")
+  research_areas <- pegar_bloco("Research Areas")
+  language <- pegar_bloco("Language")
+  acc_number <- pegar_bloco("Accession Number")
+  isbn <- pegar_bloco("ISBN")
+  advisor <- pegar_bloco("Advisor")
+  committee_member <- pegar_bloco("Committee member")
+  
+  # ---- Data frame ----
+  tibble(
+    Autor       = by,
+    Ano         = year,
+    Instituicao = source,
+    Endereco    = address,
+    Pais        = case_when(
+      str_detect(source, "\\(") ~ str_extract(source, "(?<=\\().+?(?=\\))"),
+      TRUE ~ "USA"
+    ),
+    Titulo      = titulo,
+    abstract_1  = abstract[1],
+    abstract_2  = abstract[2],
+    Indexed          = indexed,
+    Document_Type    = doc_type,
+    Research_Areas   = research_areas,
+    Language         = language,
+    Accession_Number = acc_number,
+    ISBN             = isbn,
+    Advisor          = advisor,
+    Committee        = committee_member
+  )
+}
+df <- map_df(html_files[-c(53,109, 241,282)],extrair_wos)
+df
+writexl::write_xlsx(df,"data_raw/wob_extraidos.xlsx")
+```
